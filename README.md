@@ -13,7 +13,7 @@ git init
 git add .
 git commit -m 'init'
 
-git remote add origin http://github.com/reallyalien/store
+git remote add origin http://github.com/reallyalien/
 git push -u origin master
 
 git branch dev-login
