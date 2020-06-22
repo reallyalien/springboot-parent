@@ -1,0 +1,9 @@
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+
+
+
+#如果访问404则去idea的configuration中配置当中maven模块的工作空间为$MODULE_WORKING_DIR$，默认是父工程
