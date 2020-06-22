@@ -1,10 +1,10 @@
  # 不加此选项，maven编译每次都会变成1.5版本
- <properties>
+ #<properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-  </properties>
+  #</properties>
   
 
 
