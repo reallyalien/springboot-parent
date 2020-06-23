@@ -17,7 +17,7 @@
     }
 
     function connect() {
-        var socket = new SockJS("/topicServer");
+        var socket = new SockJS("http://localhost:8080/topicServer");
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
             setConnected(true);
@@ -43,7 +43,7 @@
     function sendMsg() {
         var msg = $('#msg').val();
         console.info("msg"+msg);
-        stompClient.send("/topic", {}, JSON.stringify({'msg': msg}));
+        stompClient.send("/app/topic", {}, JSON.stringify({'msg': msg}));
     }
 </script>
 <body onload="disconnect()">

@@ -18,7 +18,7 @@
         }
 
         function connect() {
-            var socket = new SockJS("/queueServer");
+            var socket = new SockJS("http://localhost:8080/queueServer");
             stompClient = Stomp.over(socket);
             stompClient.connect({}, function (frame) {
                 setConnected(true);
