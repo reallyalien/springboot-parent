@@ -1,0 +1,6 @@
+spring:
+  task:
+    scheduling:
+      pool:
+        size: 10 #设置定时任务线程数，防止任务阻塞
+      thread-name-prefix: task-test #定时任务前缀,执行线程的前缀
