@@ -62,7 +62,7 @@ public class DbJobDemo  {
     public ItemReader<User> dbReader(){
         JdbcPagingItemReader<User> reader = new JdbcPagingItemReader<>();
         reader.setDataSource(datasource);
-        reader.setFetchSize(5);
+//        reader.setFetchSize(5);
 //        System.out.println("11111111111");
         //指定行映射
         reader.setRowMapper(new RowMapper<User>() {
