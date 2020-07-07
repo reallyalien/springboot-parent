@@ -47,7 +47,9 @@ public class JobController {
                 .toJobParameters();
         //启动任务并传参
         try {
-            jobLauncher.run(job, jobParameters);
+            System.out.println("main任务执行前:"+Thread.currentThread().getName());
+            jobLauncher.run(job, jobParameters);//此处不会去新创建线程去执行,任务的执行始终在主线程当中
+            System.out.println("main任务执行后:"+Thread.currentThread().getName());
         } catch (Exception e) {
             e.printStackTrace();
         }
