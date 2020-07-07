@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;
 
 @Component
-@EnableAsync
+//@EnableAsync
 public class ScheduleTest {
 
     private static final String CRON="* * * * * ?";//每秒执行一次

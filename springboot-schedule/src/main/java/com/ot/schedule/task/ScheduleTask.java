@@ -37,7 +37,7 @@ public class ScheduleTask implements SchedulingConfigurer {
      */
     public Runnable doTask() {
         return () -> {
-            log.info("name:" + name + ",时间：" + LocalDateTime.now());
+            //log.info("name:" + name + ",时间：" + LocalDateTime.now());
         };
     }
 
