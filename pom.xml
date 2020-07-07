@@ -11,6 +11,7 @@
         <module>springboot-websocket-sockjs</module>
         <module>springboot-websocket</module>
         <module>springboot-schedule</module>
+        <module>springboot-springbatch</module>
     </modules>
     <name>springboot-parent</name>
     <description>Demo project for Spring Boot</description>
