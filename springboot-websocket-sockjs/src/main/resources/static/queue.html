@@ -29,6 +29,7 @@
                     p.style.wordWrap = 'break-word';
                     p.appendChild(document.createTextNode(response.body));
                     response1.appendChild(p);
+                    // console.log(response)
                 });
             });
         }
@@ -45,7 +46,7 @@
             var msg = $('#msg').val();
             var user = $("#user").val();
             console.log("user,msg:" + user, msg);
-            stompClient.send("/queue", {}, JSON.stringify({'msg': msg, 'user': user}));
+            stompClient.send("/app/queue", {}, JSON.stringify({'msg': msg, 'user': user}));
         }
     </script>
 </head>
