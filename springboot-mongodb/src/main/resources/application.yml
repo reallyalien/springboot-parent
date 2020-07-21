@@ -1,0 +1,5 @@
+spring:
+  data:
+    mongodb:
+      database: springboot
+      uri: mongodb://127.0.0.1:27017

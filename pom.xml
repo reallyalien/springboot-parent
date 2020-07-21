@@ -13,6 +13,7 @@
         <module>springboot-schedule</module>
         <module>springboot-springbatch</module>
         <module>springboot-schedule-springbatch</module>
+        <module>springboot-mongodb</module>
     </modules>
     <name>springboot-parent</name>
     <description>Demo project for Spring Boot</description>
