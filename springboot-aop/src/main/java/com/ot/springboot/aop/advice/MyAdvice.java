@@ -31,9 +31,14 @@ public class MyAdvice {
 //    }
 
     //环绕通知是四大通知的综合，可以切入方法,方法带参数，有返回值
+
+    /**
+     * @param pjp
+     * @return controller调service方法的返回值
+     */
     @Around("pc()")
     public Object around(ProceedingJoinPoint pjp) {
-        Object obj = null;
+        Object proceed = null;
         try {
             //得到当前目标对象的类型
             Class<?> clazz = pjp.getTarget().getClass();
@@ -44,14 +49,14 @@ public class MyAdvice {
             //得到当前方法参数的数组
             Object[] args = pjp.getArgs();
             System.out.println("得到当前方法参数的数组：" + Arrays.toString(args));
-            Object proceed = pjp.proceed(args);
+            proceed = pjp.proceed(args);
             System.out.println("环绕通知放行之后的返回值：" + proceed);
         } catch (Throwable e) {
 
         } finally {
 
         }
-        return "1";
+        return proceed;
     }
 
     @Pointcut("execution(* com.ot.springboot.aop.service.*.*(..))")
