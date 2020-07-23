@@ -16,6 +16,7 @@
         <module>springboot-mongodb</module>
         <module>springboot-jpa</module>
         <module>springboot-kafka</module>
+        <module>springboot-aop</module>
     </modules>
     <name>springboot-parent</name>
     <description>Demo project for Spring Boot</description>
