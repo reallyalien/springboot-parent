@@ -10,32 +10,33 @@ import java.util.Arrays;
 @Component
 public class MyAdvice {
 
-//    @Before("pc()")
-//    public void before() {
-//        System.out.println("前置通知");
-//    }
-//
-//    @AfterReturning("pc()")
-//    public void afterReturn() {
-//        System.out.println("后置通知");
-//    }
-//
-//    @AfterThrowing("pc()")
-//    public void afterThrow() {
-//        System.out.println("异常通知");
-//    }
-//
-//    @After(("pc()"))
-//    public void after() {
-//        System.out.println("最终通知");
-//    }
+  /*  //前置，最终肯定会执行，方法正常结束:后置通知，异常结束:异常通知
+    @Before("pc()")
+    public void before() {
+        System.out.println("前置通知");
+    }
 
-    //环绕通知是四大通知的综合，可以切入方法,方法带参数，有返回值
+    @After(("pc()"))
+    public void after() {
+        System.out.println("最终通知");
+    }
+//================================================================================================================================
+    @AfterReturning("pc()")
+    public void afterReturn() {
+        System.out.println("后置通知");
+    }
 
-    /**
+    @AfterThrowing("pc()")
+    public void afterThrow() {
+        System.out.println("异常通知");
+    }*/
+
+
+
+   /* *//**
      * @param pjp
      * @return controller调service方法的返回值
-     */
+     *//*
     @Around("pc()")
     public Object around(ProceedingJoinPoint pjp) {
         Object proceed = null;
@@ -52,14 +53,33 @@ public class MyAdvice {
             proceed = pjp.proceed(args);
             System.out.println("环绕通知放行之后的返回值：" + proceed);
         } catch (Throwable e) {
+            System.out.println("捕获到异常");
+        } finally {
+            System.out.println("finally执行了");
+        }
+        return proceed;
+    }*/
+
+
+    @Pointcut("execution(* com.ot.springboot.aop.service.*.*(..))")
+    public void pc() {
+    }
+
+    /**
+     * @param pjp
+     * @return controller调service方法的返回值
+     */
+    @Around("pc()")
+    public Object around(ProceedingJoinPoint pjp) {
+        Object proceed = null;
+        try {
+
+            int a=1/0;
+        } catch (Throwable e) {
 
         } finally {
 
         }
         return proceed;
-    }
-
-    @Pointcut("execution(* com.ot.springboot.aop.service.*.*(..))")
-    public void pc() {
     }
 }
