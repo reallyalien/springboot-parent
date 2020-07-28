@@ -23,15 +23,16 @@ public class MyAdvice {
         System.out.println("最终通知1"+local.get());
     }
 
-//    @After(("pc()"))
-//    public void after2() {
-//        System.out.println("最终通知2"+local.get());
-//    }
-//
-//    @After(("pc()"))
-//    public void after3() {
-//        System.out.println("最终通知3"+local.get());
-//    }
+    @After(("pc()"))
+    public void after2() {
+        int a=1/0;
+        System.out.println("最终通知2"+local.get());
+    }
+
+    @After(("pc()"))
+    public void after3() {
+        System.out.println("最终通知3"+local.get());
+    }
 
     //================================================================================================================================
     @AfterReturning("pc()")
