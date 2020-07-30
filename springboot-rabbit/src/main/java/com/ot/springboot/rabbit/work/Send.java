@@ -20,7 +20,7 @@ public class Send {
         Connection connection = ConnectUtil.getConnection();
         Channel channel = connection.createChannel();
         channel.queueDeclare(QUEUQ_NAME,false,false,false,null);
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 2; i++) {
             String msg="hello work"+i;
             //队列名称充当路由键
             channel.basicPublish("",QUEUQ_NAME,null,msg.getBytes());
