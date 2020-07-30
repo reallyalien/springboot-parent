@@ -26,7 +26,7 @@ public class ConsumerAsyncCommit {
         consumer.assign(Arrays.asList(tp));
         try {
             while(running.get()){
-                ConsumerRecords<String, String> consumerRecords = consumer.poll(Duration.ofMillis(1000));
+                ConsumerRecords<String, String> consumerRecords = consumer.poll(1000);
                 for (ConsumerRecord<String, String> consumerRecord : consumerRecords) {
                     //
                     System.out.println(consumerRecord.value());

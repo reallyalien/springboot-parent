@@ -24,7 +24,7 @@ public class consumer2 {
 //        ConsumerSyncCommit.subscribe(Collections.singleton(topicName));
         consumer.assign(Arrays.asList(new TopicPartition(topicName,0)));
         while (true){
-            ConsumerRecords<String,String> records=consumer.poll(Duration.ofMillis(1000));
+            ConsumerRecords<String,String> records=consumer.poll(1000);
             for (ConsumerRecord<String, String> record : records) {
                 System.out.println(record.value());
             }

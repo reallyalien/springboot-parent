@@ -35,7 +35,7 @@ public class ConsumerSeek {
             consumer.seek(topicPartition,0);
         }
         while (true){
-            ConsumerRecords<String, String> consumerRecords = consumer.poll(Duration.ofMillis(1000));
+            ConsumerRecords<String, String> consumerRecords = consumer.poll(1000);
             for (ConsumerRecord<String, String> record : consumerRecords) {
                 System.out.println(record.value());
             }

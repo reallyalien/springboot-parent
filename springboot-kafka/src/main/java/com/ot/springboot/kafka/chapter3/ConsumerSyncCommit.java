@@ -39,7 +39,7 @@ public class ConsumerSyncCommit {
         consumer.assign(Arrays.asList(tp));
         long lastConsumerOffset=-1;
         while (true){
-            ConsumerRecords<String,String> records=consumer.poll(Duration.ofMillis(1000));
+            ConsumerRecords<String,String> records=consumer.poll(1000);
             if (records.isEmpty()) break;
             List<ConsumerRecord<String, String>> partitionRecord = records.records(tp);
             lastConsumerOffset=partitionRecord.get(partitionRecord.size() - 1).offset();
