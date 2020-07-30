@@ -1,6 +1,6 @@
-package com.jj.rabbit.workfail;
+package com.ot.springboot.rabbit.workfail;
 
-import com.jj.rabbit.util.ConnectUtil;
+import com.ot.springboot.rabbit.util.ConnectUtil;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
@@ -26,6 +26,7 @@ public class Consumer2 {
                 }finally {
                     //关闭自动应答之后需要手动回执一个消息
                     channel.basicAck(envelope.getDeliveryTag(),false);
+                    System.out.println("deliveryTag:"+envelope.getDeliveryTag());
                 }
             }
         };

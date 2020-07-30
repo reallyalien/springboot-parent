@@ -18,7 +18,7 @@ public class ConnectUtil {
         connectionFactory.setPort(5672);
         //设置哪个数据库
         connectionFactory.setVirtualHost("/virtual_mm");
-        //设置用户名和密码，没有设置默认超级管理员。
+        //设置用户名和密码，没有设置默认超级管理员guest/guest
         connectionFactory.setUsername("user_a1");
         connectionFactory.setPassword("123");
         return connectionFactory.newConnection();

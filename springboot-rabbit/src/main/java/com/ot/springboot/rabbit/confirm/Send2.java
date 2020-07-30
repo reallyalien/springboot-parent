@@ -1,6 +1,6 @@
 package com.ot.springboot.rabbit.confirm;
 
-import com.jj.rabbit.util.ConnectUtil;
+import com.ot.springboot.rabbit.util.ConnectUtil;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 

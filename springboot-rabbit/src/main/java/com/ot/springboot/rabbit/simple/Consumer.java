@@ -1,6 +1,6 @@
 package com.ot.springboot.rabbit.simple;
 
-import com.jj.rabbit.util.ConnectUtil;
+import com.ot.springboot.rabbit.util.ConnectUtil;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
@@ -12,7 +12,7 @@ public class Consumer {
         Connection connection = ConnectUtil.getConnection();
         Channel channel = connection.createChannel();
         //队列声明
-        channel.queueDeclare(QUEUQ_NAME,false,false,false,null);
+        channel.queueDeclare(QUEUQ_NAME,true,false,false,null);
         //事件模型，一旦有消息发送就触发
         DefaultConsumer consumer = new DefaultConsumer(channel){
             @Override

@@ -22,6 +22,7 @@ public class Send {
         channel.queueDeclare(QUEUQ_NAME,false,false,false,null);
         for (int i = 0; i < 50; i++) {
             String msg="hello work"+i;
+            //队列名称充当路由键
             channel.basicPublish("",QUEUQ_NAME,null,msg.getBytes());
             System.out.println("输出msg"+msg);
             Thread.sleep(i*20);

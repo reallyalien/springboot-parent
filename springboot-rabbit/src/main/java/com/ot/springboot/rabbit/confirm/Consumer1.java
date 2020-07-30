@@ -1,13 +1,14 @@
 package com.ot.springboot.rabbit.confirm;
 
-import com.jj.rabbit.util.ConnectUtil;
+import com.ot.springboot.rabbit.util.ConnectUtil;
 import com.rabbitmq.client.*;
 
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 
 public class Consumer1 {
-    private static final String QUEUE_NAME="test_confirm_1";
+    private static final String QUEUE_NAME = "test_confirm_1";
+
     public static void main(String[] args) throws IOException, TimeoutException {
         Connection connection = ConnectUtil.getConnection();
         final Channel channel = connection.createChannel();
@@ -19,11 +20,12 @@ public class Consumer1 {
                 String msg = new String(body);
                 System.out.println("[1]---" + msg);
                 try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
+                    Thread.sleep(100);
+                } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
                     channel.basicAck(envelope.getDeliveryTag(), false);
+                    System.out.println("deliveryTag:" + envelope.getDeliveryTag());
                 }
             }
         };
