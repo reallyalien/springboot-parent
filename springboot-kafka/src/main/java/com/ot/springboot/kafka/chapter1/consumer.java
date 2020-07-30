@@ -18,6 +18,7 @@ import java.util.Properties;
 import java.util.regex.Pattern;
 
 public class consumer {
+
     //kafka集群地址
     private static final String brokerList="localhost:9092";
     //topic
