@@ -21,8 +21,8 @@ public class consumer2 {
     public static void main(String[] args) {
         //创建消费者
         KafkaConsumer<String,String> consumer=new KafkaConsumer<>(initProperties());
-//        ConsumerSyncCommit.subscribe(Collections.singleton(topicName));
-        consumer.assign(Arrays.asList(new TopicPartition(topicName,0)));
+//        ConsumerSyncCommit.subscribe(Collections.singleton(topicName));//指定订阅单个主题
+        consumer.assign(Arrays.asList(new TopicPartition(topicName,0)));//订阅主题和相关的分区
         while (true){
             ConsumerRecords<String,String> records=consumer.poll(1000);
             for (ConsumerRecord<String, String> record : records) {

@@ -65,6 +65,7 @@ public class Send3 {
                     SortedSet<Long> set = confirmSet.headSet(deliveryTag + 1);
                     System.out.println(set);
                     set.clear();
+                    System.out.println("异步回调的线程："+Thread.currentThread().getId());
                 } else {
                     System.out.println("handleAck---multiple false");
                     confirmSet.remove(deliveryTag);
@@ -84,6 +85,7 @@ public class Send3 {
             i++;
         }
         Thread.sleep(3000);
+        System.out.println("main线程："+Thread.currentThread().getId());
         System.out.println("===========================================================");
         System.out.println(confirmSet.size());//这个数在消息都确认之后会等于0
     }

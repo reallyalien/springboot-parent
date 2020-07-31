@@ -27,8 +27,6 @@ public class Produce3 {
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
         ProducerRecord<String,String> record=new ProducerRecord<>(topicName,"kafka-demo","hello2");
         try {
-
-
             //异步发送
             producer.send(record, new Callback() {
                 @Override

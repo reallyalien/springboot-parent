@@ -44,11 +44,11 @@ public class consumer {
         //也可以指定订阅的分区,分区索引从0开始。
         consumer.assign(Arrays.asList(new TopicPartition(topicName,0)));
         while (true){
-//            ConsumerRecords<String,String> records=consumer.poll(Duration.ofMillis(1000));//每隔1s去拉一条消息。
-//            for (ConsumerRecord<String, String> record : records) {
-//                System.out.println("value:"+record.value());
-//                System.out.println("offset:"+record.offset());
-//            }
+            ConsumerRecords<String,String> records=consumer.poll(1000);//每隔1s去拉一条消息。
+            for (ConsumerRecord<String, String> record : records) {
+                System.out.println("value:"+record.value());
+                System.out.println("offset:"+record.offset());
+            }
         }
     }
 
