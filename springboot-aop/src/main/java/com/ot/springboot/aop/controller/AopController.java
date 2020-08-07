@@ -2,6 +2,7 @@ package com.ot.springboot.aop.controller;
 
 import com.ot.springboot.aop.service.AopService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,8 @@ public class AopController {
     private AopService service;
 
 
+    @Value("${spring.datasource.activiti.driver-class-name}")
+    private String driver;
     @GetMapping("/hello/{msg}")
     public String hello(@PathVariable("msg") String msg) {
         service.hello1(msg + "1");
@@ -266,5 +269,10 @@ public class AopController {
         System.out.println(Thread.currentThread().getName() + "\t" + this + "耗时：" + (end - start));
         System.out.println(Thread.currentThread().getName() + "\t当前结束时间：" + new Date().toLocaleString());
         return "hello1";
+    }
+
+    @GetMapping("/hello2")
+    public String hello2(){
+        return driver;
     }
 }
