@@ -21,6 +21,7 @@
         <module>springboot-rabbit</module>
         <module>springboot-neo4j</module>
         <module>springboot-gc</module>
+        <module>springboot-redis</module>
     </modules>
     <name>springboot-parent</name>
     <description>Demo project for Spring Boot</description>
