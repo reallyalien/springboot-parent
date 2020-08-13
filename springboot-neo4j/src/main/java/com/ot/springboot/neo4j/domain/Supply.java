@@ -38,4 +38,12 @@ public class Supply {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return "Supply{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

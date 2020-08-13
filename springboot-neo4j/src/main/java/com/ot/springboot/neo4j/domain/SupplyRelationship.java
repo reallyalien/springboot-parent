@@ -2,14 +2,14 @@ package com.ot.springboot.neo4j.domain;
 
 import org.neo4j.ogm.annotation.*;
 
-@RelationshipEntity(type = "supply")
+@RelationshipEntity
 public class SupplyRelationship {
 
     @Id
     @GeneratedValue
     private Long id;
 
-    private String indexName;
+    private String name;
 
     @StartNode
     private Company company;
@@ -35,12 +35,12 @@ public class SupplyRelationship {
         this.id = id;
     }
 
-    public String getIndexName() {
-        return indexName;
+    public String getName() {
+        return name;
     }
 
-    public void setIndexName(String indexName) {
-        this.indexName = indexName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Company getCompany() {
@@ -75,4 +75,15 @@ public class SupplyRelationship {
         this.amount = amount;
     }
 
+    @Override
+    public String toString() {
+        return "SupplyRelationship{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", company=" + company +
+                ", supply=" + supply +
+                ", scale='" + scale + '\'' +
+                ", amount='" + amount + '\'' +
+                '}';
+    }
 }
