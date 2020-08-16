@@ -162,18 +162,33 @@ public class Neo4jTest {
     public void saveUser1(){
         UserNode userNode1 = new UserNode("p1",10);
         UserNode userNode2 = new UserNode("p2",20);
+        UserNode userNode3 = new UserNode("p3",30);
         UserRelation userRelation=new UserRelation(userNode1,userNode2);
+        UserRelation userRelation1=new UserRelation(userNode2,userNode3);
         userNode1.getUserRelations().add(userRelation);
-        userNode2.getUserRelations().add(userRelation);
+        userNode2.getUserRelations().add(userRelation1);
         userDao.save(userNode1);
         userDao.save(userNode2);
         userRelationDao.save(userRelation);
+        userRelationDao.save(userRelation1);
+    }
+
+    @Test
+    public void saveUser2(){
+        UserNode userNode1 = new UserNode("p1",10);
+        UserNode userNode2 = new UserNode("p2",20);
+        UserNode userNode3 = new UserNode("p3",30);
+        userNode1.getUserNodes().add(userNode2);
+        userNode2.getUserNodes().add(userNode3);
+        userDao.save(userNode1);
+        userDao.save(userNode2);
+        userDao.save(userNode3);
     }
 
     @Test
     public void findUser(){
         List<Map<String,Object>[]> userNodeList0 = userDao.getUserNodeList0();
-        List<UserNodeAndUserRelationship> userNodeList1 = userDao.getUserNodeList1();
+        List<UserNodeAndUserRelationship> userNodeList1 = userDao.getUserNodeList2();
         for (Map<String, Object>[] maps : userNodeList0) {
             for (Map<String, Object> map : maps) {
                 System.out.println(map);

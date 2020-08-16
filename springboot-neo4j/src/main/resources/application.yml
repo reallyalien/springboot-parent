@@ -4,3 +4,17 @@ spring:
       uri:  bolt://localhost:7687
       username: neo4j
       password: root
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource # 当前数据源操作类型
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springcloud2020?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2B8
+    username: root
+    password: root
+mybatis-plus:
+#  mapper-locations: classpath*:mapper/*.xml
+#  type-aliases-package: com.ot.springcloud.entities
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto

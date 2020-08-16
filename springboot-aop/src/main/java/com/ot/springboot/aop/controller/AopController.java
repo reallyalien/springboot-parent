@@ -18,9 +18,14 @@ public class AopController {
     @Autowired
     private AopService service;
 
+    /**
+     * 在spring容器当中，静态属性和成员属性是一样的，因为当前类只有一个对象
+     */
+    private ThreadLocal<Integer> map=new ThreadLocal<>();
 
     @Value("${spring.datasource.activiti.driver-class-name}")
     private String driver;
+
     @GetMapping("/hello/{msg}")
     public String hello(@PathVariable("msg") String msg) {
         service.hello1(msg + "1");
@@ -272,7 +277,13 @@ public class AopController {
     }
 
     @GetMapping("/hello2")
-    public String hello2(){
+    public String hello2() {
         return driver;
     }
+
+    @GetMapping("/hello3")
+    public String hello3() {
+       return map.toString();
+    }
+
 }

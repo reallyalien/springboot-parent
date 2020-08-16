@@ -23,6 +23,8 @@
         <module>springboot-gc</module>
         <module>springboot-redis</module>
         <module>springboot-neo4j2</module>
+        <module>aaa</module>
+        <module>hello-spring-boot-starter</module>
     </modules>
     <name>springboot-parent</name>
     <description>Demo project for Spring Boot</description>

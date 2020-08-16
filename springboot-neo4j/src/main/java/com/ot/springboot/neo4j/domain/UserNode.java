@@ -3,6 +3,7 @@ package com.ot.springboot.neo4j.domain;
 import org.neo4j.cypher.internal.frontend.v2_3.symbols.RelationshipType;
 import org.neo4j.ogm.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -18,15 +19,25 @@ public class UserNode {
 //    private String userId;
 
     @Property(name = "name")
-    private String name;
+    private String name1;
 
     @Property(name = "age")
     private int age;
 
-//    @Relationship(type = "UserRelation",direction =Relationship.UNDIRECTED)//
+    @Relationship(type = "UserRelation",direction =Relationship.UNDIRECTED)//
     private Set<UserRelation> userRelations=new HashSet<>();
 
     public UserNode() {
+    }
+    @Relationship(type = "UserRelation",direction = Relationship.UNDIRECTED)
+    private List<UserNode> userNodes=new ArrayList<>(10);
+
+    public List<UserNode> getUserNodes() {
+        return userNodes;
+    }
+
+    public void setUserNodes(List<UserNode> userNodes) {
+        this.userNodes = userNodes;
     }
 
     public Set<UserRelation> getUserRelations() {
@@ -37,8 +48,8 @@ public class UserNode {
         this.userRelations = userRelations;
     }
 
-    public UserNode(String name, int age) {
-        this.name = name;
+    public UserNode(String name1, int age) {
+        this.name1 = name1;
         this.age = age;
     }
 
@@ -59,11 +70,11 @@ public class UserNode {
 //    }
 
     public String getName() {
-        return name;
+        return name1;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String name1) {
+        this.name1 = name1;
     }
 
     public int getAge() {
@@ -78,7 +89,7 @@ public class UserNode {
     public String toString() {
         return "UserNode{" +
                 "nodeId=" + nodeId +
-                ", name='" + name + '\'' +
+                ", name='" + name1 + '\'' +
                 ", age=" + age +
                 ", userRelations=" + userRelations +
                 '}';
