@@ -26,7 +26,6 @@
         <module>aaa</module>
         <module>hello-spring-boot-starter</module>
         <module>springboot-springdemo</module>
-        <module>springboot-springdemo-common</module>
         <module>springboot-springdemo/common</module>
         <module>springboot-springdemo/controller</module>
     </modules>
