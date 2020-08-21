@@ -42,7 +42,7 @@ public class Neo4jTest extends SpringBootDemoNeo4jApplicationTests {
     public void testFindLessonsByStudent() {
         // 深度为1，则课程的任教老师的属性为null
         // 深度为2，则会把课程的任教老师的属性赋值
-        List<Lesson> lessons = neoService.findLessonsFromStudent("漩涡鸣人", 2);
+        List<Lesson> lessons = neoService.findLessonsFromStudent("漩涡鸣人", 1);
 
         lessons.forEach(lesson -> log.info("【lesson】= {}", JSONUtil.toJsonStr(lesson)));
     }

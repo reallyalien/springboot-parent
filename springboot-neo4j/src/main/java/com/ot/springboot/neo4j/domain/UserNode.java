@@ -24,13 +24,15 @@ public class UserNode {
     @Property(name = "age")
     private int age;
 
+    @Relationship(type = "UserRelation",direction = Relationship.UNDIRECTED)
+    private List<UserNode> userNodes=new ArrayList<>(10);
+
     @Relationship(type = "UserRelation",direction =Relationship.UNDIRECTED)//
     private Set<UserRelation> userRelations=new HashSet<>();
 
     public UserNode() {
     }
-    @Relationship(type = "UserRelation",direction = Relationship.UNDIRECTED)
-    private List<UserNode> userNodes=new ArrayList<>(10);
+
 
     public List<UserNode> getUserNodes() {
         return userNodes;
@@ -89,9 +91,10 @@ public class UserNode {
     public String toString() {
         return "UserNode{" +
                 "nodeId=" + nodeId +
-                ", name='" + name1 + '\'' +
+                ", name1='" + name1 + '\'' +
                 ", age=" + age +
                 ", userRelations=" + userRelations +
+                ", userNodes=" + userNodes +
                 '}';
     }
 }

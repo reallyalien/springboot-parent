@@ -173,6 +173,9 @@ public class Neo4jTest {
         userRelationDao.save(userRelation1);
     }
 
+    /**
+     * 只保存一方的关系节点
+     */
     @Test
     public void saveUser2(){
         UserNode userNode1 = new UserNode("p1",10);
@@ -184,6 +187,25 @@ public class Neo4jTest {
         userDao.save(userNode2);
         userDao.save(userNode3);
     }
+
+    /**
+     * 让中间关系保存双方节点
+     */
+    @Test
+    public void saveUser3(){
+        UserNode userNode1 = new UserNode("p1",10);
+        UserNode userNode2 = new UserNode("p2",20);
+        UserNode userNode3 = new UserNode("p3",30);
+        UserRelation userRelation1 = new UserRelation(userNode1,userNode2);
+        UserRelation userRelation2 = new UserRelation(userNode2,userNode3);
+        userDao.save(userNode1);
+        userDao.save(userNode2);
+        userDao.save(userNode3);
+        userRelationDao.save(userRelation1);
+        userRelationDao.save(userRelation2);
+
+    }
+
 
     @Test
     public void findUser(){
@@ -198,6 +220,15 @@ public class Neo4jTest {
         for (UserNodeAndUserRelationship userNodeAndUserRelationship : userNodeList1) {
             System.out.println(userNodeAndUserRelationship);
         }
+    }
+    @Test
+    public void findUserById(){
+        UserNode userNode1 = userDao.findById(95L).get();
+        UserNode userNode2 = userDao.findById(93L).get();
+        UserNode userNode3 = userDao.findById(94L).get();
+        System.out.println(userNode1);
+        System.out.println(userNode2);
+        System.out.println(userNode3);
     }
 
     @Test

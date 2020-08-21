@@ -14,6 +14,7 @@ import com.tonels.neo4j.model.Lesson;
 import com.tonels.neo4j.model.Student;
 import com.tonels.neo4j.repository.ClassRepository;
 import com.tonels.neo4j.repository.TeacherRepository;
+import lombok.NonNull;
 import org.neo4j.ogm.session.Session;
 import org.neo4j.ogm.session.SessionFactory;
 import org.neo4j.ogm.transaction.Transaction;
@@ -23,6 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -121,7 +123,9 @@ public class NeoService {
      */
     public List<Lesson> findLessonsFromStudent(String studentName, int depth) {
         List<Lesson> lessons = Lists.newArrayList();
-        studentRepo.findByName(studentName, depth).ifPresent(student -> lessons.addAll(student.getLessons()));
+        Optional<Student> byName = studentRepo.findByName(studentName, depth);
+        Student student1 = byName.get();
+        lessons = student1.getLessons();
         return lessons;
     }
 
