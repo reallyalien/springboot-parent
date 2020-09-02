@@ -1,5 +1,8 @@
 package com.ot.springboot.neo4j;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.ot.springboot.neo4j.dao.*;
 import com.ot.springboot.neo4j.demo1.dao.ManDao;
 import com.ot.springboot.neo4j.demo1.dao.ParentShipDao;
@@ -36,6 +39,8 @@ public class Neo4jTest {
     private ManDao manDao;
     @Autowired
     private ParentShipDao parentShipDao;
+    @Autowired
+    private CatDao catDao;
 
     @Test
     public void saveMovie() {
@@ -126,52 +131,52 @@ public class Neo4jTest {
         System.out.println(Arrays.toString(map));
     }
 
-    @Test
-    public void saveUser(){
-        UserNode userNode1 = new UserNode("p1",10);
-        UserNode userNode2 = new UserNode("p2",20);
-        UserNode userNode3 = new UserNode("p3",30);
-        UserNode userNode4 = new UserNode("p4",40);
-        UserRelation userRelation1 = new UserRelation(userNode1,userNode2);
-        UserRelation userRelation2 = new UserRelation(userNode2,userNode3);
-        UserRelation userRelation3 = new UserRelation(userNode3,userNode1);
-        UserRelation userRelation4 = new UserRelation(userNode4,userNode1);
-        userRelation1.setName("userRelation1");
-        userRelation2.setName("userRelation2");
-        userRelation3.setName("userRelation3");
-        userRelation4.setName("userRelation4");
-        userNode1.getUserRelations().add(userRelation1);
-        userNode1.getUserRelations().add(userRelation3);
-//        userNode1.getUserRelations().add(userRelation4);
-        userNode2.getUserRelations().add(userRelation1);
-        userNode2.getUserRelations().add(userRelation2);
-        userNode3.getUserRelations().add(userRelation2);
-        userNode3.getUserRelations().add(userRelation3);
-        userNode4.getUserRelations().add(userRelation4);
-        userDao.save(userNode1);
-        userDao.save(userNode2);
-        userDao.save(userNode3);
-        userDao.save(userNode4);
-        userRelationDao.save(userRelation1);
-        userRelationDao.save(userRelation2);
-        userRelationDao.save(userRelation3);
-        userRelationDao.save(userRelation4);
-    }
+//    @Test
+//    public void saveUser(){
+//        UserNode userNode1 = new UserNode("p1",10);
+//        UserNode userNode2 = new UserNode("p2",20);
+//        UserNode userNode3 = new UserNode("p3",30);
+//        UserNode userNode4 = new UserNode("p4",40);
+//        UserRelation userRelation1 = new UserRelation(userNode1,userNode2);
+//        UserRelation userRelation2 = new UserRelation(userNode2,userNode3);
+//        UserRelation userRelation3 = new UserRelation(userNode3,userNode1);
+//        UserRelation userRelation4 = new UserRelation(userNode4,userNode1);
+//        userRelation1.setName("userRelation1");
+//        userRelation2.setName("userRelation2");
+//        userRelation3.setName("userRelation3");
+//        userRelation4.setName("userRelation4");
+//        userNode1.getUserRelations().add(userRelation1);
+//        userNode1.getUserRelations().add(userRelation3);
+////        userNode1.getUserRelations().add(userRelation4);
+//        userNode2.getUserRelations().add(userRelation1);
+//        userNode2.getUserRelations().add(userRelation2);
+//        userNode3.getUserRelations().add(userRelation2);
+//        userNode3.getUserRelations().add(userRelation3);
+//        userNode4.getUserRelations().add(userRelation4);
+//        userDao.save(userNode1);
+//        userDao.save(userNode2);
+//        userDao.save(userNode3);
+//        userDao.save(userNode4);
+//        userRelationDao.save(userRelation1);
+//        userRelationDao.save(userRelation2);
+//        userRelationDao.save(userRelation3);
+//        userRelationDao.save(userRelation4);
+//    }
 
-    @Test
-    public void saveUser1(){
-        UserNode userNode1 = new UserNode("p1",10);
-        UserNode userNode2 = new UserNode("p2",20);
-        UserNode userNode3 = new UserNode("p3",30);
-        UserRelation userRelation=new UserRelation(userNode1,userNode2);
-        UserRelation userRelation1=new UserRelation(userNode2,userNode3);
-        userNode1.getUserRelations().add(userRelation);
-        userNode2.getUserRelations().add(userRelation1);
-        userDao.save(userNode1);
-        userDao.save(userNode2);
-        userRelationDao.save(userRelation);
-        userRelationDao.save(userRelation1);
-    }
+//    @Test
+//    public void saveUser1(){
+//        UserNode userNode1 = new UserNode("p1",10);
+//        UserNode userNode2 = new UserNode("p2",20);
+//        UserNode userNode3 = new UserNode("p3",30);
+//        UserRelation userRelation=new UserRelation(userNode1,userNode2);
+//        UserRelation userRelation1=new UserRelation(userNode2,userNode3);
+//        userNode1.getUserRelations().add(userRelation);
+//        userNode2.getUserRelations().add(userRelation1);
+//        userDao.save(userNode1);
+//        userDao.save(userNode2);
+//        userRelationDao.save(userRelation);
+//        userRelationDao.save(userRelation1);
+//    }
 
     /**
      * 只保存一方的关系节点
@@ -181,8 +186,8 @@ public class Neo4jTest {
         UserNode userNode1 = new UserNode("p1",10);
         UserNode userNode2 = new UserNode("p2",20);
         UserNode userNode3 = new UserNode("p3",30);
-        userNode1.getUserNodes().add(userNode2);
-        userNode2.getUserNodes().add(userNode3);
+//        userNode1.getUserNodes().add(userNode2);
+//        userNode2.getUserNodes().add(userNode3);
         userDao.save(userNode1);
         userDao.save(userNode2);
         userDao.save(userNode3);
@@ -196,16 +201,67 @@ public class Neo4jTest {
         UserNode userNode1 = new UserNode("p1",10);
         UserNode userNode2 = new UserNode("p2",20);
         UserNode userNode3 = new UserNode("p3",30);
+        UserNode userNode6 = new UserNode("p6",50);
         UserRelation userRelation1 = new UserRelation(userNode1,userNode2);
         UserRelation userRelation2 = new UserRelation(userNode2,userNode3);
+        UserRelation userRelation5 = new UserRelation(userNode6,userNode3);
+        Cat cat1 = new Cat("1","公");
+        Cat cat2 = new Cat("2","母");
+        Cat cat3 = new Cat("3","公");
+        Cat cat4 = new Cat("4","母");
+        Cat cat5 = new Cat("5","母");
+        Cat cat6 = new Cat("6","母");
+        //string
+        userRelation1.getList().add(JSON.toJSONString(cat1));
+        userRelation1.getList().add(JSON.toJSONString(cat2));
+        userRelation1.setName("12");
+        userRelation2.getList().add(JSON.toJSONString(cat3));
+        userRelation2.getList().add(JSON.toJSONString(cat4));
+        userRelation2.setName("23");
+        userRelation5.getList().add(JSON.toJSONString(cat5));
+        userRelation5.getList().add(JSON.toJSONString(cat6));
+        userRelation5.setName("63");
+        //object
+//        userRelation1.getList().add(cat1);
+//        userRelation1.getList().add(cat2);
+//        userRelation1.setName("12");
+//        userRelation2.getList().add(cat3);
+//        userRelation2.getList().add(cat4);
+//        userRelation2.setName("23");
+//        userRelation5.getList().add(cat5);
+//        userRelation5.getList().add(cat6);
+//        userRelation5.setName("63");
+        //array
+//        userRelation1.getArray()[0]=cat1;
+//        userRelation1.getArray()[1]=cat2;
+//        userRelation1.setName("12");
+//        userRelation2.getArray()[0]=cat3;
+//        userRelation2.getArray()[0]=cat4;
+//        userRelation2.setName("23");
+//        userRelation5.getArray()[0]=cat5;
+//        userRelation5.getArray()[0]=cat6;
+//        userRelation5.setName("63");
+        userNode1.setUserRelation(userRelation1);
+        userNode2.setUserRelation(userRelation2);
+        userNode3.setUserRelation(userRelation5);
+        userNode6.setUserRelation(userRelation5);
         userDao.save(userNode1);
         userDao.save(userNode2);
         userDao.save(userNode3);
-        userRelationDao.save(userRelation1);
-        userRelationDao.save(userRelation2);
+        userDao.save(userNode6);
+//        userRelationDao.save(userRelation1);
+//        userRelationDao.save(userRelation2);
+//        userRelationDao.save(userRelation5);
 
     }
 
+    @Test
+    public void findUser_aaa(){
+        List<UserNodeAndUserRelationship> userNodeList3 = userDao.getUserNodeList3(33L);
+        for (UserNodeAndUserRelationship relationship : userNodeList3) {
+
+        }
+    }
 
     @Test
     public void findUser(){
@@ -222,13 +278,19 @@ public class Neo4jTest {
         }
     }
     @Test
-    public void findUserById(){
-        UserNode userNode1 = userDao.findById(95L).get();
-        UserNode userNode2 = userDao.findById(93L).get();
-        UserNode userNode3 = userDao.findById(94L).get();
-        System.out.println(userNode1);
+    public void findUserByName(){
+//        UserNode userNode1 = userDao.findByName("p1").get();
+        UserNode userNode2 = userDao.findByName("p2").get();
+//        UserNode userNode3 = userDao.findByName("p3").get();
+//        System.out.println(userNode1);
         System.out.println(userNode2);
-        System.out.println(userNode3);
+//        System.out.println(userNode3);
+    }
+    @Test
+    public void findUserRelation(){
+        Iterable<UserRelation> all =
+                userRelationDao.findAll();
+        all.forEach(item-> System.out.println(item));
     }
 
     @Test
@@ -240,6 +302,7 @@ public class Neo4jTest {
     public void deleteUser(){
         userDao.deleteAll();
         userRelationDao.deleteAll();
+        catDao.deleteAll();
     }
 
     @Test
@@ -326,5 +389,13 @@ public class Neo4jTest {
         parentShipDao.save(parentShip5);
         parentShipDao.save(parentShip6);
 
+    }
+
+    @Test
+    public void test11(){
+        long a=9;
+        long b=10;
+        double c=a/b;
+        System.out.println(a/b);
     }
 }

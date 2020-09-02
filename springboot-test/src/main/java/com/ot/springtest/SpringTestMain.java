@@ -1,13 +1,12 @@
-package a;
+package com.ot.springtest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AMain {
+public class SpringTestMain {
 
     public static void main(String[] args) {
-        SpringApplication.run(AMain.class,args);
+        SpringApplication.run(SpringTestMain.class);
     }
-
 }

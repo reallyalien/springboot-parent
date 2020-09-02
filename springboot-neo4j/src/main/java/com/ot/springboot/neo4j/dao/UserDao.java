@@ -7,8 +7,10 @@ import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
 import org.w3c.dom.stylesheets.LinkStyle;
 
+import javax.xml.transform.sax.SAXTransformerFactory;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Neo4jRepository--->PagingAndSortingRepository-->CrudRepository-->Repository
@@ -27,4 +29,9 @@ public interface UserDao extends Neo4jRepository<UserNode, Long> {
 
     @Query("create (n:User{age:{age},name:{name}}) RETURN n ")
     List<UserNode> addUserNodeList(@Param("name") String name, @Param("age") int age);
+
+    Optional<UserNode> findByName(String name);
+
+    @Query("match (n:User)-[r:UserRelation*1..10]->(n1:User) where id(n)={id} or id(n1)={id} with n as startNode,r as userRelation,n1 as endNode return startNode,userRelation,endNode")
+    List<UserNodeAndUserRelationship> getUserNodeList3(@Param("id") Long id);
 }

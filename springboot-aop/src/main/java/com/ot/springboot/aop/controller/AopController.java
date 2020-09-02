@@ -286,4 +286,10 @@ public class AopController {
        return map.toString();
     }
 
+    @GetMapping("/hello4")
+    public String hello4() {
+        return service.hello1("ss");
+    }
+
+
 }
