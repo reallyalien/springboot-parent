@@ -20,6 +20,7 @@ public class Consumer1 {
                 String msg = new String(body);
                 System.out.println("{1} msg"+msg);
                 //这里模拟异常，在消费者1抛出异常，未能够回执消息给服务器时，则服务器会将这条消息再次发送给消费者2
+                //如果没有发生异常，也没有回执消确认消息给服务器，则消息会丢失
                 /*
                   {2} msghello work1 消费者2先收到这条消息
                   deliveryTag:1
@@ -44,7 +45,7 @@ public class Consumer1 {
                     //假设：每秒钟一个消费者可以消费1000w个消息(假设每个消费者一个channel)，
                     //则9223372036854775807 / (60 * 60 * 24 * 365 * 1000w) = 29247年后能达到上限数值。
 //                    channel.basicAck(envelope.getDeliveryTag(),false);
-                    System.out.println("deliveryTag:"+envelope.getDeliveryTag());
+//                    System.out.println("deliveryTag:"+envelope.getDeliveryTag());
                 }
             }
         };

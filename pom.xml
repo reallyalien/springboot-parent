@@ -7,6 +7,12 @@
     <artifactId>springboot-parent</artifactId>
     <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.2.RELEASE</version>
+    </parent>
     <modules>
         <module>springboot-websocket-sockjs</module>
         <module>springboot-websocket</module>
@@ -28,6 +34,10 @@
         <module>springboot-springdemo/common</module>
         <module>springboot-springdemo/controller</module>
         <module>springboot-test</module>
+        <module>springboot-rabbit-mail-schedul</module>
+        <module>springboot-redis-sentinel</module>
+        <module>springboot-redis-cluster</module>
+        <module>springboot-dynamic-datasource</module>
     </modules>
     <name>springboot-parent</name>
     <description>Demo project for Spring Boot</description>
@@ -69,10 +79,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <fork>true</fork>
-                    <addResources>true</addResources>
-                </configuration>
             </plugin>
         </plugins>
     </build>

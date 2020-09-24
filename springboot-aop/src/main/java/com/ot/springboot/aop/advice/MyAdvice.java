@@ -12,39 +12,39 @@ public class MyAdvice {
 
     private static ThreadLocal<Object> local = new ThreadLocal<>();
 
-    //前置，最终肯定会执行，方法正常结束:后置通知，异常结束:异常通知
-    @Before("pc()")
-    public void before() {
-        System.out.println("前置通知");
-    }
-
-    @After(("pc()"))
-    public void after1() {
-        System.out.println("最终通知1"+local.get());
-    }
-
-    @After(("pc()"))
-    public void after2() {
-        int a=1/0;
-        System.out.println("最终通知2"+local.get());
-    }
-
-    @After(("pc()"))
-    public void after3() {
-        System.out.println("最终通知3"+local.get());
-    }
-
-    //================================================================================================================================
-    @AfterReturning("pc()")
-    public void afterReturn() {
-        System.out.println("后置通知");
-    }
-
-    @AfterThrowing("pc()")
-    public void afterThrow() {
-        System.out.println("异常通知");
-    }
-
+//    //前置，最终肯定会执行，方法正常结束:后置通知，异常结束:异常通知
+//    @Before("pc()")
+//    public void before() {
+//        System.out.println("前置通知");
+//    }
+//
+//    @After(("pc()"))
+//    public void after1() {
+//        System.out.println("最终通知1"+local.get());
+//    }
+//
+//    @After(("pc()"))
+//    public void after2() {
+//        int a=1/0;
+//        System.out.println("最终通知2"+local.get());
+//    }
+//
+//    @After(("pc()"))
+//    public void after3() {
+//        System.out.println("最终通知3"+local.get());
+//    }
+//
+//    //================================================================================================================================
+//    @AfterReturning("pc()")
+//    public void afterReturn() {
+//        System.out.println("后置通知");
+//    }
+//
+//    @AfterThrowing("pc()")
+//    public void afterThrow() {
+//        System.out.println("异常通知");
+//    }
+//
 
 
     /* */
@@ -85,8 +85,10 @@ public class MyAdvice {
         try {
             //得到当前方法参数的数组
             Object[] args = pjp.getArgs();
-            local.set(args[0]);
-            pjp.proceed();
+            String arg = (String) args[0];
+            arg+="uuuu";
+            args[0]=arg;
+            proceed=pjp.proceed(args);
         } catch (Throwable e) {
 
         } finally {

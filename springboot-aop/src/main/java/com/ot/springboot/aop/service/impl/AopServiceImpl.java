@@ -8,7 +8,6 @@ public class AopServiceImpl implements AopService {
 
     @Override
     public String hello1(String msg) {
-//        int a=1/0;
         return msg + "1world";
     }
     @Override

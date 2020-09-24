@@ -25,7 +25,7 @@ public class Send {
 //        int prefetchCount=1;
 //        //限制同一个消费者不能超过一条数据
 //        channel.basicQos(prefetchCount);
-        for (int i = 0; i < 20; i++) {
+        for (int i = 1; i <= 20; i++) {
             String msg="hello work"+i;
             channel.basicPublish("",QUEUQ_NAME,null,msg.getBytes());
             System.out.println("输出msg"+msg);

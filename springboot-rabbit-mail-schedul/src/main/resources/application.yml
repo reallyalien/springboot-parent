@@ -1,0 +1,45 @@
+spring:
+  rabbitmq:
+    addresses: 127.0.0.1:5672
+    # RabbitMQ 默认的用户名和密码都是guest 而虚拟主机名称是 "/"
+    # 如果配置其他虚拟主机地址，需要预先用管控台或者图形界面创建 图形界面地址 http://主机地址:15672
+    username: guest
+    password: guest
+    virtual-host: #当前的数据库，
+    # 是否启用发布者确认 具体确认回调实现见代码，确保服务器达到交换机
+    publisher-confirms: true
+    # 是否启用发布者返回 具体返回回调实现见代码 确保消息到达队列
+    publisher-returns: true
+    # 是否启用强制消息 保证消息的有效监听
+    template.mandatory: true
+    #消息监听者配置
+    listener:
+      simple:
+        retry:
+          #重试，5次，3s间隔
+          enabled: true
+          max-attempts: 5
+          initial-interval: 3000
+          #开启手动应答
+        acknowledge-mode: manual
+        prefetch: 100
+  mail:
+    host: smtp.yeah.net
+    username: reallyalien@yeah.net
+    password: CUDVWZZUWXSRBNSX
+    from: reallyalien@yeah.net
+  jpa:
+    database: mysql
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    generate-ddl: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/mq-mail?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=GMT%2b8
+    username: root
+    password: root
+
+server:
+  port: 8090

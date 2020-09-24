@@ -12,6 +12,16 @@ spring:
     publisher-returns: true
     # 是否启用强制消息 保证消息的有效监听
     template.mandatory: true
+    #消息监听者配置
+    listener:
+      simple:
+        retry:
+          #重试，5次，3s间隔
+          enabled: true
+          max-attempts: 5
+          initial-interval: 3000
+          #开启手动应答
+        acknowledge-mode: manual
 
 server:
   port: 8090

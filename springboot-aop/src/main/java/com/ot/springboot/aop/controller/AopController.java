@@ -288,7 +288,9 @@ public class AopController {
 
     @GetMapping("/hello4")
     public String hello4() {
-        return service.hello1("ss");
+        String ss = service.hello1("ss");
+        System.out.println(ss);
+        return null;
     }
 
 

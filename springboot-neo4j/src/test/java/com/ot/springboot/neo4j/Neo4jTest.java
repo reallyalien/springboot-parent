@@ -186,11 +186,10 @@ public class Neo4jTest {
         UserNode userNode1 = new UserNode("p1",10);
         UserNode userNode2 = new UserNode("p2",20);
         UserNode userNode3 = new UserNode("p3",30);
-//        userNode1.getUserNodes().add(userNode2);
-//        userNode2.getUserNodes().add(userNode3);
+        userNode1.getUserNodes().add(userNode2);
+        userNode2.getUserNodes().add(userNode3);
         userDao.save(userNode1);
         userDao.save(userNode2);
-        userDao.save(userNode3);
     }
 
     /**
@@ -202,6 +201,11 @@ public class Neo4jTest {
         UserNode userNode2 = new UserNode("p2",20);
         UserNode userNode3 = new UserNode("p3",30);
         UserNode userNode6 = new UserNode("p6",50);
+        Date now = new Date();
+        userNode1.setDate(now);
+        userNode2.setDate(now);
+        userNode3.setDate(now);
+        userNode6.setDate(now);
         UserRelation userRelation1 = new UserRelation(userNode1,userNode2);
         UserRelation userRelation2 = new UserRelation(userNode2,userNode3);
         UserRelation userRelation5 = new UserRelation(userNode6,userNode3);
@@ -302,7 +306,6 @@ public class Neo4jTest {
     public void deleteUser(){
         userDao.deleteAll();
         userRelationDao.deleteAll();
-        catDao.deleteAll();
     }
 
     @Test

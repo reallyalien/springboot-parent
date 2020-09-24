@@ -26,7 +26,7 @@ public class Consumer2 {
                 }finally {
                     //关闭自动应答之后需要手动回执一个消息
                     channel.basicAck(envelope.getDeliveryTag(),false);
-                    System.out.println("deliveryTag:"+envelope.getDeliveryTag());
+//                    System.out.println("deliveryTag:"+envelope.getDeliveryTag());
                 }
             }
         };
