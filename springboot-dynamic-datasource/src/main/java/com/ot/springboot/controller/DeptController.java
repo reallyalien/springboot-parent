@@ -23,6 +23,7 @@ public class DeptController {
     @GetMapping("/findAll")
     public List<Dept> findAll() {
         List<Dept> all = deptService.findAll();
+        Dept byId = deptService.findById();
         return all;
     }
 

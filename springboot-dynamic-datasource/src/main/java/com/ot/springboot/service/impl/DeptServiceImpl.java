@@ -17,13 +17,15 @@ public class DeptServiceImpl implements DeptService {
     private DeptDao deptDao;
 
     @Override
-    @DataSourceSelector(value = DynamicDataSourceEnum.SLAVE)
+    @DataSourceSelector(value = DynamicDataSourceEnum.MASTER)
     @Transactional
     public List<Dept> findAll() {
         return deptDao.findAll();
     }
 
     @Override
+    @DataSourceSelector(value = DynamicDataSourceEnum.SLAVE)
+    @Transactional
     public Dept findById() {
         return deptDao.findById();
     }

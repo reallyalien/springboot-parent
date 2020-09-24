@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/aop")
 public class AopController {
 
-//    @Autowired
+    //    @Autowired
 //    private AopController aopController;
     @Autowired
     private ApplicationContext applicationContext;
@@ -24,14 +24,20 @@ public class AopController {
         System.out.println("controller线程：" + Thread.currentThread().getName());
 //        aopController.m(msg);
         AopController o = (AopController) AopContext.currentProxy();
-        o.m(msg);
-        System.out.println("controller线程："+"执行结束");
-        return msg;
+        String m = o.m(msg);
+        System.out.println("controller线程：" + "执行结束");
+        return m;
     }
 
     @Node
-    public void m(String msg) {
-        System.out.println(msg);
+    public String m(String msg) {
+        System.out.println("m方法执行了"+Thread.currentThread().getName());
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return msg;
     }
 
 
