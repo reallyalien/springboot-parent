@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * neo4j的实体类 OGM 对象图形映射
  */
-@NodeEntity
+//@NodeEntity
 public class Person {
 
     @Id

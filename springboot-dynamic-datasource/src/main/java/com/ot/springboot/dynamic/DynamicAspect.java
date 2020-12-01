@@ -10,12 +10,13 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 
 @Aspect
 @Component
-@Order(-1)
-public class DynamicAspect {
+@Order(-1)//保证在事务注解之前执行
+public class DynamicAspect  {
 
     private static final Logger log = LoggerFactory.getLogger(DynamicAspect.class);
 

@@ -40,6 +40,7 @@ public class JobDemo1 {
                     public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
                         for (int i = 0; i < 10; i++) {
                             System.out.println("step1[+" + i + "]" + Thread.currentThread().getName());
+                            if (i==9) throw new RuntimeException("错误数据");
                         }
                         return RepeatStatus.FINISHED;
                     }
@@ -55,6 +56,7 @@ public class JobDemo1 {
                         for (int i = 10; i < 20; i++) {
                             System.out.println("step2[+" + i + "]" + Thread.currentThread().getName());
 //                            if (i==18) throw new RuntimeException("错误数据");
+                            //下次重新运行只运行错误的step
                         }
                         return RepeatStatus.FINISHED;
                     }

@@ -34,4 +34,13 @@ public interface UserDao extends Neo4jRepository<UserNode, Long> {
 
     @Query("match (n:User)-[r:UserRelation*1..10]->(n1:User) where id(n)={id} or id(n1)={id} with n as startNode,r as userRelation,n1 as endNode return startNode,userRelation,endNode")
     List<UserNodeAndUserRelationship> getUserNodeList3(@Param("id") Long id);
+    @Query(" match (p) return distinct labels(p) ")
+    List<String> getNodeLabel();
+
+    @Query(" match ()-[r]->() return distinct type(r) ")
+    List<String> getRelationType();
+
+
+    @Query(" match (p:label) return keys(p) ")
+    List<String[]> getNodeAttribute(@Param("label") String label);
 }

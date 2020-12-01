@@ -58,6 +58,11 @@ public class RetryDemoJob {
         };
     }
 
+    /**
+     * 因为任务没有执行完成，以相同的参数再次启动任务，重试次数不是从0开始计数，而是接着上一次的次数，
+     * 这里3次才能执行成功，我们设置重试次数为2，当以相同的参数再次执行时，就可以执行成功
+     * @return
+     */
     @Bean
     public ItemProcessor<String, String> retryDemoProcess() {
         return new ItemProcessor<String, String>() {

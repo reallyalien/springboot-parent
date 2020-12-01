@@ -3,9 +3,15 @@ package com.ot.springboot.redis;
 
 import com.ot.springboot.redis.demo.vote.service.RedisArticleService;
 
+import com.ot.springboot.redis.utils.JedisUtils;
+import org.apache.catalina.util.URLEncoder;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.util.Base64Utils;
+
+import java.io.*;
+import java.util.Base64;
 import java.util.List;
 import java.util.Map;
 
@@ -73,5 +79,20 @@ public class RedisTest {
                 System.out.println("    " + entry.getKey() + ": " + entry.getValue());
             }
         }
+    }
+
+    @Test
+    public void jedisTest() throws IOException {
+        JedisUtils jedisUtils = new JedisUtils();
+        String path="d:/16.txt";
+        FileInputStream fis = new FileInputStream(path);
+        byte[] bytes = new byte[fis.available()];
+        fis.read(bytes);
+        String encodeToString = Base64Utils.encodeToString(bytes);
+        jedisUtils.set("key", encodeToString);
+        System.out.println(jedisUtils.get("key"));
+
+        String value = jedisUtils.get("key");
+        byte[] bytes1 = Base64Utils.decodeFromString(value);
     }
 }

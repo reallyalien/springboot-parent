@@ -38,6 +38,9 @@
         <module>springboot-redis-sentinel</module>
         <module>springboot-redis-cluster</module>
         <module>springboot-dynamic-datasource</module>
+        <module>spring-project</module>
+        <module>ssm-project</module>
+        <module>springboot-jdbc-neo4j</module>
     </modules>
     <name>springboot-parent</name>
     <description>Demo project for Spring Boot</description>

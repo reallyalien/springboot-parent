@@ -73,7 +73,7 @@ public class SkipDemoJob {
                         System.out.println("retry " + attemptCount + "\ttimes success");
                         return String.valueOf(Integer.valueOf(s) * -1);
                     } else {
-                        System.out.println("process the" + attemptCount + "\ttimes fail");
+                        System.out.println("process the" + "\t"+attemptCount + "\ttimes fail");
                         throw new CustomRetryException("process fail attemp" + attemptCount);
                     }
                 } else {

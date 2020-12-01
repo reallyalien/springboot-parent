@@ -15,11 +15,12 @@ public class ScheduleTest {
     private static final String CRON="* * * * * ?";//每秒执行一次
 
     @Scheduled(cron = CRON)
-    @Async
     public void test() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(3);
-        System.out.println("执行的线程："+Thread.currentThread().getName());
+        System.out.println("执行的线程------>："+Thread.currentThread().getName());
         System.out.println("#####>>>"+ LocalDateTime.now());
+        TimeUnit.SECONDS.sleep(3);
+        System.out.println("执行的线程<------："+Thread.currentThread().getName());
+        System.out.println("#####<<<"+ LocalDateTime.now());
     }
 
 }

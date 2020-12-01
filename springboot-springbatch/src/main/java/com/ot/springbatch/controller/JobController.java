@@ -7,6 +7,7 @@ import org.springframework.batch.core.configuration.JobRegistry;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,15 +42,21 @@ public class JobController {
     @Autowired
     private Job skipListenerJob;
 
+    @Autowired
+    private ApplicationContext applicationContext;
+    protected volatile int page = 0;
+    @Autowired
+    private Job neo4jJob;
+
     @RequestMapping(value = "/run/{msg1}", method = RequestMethod.GET)
     public String jobRun(@PathVariable("msg1") Long msg1) {
         JobParameters jobParameters = new JobParametersBuilder().addLong("msg1", msg1)
                 .toJobParameters();
         //启动任务并传参
         try {
-            System.out.println("main任务执行前:"+Thread.currentThread().getName());
+            System.out.println("main任务执行前:" + Thread.currentThread().getName());
             jobLauncher.run(job, jobParameters);//此处不会去新创建线程去执行,任务的执行始终在主线程当中
-            System.out.println("main任务执行后:"+Thread.currentThread().getName());
+            System.out.println("main任务执行后:" + Thread.currentThread().getName());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -101,7 +108,12 @@ public class JobController {
                 .toJobParameters();
         //启动任务并传参
         try {
+            long start = System.currentTimeMillis();
+            System.out.println("任务开始");
             jobLauncher.run(dbJob, jobParameters);
+            long end = System.currentTimeMillis();
+            System.out.println("任务结束");
+            System.out.println("耗时：" + (end - start) / 1000 + "秒");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -173,4 +185,32 @@ public class JobController {
         }
         return "job run success";
     }
+
+    @RequestMapping(value = "/runNeo4j/{msg1}", method = RequestMethod.GET)
+    public String runNeo4j(@PathVariable("msg1") Long msg1) {
+        JobParameters jobParameters = new JobParametersBuilder().addLong("msg1", msg1)
+                .toJobParameters();
+        //启动任务并传参
+        try {
+            long start = System.currentTimeMillis();
+            jobLauncher.run(neo4jJob, jobParameters);
+            long end = System.currentTimeMillis();
+            System.out.println("耗时：" + (end - start) / 1000 + "秒");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "job run success";
+    }
+
+    @RequestMapping("/incr")
+    public int increment() {
+        return page++;
+    }
+
+    @RequestMapping("/getBeans")
+    public String[] getBeans() {
+        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
+        return beanDefinitionNames;
+    }
+
 }

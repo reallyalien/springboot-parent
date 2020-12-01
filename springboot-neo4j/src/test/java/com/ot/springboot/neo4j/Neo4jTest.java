@@ -10,6 +10,9 @@ import com.ot.springboot.neo4j.demo1.domain.Man;
 import com.ot.springboot.neo4j.demo1.relationship.ParentShip;
 import com.ot.springboot.neo4j.domain.*;
 import org.junit.jupiter.api.Test;
+import org.neo4j.ogm.model.Result;
+import org.neo4j.ogm.session.Session;
+import org.neo4j.ogm.session.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -110,24 +113,26 @@ public class Neo4jTest {
     }
 
     @Test
-    public void deleteSupplyAndCompany(){
-       supplyRelationshipDao.deleteById(23L);
-       supplyRelationshipDao.deleteById(46L);
-       companyDao.deleteById(58L);
-       companyDao.deleteById(60L);
-       supplyDao.deleteById(44L);
-       supplyDao.deleteById(61L);
+    public void deleteSupplyAndCompany() {
+        supplyRelationshipDao.deleteById(23L);
+        supplyRelationshipDao.deleteById(46L);
+        companyDao.deleteById(58L);
+        companyDao.deleteById(60L);
+        supplyDao.deleteById(44L);
+        supplyDao.deleteById(61L);
     }
+
     @Test
-    public void selectSupplyAndCompany(){
+    public void selectSupplyAndCompany() {
         Iterable<SupplyRelationship> all = supplyRelationshipDao.findAll();
         for (SupplyRelationship supplyRelationship : all) {
             System.out.println(supplyRelationship);
         }
     }
+
     @Test
-    public void selectSupplyAndCompany1(){
-        Map[] map=supplyRelationshipDao.find();
+    public void selectSupplyAndCompany1() {
+        Map[] map = supplyRelationshipDao.find();
         System.out.println(Arrays.toString(map));
     }
 
@@ -182,10 +187,10 @@ public class Neo4jTest {
      * 只保存一方的关系节点
      */
     @Test
-    public void saveUser2(){
-        UserNode userNode1 = new UserNode("p1",10);
-        UserNode userNode2 = new UserNode("p2",20);
-        UserNode userNode3 = new UserNode("p3",30);
+    public void saveUser2() {
+        UserNode userNode1 = new UserNode("p1", 10);
+        UserNode userNode2 = new UserNode("p2", 20);
+        UserNode userNode3 = new UserNode("p3", 30);
         userNode1.getUserNodes().add(userNode2);
         userNode2.getUserNodes().add(userNode3);
         userDao.save(userNode1);
@@ -196,25 +201,25 @@ public class Neo4jTest {
      * 让中间关系保存双方节点
      */
     @Test
-    public void saveUser3(){
-        UserNode userNode1 = new UserNode("p1",10);
-        UserNode userNode2 = new UserNode("p2",20);
-        UserNode userNode3 = new UserNode("p3",30);
-        UserNode userNode6 = new UserNode("p6",50);
+    public void saveUser3() {
+        UserNode userNode1 = new UserNode("p1", 10);
+        UserNode userNode2 = new UserNode("p2", 20);
+        UserNode userNode3 = new UserNode("p3", 30);
+        UserNode userNode6 = new UserNode("p6", 50);
         Date now = new Date();
         userNode1.setDate(now);
         userNode2.setDate(now);
         userNode3.setDate(now);
         userNode6.setDate(now);
-        UserRelation userRelation1 = new UserRelation(userNode1,userNode2);
-        UserRelation userRelation2 = new UserRelation(userNode2,userNode3);
-        UserRelation userRelation5 = new UserRelation(userNode6,userNode3);
-        Cat cat1 = new Cat("1","公");
-        Cat cat2 = new Cat("2","母");
-        Cat cat3 = new Cat("3","公");
-        Cat cat4 = new Cat("4","母");
-        Cat cat5 = new Cat("5","母");
-        Cat cat6 = new Cat("6","母");
+        UserRelation userRelation1 = new UserRelation(userNode1, userNode2);
+        UserRelation userRelation2 = new UserRelation(userNode2, userNode3);
+        UserRelation userRelation5 = new UserRelation(userNode6, userNode3);
+        Cat cat1 = new Cat("1", "公");
+        Cat cat2 = new Cat("2", "母");
+        Cat cat3 = new Cat("3", "公");
+        Cat cat4 = new Cat("4", "母");
+        Cat cat5 = new Cat("5", "母");
+        Cat cat6 = new Cat("6", "母");
         //string
         userRelation1.getList().add(JSON.toJSONString(cat1));
         userRelation1.getList().add(JSON.toJSONString(cat2));
@@ -260,7 +265,7 @@ public class Neo4jTest {
     }
 
     @Test
-    public void findUser_aaa(){
+    public void findUser_aaa() {
         List<UserNodeAndUserRelationship> userNodeList3 = userDao.getUserNodeList3(33L);
         for (UserNodeAndUserRelationship relationship : userNodeList3) {
 
@@ -268,8 +273,8 @@ public class Neo4jTest {
     }
 
     @Test
-    public void findUser(){
-        List<Map<String,Object>[]> userNodeList0 = userDao.getUserNodeList0();
+    public void findUser() {
+        List<Map<String, Object>[]> userNodeList0 = userDao.getUserNodeList0();
         List<UserNodeAndUserRelationship> userNodeList1 = userDao.getUserNodeList2();
         for (Map<String, Object>[] maps : userNodeList0) {
             for (Map<String, Object> map : maps) {
@@ -281,8 +286,9 @@ public class Neo4jTest {
             System.out.println(userNodeAndUserRelationship);
         }
     }
+
     @Test
-    public void findUserByName(){
+    public void findUserByName() {
 //        UserNode userNode1 = userDao.findByName("p1").get();
         UserNode userNode2 = userDao.findByName("p2").get();
 //        UserNode userNode3 = userDao.findByName("p3").get();
@@ -290,26 +296,28 @@ public class Neo4jTest {
         System.out.println(userNode2);
 //        System.out.println(userNode3);
     }
+
     @Test
-    public void findUserRelation(){
+    public void findUserRelation() {
         Iterable<UserRelation> all =
                 userRelationDao.findAll();
-        all.forEach(item-> System.out.println(item));
+        all.forEach(item -> System.out.println(item));
     }
 
     @Test
-    public void findAllUser(){
+    public void findAllUser() {
         Iterable<UserNode> all = userDao.findAll();
         System.out.println("");
     }
+
     @Test
-    public void deleteUser(){
+    public void deleteUser() {
         userDao.deleteAll();
         userRelationDao.deleteAll();
     }
 
     @Test
-    public void saveShop(){
+    public void saveShop() {
         Shop shop1 = new Shop("店铺1");
         Shop shop2 = new Shop("店铺2");
         shop1.getShops().add(shop2);
@@ -317,88 +325,122 @@ public class Neo4jTest {
         shopDao.save(shop1);
         shopDao.save(shop2);
     }
+
     @Test
-    public void findShop(){
+    public void findShop() {
         Iterable<Shop> all = shopDao.findAll();
         for (Shop shop : all) {
             System.out.println(shop);
         }
     }
 
+
     @Test
-    public void saveMan(){
-        Man man1 = new Man("爷爷");
-        Man man20 = new Man("爸爸1");
-        Man man21 = new Man("爸爸2");
-        Man man30 = new Man("儿子11");
-        Man man31 = new Man("儿子12");
-        Man man32 = new Man("儿子21");
-        Man man33 = new Man("儿子22");
-
-        ParentShip parentShip1 = new ParentShip();
-        parentShip1.setParent(man1);
-        parentShip1.setChild(man20);
-
-        ParentShip parentShip2 = new ParentShip();
-        parentShip2.setParent(man1);
-        parentShip2.setChild(man21);
-
-        //爷爷有2个父子关系
-        man1.getParentShips().add(parentShip1);
-        man1.getParentShips().add(parentShip2);
-
-        man20.getParentShips().add(parentShip1);
-        man21.getParentShips().add(parentShip2);
-
-        ParentShip parentShip3 = new ParentShip();
-        parentShip3.setParent(man20);
-        parentShip3.setChild(man30);
-
-        ParentShip parentShip4 = new ParentShip();
-        parentShip4.setParent(man20);
-        parentShip4.setChild(man31);
-
-        man20.getParentShips().add(parentShip3);
-        man20.getParentShips().add(parentShip4);
-
-        man30.getParentShips().add(parentShip3);
-        man31.getParentShips().add(parentShip4);
-
-        ParentShip parentShip5 = new ParentShip();
-        parentShip5.setParent(man21);
-        parentShip5.setChild(man32);
-
-        ParentShip parentShip6 = new ParentShip();
-        parentShip6.setParent(man21);
-        parentShip6.setChild(man33);
-
-        man21.getParentShips().add(parentShip5);
-        man21.getParentShips().add(parentShip6);
-
-        man32.getParentShips().add(parentShip5);
-        man33.getParentShips().add(parentShip6);
-
-        manDao.save(man1);
-        manDao.save(man20);
-        manDao.save(man21);
-        manDao.save(man30);
-        manDao.save(man31);
-        manDao.save(man32);
-        manDao.save(man33);
-        parentShipDao.save(parentShip1);
-        parentShipDao.save(parentShip2);
-        parentShipDao.save(parentShip3);
-        parentShipDao.save(parentShip4);
-        parentShipDao.save(parentShip5);
-        parentShipDao.save(parentShip6);
-
+    public void test11() {
+        long a = 9;
+        long b = 10;
+        double c = a / b;
+        System.out.println(a / b);
     }
 
     @Test
-    public void test11(){
-        long a=9;
-        long b=10;
-        double c=a/b;
-        System.out.println(a/b);
+    public void getNodeLabel() {
+        List<String> type = userDao.getNodeLabel();
+        System.out.println(type);
+    }
+
+    @Test
+    public void getRelationType() {
+        List<String> relationType = userDao.getRelationType();
+        System.out.println(relationType);
+    }
+
+    @Autowired
+    private SessionFactory sessionFactory;
+
+    /**
+     * 获取指定标签下节点的属性值
+     */
+    @Test
+    public void getNodeAttribute() {
+        System.out.println(sessionFactory);
+        Session session = sessionFactory.openSession();
+        String label = "Fruit";
+        HashMap<String, Object> params = new HashMap<>();
+        String cql = "match (p:" + label + ") return distinct keys (p)";
+        Result result = session.query(cql, params);
+        Iterable<Map<String, Object>> iterable = result.queryResults();
+        String key = "keys (p)";
+        Set<String> attributes = new HashSet<>();
+        for (Map<String, Object> map : iterable) {
+            String[] o = (String[]) map.get(key);
+            for (String s : o) {
+                attributes.add(s);
+            }
+        }
+        System.out.println(attributes);
+    }
+
+    //    @Test
+//    public void saveUser11(){
+//        UserNode userNode = new UserNode("j",10);
+//        userNode.getPeoples().add(new Person("k","aa"));
+//        userDao.save(userNode);
+//    }
+    @Test
+    public void saveUser12() {
+        UserNode userNode1 = new UserNode();
+        userNode1.setName("user-aaa");
+        UserNode userNode2 = new UserNode();
+        userNode2.setName("user-bbb");
+        UserRelation userRelation = new UserRelation();
+        userRelation.setStartNode(userNode1);
+        userRelation.setEndNode(userNode2);
+        userDao.save(userNode1);
+        userDao.save(userNode2);
+        userRelationDao.save(userRelation);
+    }
+
+    @Test
+    public void getUser11() {
+        Optional<UserNode> byId = userDao.findById(101L);
+        UserNode userNode = byId.get();
+        System.out.println(userNode);
+    }
+
+    /**
+     * 获取指定标签下节点的属性值
+     */
+    @Test
+    public void ge() {
+        System.out.println(sessionFactory);
+        Session session = sessionFactory.openSession();
+        HashMap<String, Object> params = new HashMap<>();
+        String cql = " START  p=node(*)  MATCH  (p:dept)  RETURN  id(p),properties(p)";
+//        Iterable<Map> query = session.query(Map.class, cql, params);
+        Result query = session.query(cql, params);
+        Iterable<Map<String, Object>> iterable = query.queryResults();
+        String idK="id(p)";
+        String propK="properties(p)";
+        for (Map<String, Object> map : iterable) {
+            Object o = map.get(idK);
+            Object o1 = map.get(propK);
+            System.out.println("");
+        }
+    }
+
+    /**
+     * 获取指定标签下节点的属性值
+     */
+    @Test
+    public void ge1() {
+        System.out.println(sessionFactory);
+        Session session = sessionFactory.openSession();
+        HashMap<String, Object> params = new HashMap<>();
+        String cql = " match ()-[r]->() return  id(r),properties(r)";
+//        Iterable<Map> query = session.query(Map.class, cql, params);
+        Result query = session.query(cql, params);
+        Iterable<Map<String, Object>> iterable = query.queryResults();
+        System.out.println("");
     }
 }

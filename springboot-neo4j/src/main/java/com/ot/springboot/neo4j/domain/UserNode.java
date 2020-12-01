@@ -16,13 +16,10 @@ public class UserNode implements Serializable {
 
     @Id //主键id，必须是Long
     @GeneratedValue
-    private Long nodeId;
+    private Long id;
 
     @Property(name = "name")
     private String name;
-
-    @Property(name = "age")
-    private int age;
 
     @Property(name = "date")
 //    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
@@ -36,21 +33,28 @@ public class UserNode implements Serializable {
     public void setDate(Date date) {
         this.date = date;
     }
-        @Relationship(type = "UserRelation",direction = Relationship.UNDIRECTED)
-    private List<UserNode> userNodes=new ArrayList<>(10);
+
+    @Relationship(type = "UserRelation", direction = Relationship.UNDIRECTED)
+    private List<UserNode> userNodes = new ArrayList<>(10);
 
     /**
      * 用实体类来保存关系，建议设置关系为无向的，这样a->b->c在这条关系链当中，a,c分别有一条关系，b有2条关系
      */
-    @Relationship(type = "UserRelation1",direction =Relationship.UNDIRECTED)//
+    @Relationship(type = "UserRelation1", direction = Relationship.UNDIRECTED)//
 //    private List<UserRelation> userRelations=new ArrayList<>(10);
     private UserRelation userRelation;
 
     public UserNode() {
     }
 
-    public UserNode(String name, int age) {
+    public UserNode(String name, int age1) {
         this.name = name;
-        this.age = age;
     }
+
+
+    List<Person> peoples = new ArrayList<>();
+
+    Cat cat;
+
+
 }

@@ -1,11 +1,11 @@
 package com.ot.springboot.neo4j.domain;
 
+import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Property;
 
 import java.io.Serializable;
-
 
 public class Cat implements Serializable {
 

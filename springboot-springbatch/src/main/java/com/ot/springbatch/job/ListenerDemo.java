@@ -67,16 +67,25 @@ public class ListenerDemo {
                 .build();
     }
 
-    @Bean
+
+    /**
+     * 项目启动就会运行
+     * @return
+     */
     public ItemReader<String> reader(){
-        return new ListItemReader<>(Arrays.asList("Java1","Java2","Java3"));
+        ListItemReader<String> stringListItemReader =
+                new ListItemReader<>(Arrays.asList("Java1", "Java2", "Java3", "Java4", "Java5", "Java6", "Java7"));
+//        System.out.println("reader");
+        return stringListItemReader;
     }
-    @Bean
+
     public ItemWriter<String> writer(){
         return new ItemWriter<String>() {
             @Override
             public void write(List<? extends String> list) throws Exception {
-                list.forEach(System.out::println);
+                for (String s : list) {
+                    System.out.println("write："+s);
+                }
             }
         };
     }
@@ -105,12 +114,12 @@ public class ListenerDemo {
 
         @Override
         public void beforeStep(StepExecution stepExecution) {
-            System.out.println(stepExecution.getStepName()+"step执行前");
+            System.out.println(stepExecution.getStepName()+"step执行前----");
         }
 
         @Override
         public ExitStatus afterStep(StepExecution stepExecution) {
-            System.out.println(stepExecution.getStepName()+"step执行后");
+            System.out.println(stepExecution.getStepName()+"step执行后----");
             return ExitStatus.COMPLETED;
         }
     }
