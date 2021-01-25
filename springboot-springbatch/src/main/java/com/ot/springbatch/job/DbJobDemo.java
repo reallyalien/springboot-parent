@@ -58,7 +58,7 @@ public class DbJobDemo {
     @Bean
     public Step dbStep() {
         return stepBuilderFactory.get("dbStep")
-                .<Dept, Dept>chunk(10000)
+                .<Dept, Dept>chunk(10)
                 .faultTolerant()
 //                .listener(myChunkListener)
                 .reader(dbReader())
@@ -84,13 +84,13 @@ public class DbJobDemo {
         });
         //指定sql语句
         MySqlPagingQueryProvider provider = new MySqlPagingQueryProvider();
-        provider.setFromClause("from dept");//查询哪个表
+        provider.setFromClause("from dept_lll");//查询哪个表
         provider.setSelectClause("id,dname,db_source");//查询哪些字段
         Map<String, Order> sort = new HashMap<>();
         sort.put("id", Order.ASCENDING);
         provider.setSortKeys(sort);//按哪个字段排序
         reader.setQueryProvider(provider);
-        reader.setPageSize(20000);
+        reader.setPageSize(10);
         return reader;
     }
 
@@ -133,12 +133,12 @@ public class DbJobDemo {
 //        };
 //    }
 
-    static {
-        Driver driver = getDriver("bolt://127.0.0.1:7687", "neo4j", "root");
-        session = driver.session();
-    }
-
-    private static Driver getDriver(String url, String username, String password) {
-        return GraphDatabase.driver(url, AuthTokens.basic(username, password));
-    }
+//    static {
+//        Driver driver = getDriver("bolt://127.0.0.1:7687", "neo4j", "root");
+//        session = driver.session();
+//    }
+//
+//    private static Driver getDriver(String url, String username, String password) {
+//        return GraphDatabase.driver(url, AuthTokens.basic(username, password));
+//    }
 }

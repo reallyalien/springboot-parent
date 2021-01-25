@@ -43,8 +43,8 @@
         }
 
         function sendName() {
-            var msg = $('#msg').val();
-            var user = $("#user").val();
+            let msg = $('#msg').val();
+            let user = $("#user").val();
             console.log("user,msg:" + user, msg);
             stompClient.send("/app/queue", {}, JSON.stringify({'msg': msg, 'user': user}));
         }

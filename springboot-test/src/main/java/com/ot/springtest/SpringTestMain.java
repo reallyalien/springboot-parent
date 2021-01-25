@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @SpringBootApplication
 //@EnableAsync
 //@EnableAspectJAutoProxy(exposeProxy = true,proxyTargetClass = true)
-//@EnableEcho(packages = {"com.ot.springtest.dto", "com.ot.springtest.vo"})
+@EnableEcho(packages = {"com.ot.springtest.dto", "com.ot.springtest.vo"})
 public class SpringTestMain {
 
     public static void main(String[] args) {

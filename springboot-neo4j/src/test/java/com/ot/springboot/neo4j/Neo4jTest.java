@@ -443,4 +443,20 @@ public class Neo4jTest {
         Iterable<Map<String, Object>> iterable = query.queryResults();
         System.out.println("");
     }
+
+    //MATCH p=()-[r:R_TABLE_OF_TABLE]->() RETURN p LIMIT 6
+
+    @Test
+    public void ge2() {
+
+        Session session = sessionFactory.openSession();
+        HashMap<String, Object> params = new HashMap<>();
+        String cql = " MATCH p=()-[r:R_TABLE_OF_TABLE]->() RETURN p LIMIT 2";
+//        Iterable<Map> query = session.query(Map.class, cql, params);
+        Result query = session.query(cql, params);
+        Iterable<Map<String, Object>> iterable = query.queryResults();
+        for (Map<String, Object> map : iterable) {
+            System.out.println(map);
+        }
+    }
 }

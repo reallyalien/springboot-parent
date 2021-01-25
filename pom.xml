@@ -41,6 +41,9 @@
         <module>spring-project</module>
         <module>ssm-project</module>
         <module>springboot-jdbc-neo4j</module>
+        <module>testjar</module>
+        <module>springboot-hadoop</module>
+        <module>springboot-slf4j</module>
     </modules>
     <name>springboot-parent</name>
     <description>Demo project for Spring Boot</description>
@@ -64,7 +67,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>2.2.2.RELEASE</version>
+                <version>2.2.6.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

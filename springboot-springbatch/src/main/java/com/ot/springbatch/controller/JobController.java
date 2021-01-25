@@ -32,6 +32,8 @@ public class JobController {
     @Autowired
     private Job dbJob;
     @Autowired
+    private Job hiveDbJob;
+    @Autowired
     private Job exceptionJob;
     @Autowired
     private Job errorDemo1Job;
@@ -41,6 +43,8 @@ public class JobController {
     private Job skipDemoJob22;
     @Autowired
     private Job skipListenerJob;
+    @Autowired
+    private Job fileJob;
 
     @Autowired
     private ApplicationContext applicationContext;
@@ -111,6 +115,23 @@ public class JobController {
             long start = System.currentTimeMillis();
             System.out.println("任务开始");
             jobLauncher.run(dbJob, jobParameters);
+            long end = System.currentTimeMillis();
+            System.out.println("任务结束");
+            System.out.println("耗时：" + (end - start) / 1000 + "秒");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "job run success";
+    }
+    @RequestMapping(value = "/runHiveDb/{msg1}", method = RequestMethod.GET)
+    public String runHiveDb(@PathVariable("msg1") Long msg1) {
+        JobParameters jobParameters = new JobParametersBuilder().addLong("msg1", msg1)
+                .toJobParameters();
+        //启动任务并传参
+        try {
+            long start = System.currentTimeMillis();
+            System.out.println("任务开始");
+            jobLauncher.run(hiveDbJob, jobParameters);
             long end = System.currentTimeMillis();
             System.out.println("任务结束");
             System.out.println("耗时：" + (end - start) / 1000 + "秒");
@@ -194,6 +215,21 @@ public class JobController {
         try {
             long start = System.currentTimeMillis();
             jobLauncher.run(neo4jJob, jobParameters);
+            long end = System.currentTimeMillis();
+            System.out.println("耗时：" + (end - start) / 1000 + "秒");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "job run success";
+    }
+    @RequestMapping(value = "/RunFileJob/{msg1}", method = RequestMethod.GET)
+    public String fileJob(@PathVariable("msg1") Long msg1) {
+        JobParameters jobParameters = new JobParametersBuilder().addLong("msg1", msg1)
+                .toJobParameters();
+        //启动任务并传参
+        try {
+            long start = System.currentTimeMillis();
+            jobLauncher.run(fileJob, jobParameters);
             long end = System.currentTimeMillis();
             System.out.println("耗时：" + (end - start) / 1000 + "秒");
         } catch (Exception e) {
