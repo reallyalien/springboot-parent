@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8082
   tomcat:
     max-threads: 200  #线程池的最大线程数
     min-spare-threads: 50 #tomcat初始化创建的线程数
