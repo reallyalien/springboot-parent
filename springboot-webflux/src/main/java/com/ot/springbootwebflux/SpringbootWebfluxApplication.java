@@ -12,7 +12,8 @@ import org.springframework.data.mongodb.core.MongoOperations;
 public class SpringbootWebfluxApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringbootWebfluxApplication.class, args);
+        SpringApplication springApplication = new SpringApplication(SpringbootWebfluxApplication.class);
+        springApplication.run(args);
     }
 
 

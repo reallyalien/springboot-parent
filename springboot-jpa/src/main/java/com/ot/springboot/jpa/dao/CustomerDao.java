@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
  * 泛型：操作对象，主键类型
  */
 @Repository
-public interface CustomerDao extends JpaRepository<Customer,Integer>, JpaSpecificationExecutor<Customer> {
+public interface CustomerDao extends JpaRepository<Customer,Long>, JpaSpecificationExecutor<Customer> {
 }

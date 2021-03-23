@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/helloStart")
 public class HelloStarterController {
 
-    @Autowired
-    private HelloService helloService;
-
-    @GetMapping("/hello")
-    public String hello() {
-        User user = new User();
-        user.setAge(10);
-        user.setName("傻瓜");
-        return helloService.objToJson(user);
-    }
+//    @Autowired
+//    private HelloService helloService;
+//
+//    @GetMapping("/hello")
+//    public String hello() {
+//        User user = new User();
+//        user.setAge(10);
+//        user.setName("傻瓜");
+//        return helloService.objToJson(user);
+//    }
 
 }

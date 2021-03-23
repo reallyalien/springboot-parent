@@ -16,254 +16,16 @@ import java.util.Date;
 public class AopController {
 
     @Autowired
-    private AopService service;
+    private AopService aopService;
 
     /**
      * 在spring容器当中，静态属性和成员属性是一样的，因为当前类只有一个对象
      */
-    private ThreadLocal<Integer> map=new ThreadLocal<>();
+    private ThreadLocal<Integer> map = new ThreadLocal<>();
 
-    @Value("${spring.datasource.activiti.driver-class-name}")
-    private String driver;
+//    @Value("${spring.datasource.activiti.driver-class-name}")
+//    private String driver;
 
-    @GetMapping("/hello/{msg}")
-    public String hello(@PathVariable("msg") String msg) {
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        service.hello1(msg + "1");
-        service.hello2(msg + "2");
-        service.hello3(msg + "3");
-        service.hello4(msg + "4");
-        service.hello5(msg + "5");
-        service.hello6(msg + "6");
-        service.hello7(msg + "7");
-        service.hello8(msg + "8");
-        service.hello9(msg + "9");
-        return "success";
-    }
 
     @GetMapping("/hello1")
     public String hello1() throws InterruptedException {
@@ -276,22 +38,21 @@ public class AopController {
         return "hello1";
     }
 
-    @GetMapping("/hello2")
-    public String hello2() {
-        return driver;
-    }
+//    @GetMapping("/hello2")
+////    public String hello2() {
+////        return driver;
+////    }
 
     @GetMapping("/hello3")
     public String hello3() {
-       return map.toString();
+        return map.toString();
     }
 
-    @GetMapping("/hello4")
-    public String hello4() {
-        String ss = service.hello1("ss");
-        System.out.println(ss);
-        return null;
-    }
 
+    @GetMapping("/hello4/{msg}")
+    public String hello4(@PathVariable("msg") String msg) {
+        String s = aopService.hello1(msg);
+        return s;
+    }
 
 }

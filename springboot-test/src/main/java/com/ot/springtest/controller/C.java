@@ -1,5 +1,6 @@
 package com.ot.springtest.controller;
 
+import com.ot.springtest.dto.Pig;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -26,5 +27,9 @@ public class C {
             throw e;
         } finally {
         }
+    }
+    @GetMapping("/get")
+    public Pig get(){
+        return new Pig("pig",10);
     }
 }

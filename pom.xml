@@ -30,20 +30,18 @@
         <module>springboot-redis</module>
         <module>springboot-neo4j2</module>
         <module>hello-spring-boot-starter</module>
-        <module>springboot-springdemo</module>
-        <module>springboot-springdemo/common</module>
-        <module>springboot-springdemo/controller</module>
         <module>springboot-test</module>
         <module>springboot-rabbit-mail-schedul</module>
         <module>springboot-redis-sentinel</module>
         <module>springboot-redis-cluster</module>
         <module>springboot-dynamic-datasource</module>
-        <module>spring-project</module>
-        <module>ssm-project</module>
         <module>springboot-jdbc-neo4j</module>
         <module>testjar</module>
         <module>springboot-hadoop</module>
-        <module>springboot-slf4j</module>
+        <module>springboot-async</module>
+        <module>springboot-filter</module>
+        <module>springboot-session-security</module>
+        <module>springboot-security-jsp</module>
     </modules>
     <name>springboot-parent</name>
     <description>Demo project for Spring Boot</description>

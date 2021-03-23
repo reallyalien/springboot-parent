@@ -17,7 +17,7 @@ import java.util.Date;
  * 创建定时任务对象需要实现SchedulingConfigurer
  */
 @Data
-@Component
+//@Component
 public class ScheduleTask implements SchedulingConfigurer {
 
     private static final Logger log = LoggerFactory.getLogger(ScheduleTask.class);

@@ -75,26 +75,26 @@ public class MyAdvice {
         }
         return proceed;
     }*/
-    @Pointcut("execution(* com.ot.springboot.aop.service.*.*(..))")
-    public void pc() {
-    }
-
-    @Around("pc()")
-    public Object around(ProceedingJoinPoint pjp) {
-        Object proceed = null;
-        try {
-            //得到当前方法参数的数组
-            Object[] args = pjp.getArgs();
-            String arg = (String) args[0];
-            arg+="uuuu";
-            args[0]=arg;
-            proceed=pjp.proceed(args);
-        } catch (Throwable e) {
-
-        } finally {
-
-        }
-        return proceed;
-    }
+//    @Pointcut("execution(* com.ot.springboot.aop.service.*.*(..))")
+//    public void pc() {
+//    }
+//
+//    @Around("pc()")
+//    public Object around(ProceedingJoinPoint pjp) {
+//        Object proceed = null;
+//        try {
+//            //得到当前方法参数的数组
+//            Object[] args = pjp.getArgs();
+//            String arg = (String) args[0];
+//            arg+="uuuu";
+//            args[0]=arg;
+//            proceed=pjp.proceed(args);
+//        } catch (Throwable e) {
+//
+//        } finally {
+//
+//        }
+//        return proceed;
+//    }
 
 }

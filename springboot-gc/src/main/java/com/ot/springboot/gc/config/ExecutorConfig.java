@@ -14,8 +14,8 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class ExecutorConfig {
 
     @Bean
-    public Executor asyncExecutorService(){
-        ThreadPoolTaskExecutor pool  = new ThreadPoolTaskExecutor();
+    public Executor asyncExecutorService() {
+        ThreadPoolTaskExecutor pool = new ThreadPoolTaskExecutor();
         //配置核心线程数
         pool.setCorePoolSize(5);
         //配置最大线程数
@@ -31,4 +31,7 @@ public class ExecutorConfig {
         return pool;
     }
 
+    public static void main(String[] args) {
+        System.out.println(1 << 2);
+    }
 }

@@ -45,7 +45,9 @@ public class GcController {
         if (queue.size() >= 200_000) {
             queue.clear();
         } else {
-            queue.offer(testObj);
+            for (int i = 0; i < 10; i++) {
+                queue.offer(testObj);
+            }
         }
         return testObj;
     }
