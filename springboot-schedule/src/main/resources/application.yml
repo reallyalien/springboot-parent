@@ -1,8 +1,0 @@
-spring:
-  task:
-    scheduling:
-      pool:
-        size: 80
-    execution:
-      pool:
-        core-size: 80

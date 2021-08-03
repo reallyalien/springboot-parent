@@ -17,9 +17,7 @@
         <module>springboot-websocket-sockjs</module>
         <module>springboot-websocket</module>
         <module>springboot-webflux</module>
-        <module>springboot-schedule</module>
         <module>springboot-springbatch</module>
-        <module>springboot-schedule-springbatch</module>
         <module>springboot-mongodb</module>
         <module>springboot-jpa</module>
         <module>springboot-kafka</module>
@@ -31,11 +29,9 @@
         <module>springboot-neo4j2</module>
         <module>hello-spring-boot-starter</module>
         <module>springboot-test</module>
-        <module>springboot-rabbit-mail-schedul</module>
         <module>springboot-redis-sentinel</module>
         <module>springboot-redis-cluster</module>
         <module>springboot-dynamic-datasource</module>
-        <module>springboot-jdbc-neo4j</module>
         <module>springboot-hadoop</module>
         <module>springboot-async</module>
         <module>springboot-filter</module>
