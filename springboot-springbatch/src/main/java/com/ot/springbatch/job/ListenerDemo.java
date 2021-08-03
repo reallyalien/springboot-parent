@@ -40,7 +40,6 @@ public class ListenerDemo {
         return jobBuilderFactory.get("listenerJob")
                 .listener(myJobListener)
                 .start(listenerStep1())
-                .next(listenerStep2())
                 .build();
     }
     @Bean
@@ -54,18 +53,18 @@ public class ListenerDemo {
                 .build();
     }
 
-    @Bean
-    public Step listenerStep2(){
-        return stepBuilderFactory.get("listenerStep2")
-                .tasklet(new Tasklet() {
-                    @Override
-                    public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
-                        return RepeatStatus.FINISHED;
-                    }
-                })
-                .listener(myStepListener)
-                .build();
-    }
+//    @Bean
+//    public Step listenerStep2(){
+//        return stepBuilderFactory.get("listenerStep2")
+//                .tasklet(new Tasklet() {
+//                    @Override
+//                    public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
+//                        return RepeatStatus.FINISHED;
+//                    }
+//                })
+//                .listener(myStepListener)
+//                .build();
+//    }
 
 
     /**

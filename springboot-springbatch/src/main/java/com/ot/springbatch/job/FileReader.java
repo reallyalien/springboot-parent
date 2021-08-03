@@ -51,7 +51,6 @@ public class FileReader {
     public ItemReader<Person> demoFileReader() {
         FlatFileItemReader<Person> reader = new FlatFileItemReader<>();
         reader.setResource(new ClassPathResource("csv/persons.csv"));
-        reader.setr
         //跳过第一行，第一行是表头
         reader.setLinesToSkip(1);
         //数据映射，解析   分界线/分词器 默认,分隔

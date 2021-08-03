@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/clouddb01
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: root
+    username: root
+    schema: classpath:/org/springframework/batch/core/schema-mysql.sql
+  batch:
+    initialize-schema: always
+    job:
+      enabled: false
+  data:
+    neo4j:
+      uri: bolt://127.0.0.1:7687
+      username: neo4j
+      password: root
+hive:
+  url: jdbc:hive2://192.168.100.83:10000
+  driver: org.apache.hive.jdbc.HiveDriver
+  username: root
+  password: root

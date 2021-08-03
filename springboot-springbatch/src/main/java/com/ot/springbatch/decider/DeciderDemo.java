@@ -24,8 +24,9 @@ public class DeciderDemo {
     private StepBuilderFactory stepBuilderFactory;
     @Autowired
     private MyDedicider myDedicider;
+
     @Bean
-    public Job jobDecider(){
+    public Job jobDecider() {
         return jobBuilderFactory.get("jobDecider")
                 .start(stepDecider1())
                 .next(myDedicider)//由决策器的返回值决定执行哪个step
@@ -36,7 +37,7 @@ public class DeciderDemo {
     }
 
     @Bean
-    public Step stepDecider1(){
+    public Step stepDecider1() {
         return stepBuilderFactory.get("stepDecider1")
                 .tasklet(new Tasklet() {
                     @Override
@@ -46,8 +47,9 @@ public class DeciderDemo {
                     }
                 }).build();
     }
+
     @Bean
-    public Step stepDecider2(){
+    public Step stepDecider2() {
         return stepBuilderFactory.get("stepDecider2")
                 .tasklet(new Tasklet() {
                     @Override
@@ -57,8 +59,9 @@ public class DeciderDemo {
                     }
                 }).build();
     }
+
     @Bean
-    public Step stepDecider3(){
+    public Step stepDecider3() {
         return stepBuilderFactory.get("stepDecider3")
                 .tasklet(new Tasklet() {
                     @Override
@@ -71,15 +74,16 @@ public class DeciderDemo {
 
     //定义一个决策器,根据决策器的值来决定使用哪个step
     @Component
-    class MyDedicider implements JobExecutionDecider{
+    class MyDedicider implements JobExecutionDecider {
 
-        private  int count=0;
+        private int count = 0;
+
         @Override
         public FlowExecutionStatus decide(JobExecution jobExecution, StepExecution stepExecution) {
             count++;
-            if (count % 2 == 0){
+            if (count % 2 == 0) {
                 return new FlowExecutionStatus("even");
-            }else {
+            } else {
                 return new FlowExecutionStatus("odd");
             }
         }

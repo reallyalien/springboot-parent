@@ -11,7 +11,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.2.RELEASE</version>
+        <version>2.3.9.RELEASE</version>
     </parent>
     <modules>
         <module>springboot-websocket-sockjs</module>
@@ -36,12 +36,21 @@
         <module>springboot-redis-cluster</module>
         <module>springboot-dynamic-datasource</module>
         <module>springboot-jdbc-neo4j</module>
-        <module>testjar</module>
         <module>springboot-hadoop</module>
         <module>springboot-async</module>
         <module>springboot-filter</module>
         <module>springboot-session-security</module>
-        <module>springboot-security-jsp</module>
+        <module>springboot-security-html</module>
+        <module>springboot-cookie-session</module>
+        <module>springboot-mail</module>
+        <module>springboot-datasource</module>
+        <module>springboot-cache</module>
+        <module>springboot-jta-atomikos</module>
+        <module>springboot-integration</module>
+        <module>springboot-elasticsearch</module>
+        <module>springboot-script</module>
+        <module>springboot-activiti</module>
+        <module>springboot-compantscan</module>
     </modules>
     <name>springboot-parent</name>
     <description>Demo project for Spring Boot</description>

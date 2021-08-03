@@ -1,6 +1,6 @@
 package com.ot.springboot.ajax.config;
 
-import com.ot.springboot.ajax.intercepter.MyIntercepter;
+//import com.ot.springboot.ajax.intercepter.MyIntercepter;
 import org.springframework.boot.autoconfigure.web.embedded.EmbeddedWebServerFactoryCustomizerAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;
@@ -36,12 +36,12 @@ public class CorsConfig implements WebMvcConfigurer {
      *
      * @param registry
      */
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new MyIntercepter());
-    }
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(new MyIntercepter());
+//    }
     /**
-     * 跨域请求在corsUtils当中有一个判断是否是跨域请求的静态方法如下
+     * 跨域请求在 corsUtils 当中有一个判断是否是跨域请求的静态方法如下
      * 1.请求方式是OPTIONS
      * 2.请求头携带ORIGIN
      * 3.请求头携带ACCESS_CONTROL_REQUEST_METHOD    Access-Control-Request-Method

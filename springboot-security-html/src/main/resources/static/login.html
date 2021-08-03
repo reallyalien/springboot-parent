@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/customerLogin" method="post">
+    用户名：<input type="text" name="username1"><br>
+    密&nbsp;&nbsp;&nbsp;码:
+    <input type="password" name="password1"><br>
+    <input type="hidden" name="_csrf" id="_csrf"><br>
+    <input type="submit" value="登录">
+</form>
+<script>
+    let cookie = document.cookie;
+    let cookies = cookie.split(";");
+    let token = cookies.find((x) => x.startsWith('XSRF-TOKEN'));
+    //XSRF-TOKEN=2338c967-76c8-454e-a368-9f6a2b89176c
+    let csrf = document.getElementById('_csrf');
+    //携带后端返回的token发送post请求
+    csrf.value = token.split('=')[1]
+</script>
+</body>
+</html>

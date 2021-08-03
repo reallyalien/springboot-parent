@@ -4,6 +4,7 @@ import com.ot.springbootwebflux.entity.MyEvent;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.core.CollectionOptions;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -13,7 +14,7 @@ public class SpringbootWebfluxApplication {
 
     public static void main(String[] args) {
         SpringApplication springApplication = new SpringApplication(SpringbootWebfluxApplication.class);
-        springApplication.run(args);
+        ConfigurableApplicationContext ac = springApplication.run(args);
     }
 
 

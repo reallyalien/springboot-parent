@@ -24,27 +24,10 @@ public class ScheduleMain {
         ThreadPoolTaskExecutor executor = ac.getBean("applicationTaskExecutor", ThreadPoolTaskExecutor.class);
         ThreadPoolTaskScheduler taskScheduler = ac.getBean("taskScheduler", ThreadPoolTaskScheduler.class);
         //ThreadPoolTaskExecutor默认是8个线程数，跟机器CPU线程数一样
-//        executor.execute(new Runnable() {
-//            @Override
-//            public void run() {
-//                System.out.println("当前线程：" + Thread.currentThread());
-//            }
-//        });
-//        //ThreadPoolTaskScheduler默认只有1个核心线程数
-//        taskScheduler.execute(new Runnable() {
-//            @Override
-//            public void run() {
-//                System.out.println("当前线程:"+Thread.currentThread());
-//            }
-//        });
         String[] names = ac.getBeanNamesForType(Executor.class);
         for (String name : names) {
             System.out.println(name);
         }
-//        String[] names = ac.getBeanDefinitionNames();
-//        for (String name : names) {
-//            System.out.println(name);
-//        }
     }
 
     /*

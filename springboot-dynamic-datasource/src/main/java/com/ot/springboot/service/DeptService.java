@@ -6,8 +6,10 @@ import java.util.List;
 
 public interface DeptService {
 
-    List<Dept> findAll();
+    Dept findByIdM();
 
-    Dept findById();
+    Dept findByIdS();
+
+    void insert(Dept dept);
 
 }

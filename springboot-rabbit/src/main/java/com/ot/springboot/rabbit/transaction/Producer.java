@@ -11,7 +11,6 @@ import java.util.concurrent.TimeoutException;
 /**
  * 事务保证确认消息到达broker、
  * 这种方式会降低消息吞吐量
- *
  */
 public class Producer {
     private static final String QUEUQ_NAME = "queue_1";

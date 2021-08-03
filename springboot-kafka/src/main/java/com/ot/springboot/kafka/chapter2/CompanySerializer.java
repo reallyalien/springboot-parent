@@ -11,10 +11,6 @@ import java.util.Map;
 public class CompanySerializer implements Serializer<Company> {
 
     @Override
-    public void configure(Map<String, ?> configs, boolean isKey) {
-
-    }
-    @Override
     public byte[] serialize(String topic, Company data){
         if (data == null ) return new byte[0];
         String company = JSON.toJSONString(data);
@@ -25,10 +21,5 @@ public class CompanySerializer implements Serializer<Company> {
             e.printStackTrace();
         }
         return bytes;
-    }
-
-    @Override
-    public void close() {
-
     }
 }

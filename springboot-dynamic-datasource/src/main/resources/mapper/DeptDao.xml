@@ -10,4 +10,8 @@
     <select id="findById" resultType="com.ot.springboot.entities.Dept">
         select * from dept where id=1
     </select>
+
+    <insert id="insert" parameterType="com.ot.springboot.entities.Dept">
+        insert into dept (dname,db_source) values (#{dname},#{db_source})
+    </insert>
 </mapper>

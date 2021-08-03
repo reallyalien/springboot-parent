@@ -11,16 +11,17 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 public class DefaultPartition implements Partitioner {
 
-    private final AtomicInteger counter=new AtomicInteger(0);
+    private final AtomicInteger counter = new AtomicInteger(0);
+
     //自定义分区策略
     @Override
     public int partition(String topic, Object key, byte[] keyBytes, Object value, byte[] valueBytes, Cluster cluster) {
         //获取当前主题的所有分区
         List<PartitionInfo> partitions = cluster.partitionsForTopic(topic);
         int size = partitions.size();
-        if (keyBytes == null){//如果没有设置key的值
+        if (keyBytes == null) {//如果没有设置key的值
             return counter.getAndIncrement() % size;//
-        }else {
+        } else {
             //如果设置了key的值，则用雪花算法去计算分区
             int i = Utils.toPositive(Utils.murmur2(keyBytes)) % size;
             return i;

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.print.DocFlavor;
+
 @RestController
 public class JobController {
 
@@ -46,8 +48,6 @@ public class JobController {
     @Autowired
     private Job fileJob;
 
-    @Autowired
-    private ApplicationContext applicationContext;
     protected volatile int page = 0;
     @Autowired
     private Job neo4jJob;
@@ -123,6 +123,7 @@ public class JobController {
         }
         return "job run success";
     }
+
     @RequestMapping(value = "/runHiveDb/{msg1}", method = RequestMethod.GET)
     public String runHiveDb(@PathVariable("msg1") Long msg1) {
         JobParameters jobParameters = new JobParametersBuilder().addLong("msg1", msg1)
@@ -222,6 +223,7 @@ public class JobController {
         }
         return "job run success";
     }
+
     @RequestMapping(value = "/RunFileJob/{msg1}", method = RequestMethod.GET)
     public String fileJob(@PathVariable("msg1") Long msg1) {
         JobParameters jobParameters = new JobParametersBuilder().addLong("msg1", msg1)
@@ -243,10 +245,5 @@ public class JobController {
         return page++;
     }
 
-    @RequestMapping("/getBeans")
-    public String[] getBeans() {
-        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
-        return beanDefinitionNames;
-    }
 
 }

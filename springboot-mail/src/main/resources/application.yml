@@ -1,0 +1,17 @@
+spring:
+  mail:
+    host: smtp.yeah.net
+    port: 25
+    protocol: smtp
+    default-encoding: UTF-8
+    username: reallyalien@yeah.net
+    password: VLHJRQPTLKLPTIEH
+    test-connection: true
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+

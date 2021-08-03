@@ -1,6 +1,7 @@
 package com.ot.springbatch.job;
 
 import org.springframework.batch.core.Job;
+import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -23,6 +24,7 @@ public class JobDemo1 {
     @Autowired
     private StepBuilderFactory stepBuilderFactory;
 
+
     @Bean("job1")
     public Job job() {
         return jobBuilderFactory.get("job1")
@@ -40,7 +42,7 @@ public class JobDemo1 {
                     public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
                         for (int i = 0; i < 10; i++) {
                             System.out.println("step1[+" + i + "]" + Thread.currentThread().getName());
-                            if (i==9) throw new RuntimeException("错误数据");
+//                            if (i==9) throw new RuntimeException("错误数据");
                         }
                         return RepeatStatus.FINISHED;
                     }
@@ -54,8 +56,13 @@ public class JobDemo1 {
                     @Override
                     public RepeatStatus execute(StepContribution stepContribution, ChunkContext chunkContext) throws Exception {
                         for (int i = 10; i < 20; i++) {
-                            System.out.println("step2[+" + i + "]" + Thread.currentThread().getName());
-//                            if (i==18) throw new RuntimeException("错误数据");
+                            try {
+                                System.out.println("step2[+" + i + "]" + Thread.currentThread().getName());
+                                if (i == 18) throw new RuntimeException("错误数据");
+                            } catch (RuntimeException e) {
+
+                            } finally {
+                            }
                             //下次重新运行只运行错误的step
                         }
                         return RepeatStatus.FINISHED;

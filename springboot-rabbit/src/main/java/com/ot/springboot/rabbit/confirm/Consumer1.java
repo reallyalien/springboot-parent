@@ -25,7 +25,7 @@ public class Consumer1 {
                     e.printStackTrace();
                 } finally {
                     channel.basicAck(envelope.getDeliveryTag(), false);
-                    System.out.println("deliveryTag:" + envelope.getDeliveryTag());
+//                    System.out.println("deliveryTag:" + envelope.getDeliveryTag());
                 }
             }
         };

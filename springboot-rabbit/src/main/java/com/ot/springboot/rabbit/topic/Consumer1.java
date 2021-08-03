@@ -14,7 +14,7 @@ public class Consumer1 {
         Connection connection = ConnectUtil.getConnection();
         final Channel channel = connection.createChannel();
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-        channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "goods.add");
+        channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "topic.*.queue");
         DefaultConsumer consumer = new DefaultConsumer(channel) {
             @Override
             public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {

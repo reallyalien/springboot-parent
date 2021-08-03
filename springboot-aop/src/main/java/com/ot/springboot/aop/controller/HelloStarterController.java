@@ -21,5 +21,9 @@ public class HelloStarterController {
 //        user.setName("傻瓜");
 //        return helloService.objToJson(user);
 //    }
+    @GetMapping("/1")
+    public void remoteTest(){
+
+    }
 
 }

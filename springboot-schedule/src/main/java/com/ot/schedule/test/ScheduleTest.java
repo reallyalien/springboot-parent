@@ -35,14 +35,11 @@ public class ScheduleTest {
         try {
             int a=1/0;
         } catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
         }
         Date now = new Date();
         String s = simpleDateFormat.format(now);
         System.out.println("test1执行的线程------>：" + Thread.currentThread() + "&&&&&&&时间--->" + s);
-//        TimeUnit.SECONDS.sleep(3);
-//        System.out.println("执行的线程<------："+Thread.currentThread());
-//        System.out.println("#####<<<"+ LocalDateTime.now());
     }
 
 }

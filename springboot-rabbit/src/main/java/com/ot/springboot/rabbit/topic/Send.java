@@ -19,7 +19,7 @@ public class Send {
         Connection connection = ConnectUtil.getConnection();
         Channel channel = connection.createChannel();
         channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.TOPIC);
-        String routeKey = "topic.del.aaa.queue";
+        String routeKey = "topic.del.queue";
         for (int i = 0; i < 1; i++) {
             String msg = "商品:" + i;
             channel.basicPublish(EXCHANGE_NAME, routeKey, null, msg.getBytes());

@@ -1,1 +1,7 @@
 #debug: true
+spring:
+  task:
+    execution:
+      thread-name-prefix: exe
+    scheduling:
+      thread-name-prefix: schedule

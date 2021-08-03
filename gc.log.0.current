@@ -1,97 +1,255 @@
-Java HotSpot(TM) 64-Bit Server VM (25.191-b12) for windows-amd64 JRE (1.8.0_191-b12), built on Oct  6 2018 09:29:03 by "java_re" with MS VC++ 10.0 (VS2010)
-Memory: 4k page, physical 16449800k(6384176k free), swap 26935560k(13251304k free)
+Java HotSpot(TM) 64-Bit Server VM (25.131-b11) for windows-amd64 JRE (1.8.0_131-b11), built on Mar 15 2017 01:23:53 by "java_re" with MS VC++ 10.0 (VS2010)
+Memory: 4k page, physical 16449800k(8813600k free), swap 26935560k(15599580k free)
 CommandLine flags: -XX:-BytecodeVerificationLocal -XX:-BytecodeVerificationRemote -XX:GCLogFileSize=104857600 -XX:InitialHeapSize=104857600 -XX:+ManagementServer -XX:MaxHeapSize=104857600 -XX:NumberOfGCLogFiles=2 -XX:+PrintGC -XX:+PrintGCApplicationStoppedTime -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -XX:+PrintReferenceGC -XX:+PrintTenuringDistribution -XX:ThreadStackSize=256 -XX:TieredStopAtLevel=1 -XX:+UseCompressedClassPointers -XX:+UseCompressedOops -XX:+UseGCLogFileRotation -XX:-UseLargePagesIndividualAllocation -XX:+UseParallelGC 
-2021-03-22T10:44:08.772+0800: 0.090: Total time for which application threads were stopped: 0.0001061 seconds, Stopping threads took: 0.0000565 seconds
-2021-03-22T10:44:08.772+0800: 0.090: Total time for which application threads were stopped: 0.0000170 seconds, Stopping threads took: 0.0000058 seconds
-2021-03-22T10:44:09.728+0800: 1.046: Total time for which application threads were stopped: 0.0000485 seconds, Stopping threads took: 0.0000125 seconds
-2021-03-22T10:44:09.729+0800: 1.047: Total time for which application threads were stopped: 0.0000331 seconds, Stopping threads took: 0.0000097 seconds
-2021-03-22T10:44:09.842+0800: 1.160: Total time for which application threads were stopped: 0.0000841 seconds, Stopping threads took: 0.0000164 seconds
-2021-03-22T10:44:09.993+0800: 1.311: Total time for which application threads were stopped: 0.0001150 seconds, Stopping threads took: 0.0000199 seconds
-2021-03-22T10:44:09.995+0800: 1.313: Total time for which application threads were stopped: 0.0000420 seconds, Stopping threads took: 0.0000111 seconds
-2021-03-22T10:44:10.074+0800: 1.392: Total time for which application threads were stopped: 0.0001226 seconds, Stopping threads took: 0.0000401 seconds
-2021-03-22T10:44:10.102+0800: 1.420: [GC (Allocation Failure) 2021-03-22T10:44:10.103+0800: 1.421: [SoftReference, 0 refs, 0.0000314 secs]2021-03-22T10:44:10.103+0800: 1.421: [WeakReference, 534 refs, 0.0000311 secs]2021-03-22T10:44:10.103+0800: 1.422: [FinalReference, 663 refs, 0.0004438 secs]2021-03-22T10:44:10.104+0800: 1.422: [PhantomReference, 0 refs, 1 refs, 0.0000056 secs]2021-03-22T10:44:10.104+0800: 1.422: [JNI Weak Reference, 0.0001141 secs]
+2021-04-25T21:35:45.817+0800: 0.286: Total time for which application threads were stopped: 0.0184703 seconds, Stopping threads took: 0.0000578 seconds
+2021-04-25T21:35:45.835+0800: 0.287: Total time for which application threads were stopped: 0.0002818 seconds, Stopping threads took: 0.0002259 seconds
+2021-04-25T21:35:46.102+0800: 0.555: Total time for which application threads were stopped: 0.0000977 seconds, Stopping threads took: 0.0000265 seconds
+2021-04-25T21:35:46.102+0800: 0.556: Total time for which application threads were stopped: 0.0000783 seconds, Stopping threads took: 0.0000250 seconds
+2021-04-25T21:35:46.662+0800: 1.115: Total time for which application threads were stopped: 0.0002587 seconds, Stopping threads took: 0.0000688 seconds
+2021-04-25T21:35:47.532+0800: 1.989: Total time for which application threads were stopped: 0.0002589 seconds, Stopping threads took: 0.0000365 seconds
+2021-04-25T21:35:47.546+0800: 2.000: Total time for which application threads were stopped: 0.0001635 seconds, Stopping threads took: 0.0000373 seconds
+2021-04-25T21:35:47.884+0800: 2.335: Total time for which application threads were stopped: 0.0004181 seconds, Stopping threads took: 0.0001516 seconds
+2021-04-25T21:35:48.018+0800: 2.471: [GC (Allocation Failure) 2021-04-25T21:35:48.023+0800: 2.477: [SoftReference, 0 refs, 0.0000713 secs]2021-04-25T21:35:48.023+0800: 2.477: [WeakReference, 523 refs, 0.0000787 secs]2021-04-25T21:35:48.023+0800: 2.478: [FinalReference, 668 refs, 0.0013643 secs]2021-04-25T21:35:48.023+0800: 2.479: [PhantomReference, 0 refs, 1 refs, 0.0000251 secs]2021-04-25T21:35:48.023+0800: 2.479: [JNI Weak Reference, 0.0003669 secs]
 Desired survivor size 4194304 bytes, new threshold 7 (max 15)
-[PSYoungGen: 25600K->3542K(29696K)] 25600K->3558K(98304K), 0.0024141 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
-2021-03-22T10:44:10.104+0800: 1.422: Total time for which application threads were stopped: 0.0025472 seconds, Stopping threads took: 0.0000214 seconds
-2021-03-22T10:44:10.149+0800: 1.467: Total time for which application threads were stopped: 0.0002092 seconds, Stopping threads took: 0.0001015 seconds
-2021-03-22T10:44:10.242+0800: 1.560: [GC (Allocation Failure) 2021-03-22T10:44:10.244+0800: 1.562: [SoftReference, 0 refs, 0.0000936 secs]2021-03-22T10:44:10.244+0800: 1.562: [WeakReference, 670 refs, 0.0000339 secs]2021-03-22T10:44:10.244+0800: 1.563: [FinalReference, 995 refs, 0.0008961 secs]2021-03-22T10:44:10.245+0800: 1.563: [PhantomReference, 0 refs, 1 refs, 0.0000074 secs]2021-03-22T10:44:10.245+0800: 1.563: [JNI Weak Reference, 0.0001520 secs]
+[PSYoungGen: 25600K->3680K(29696K)] 25600K->3696K(98304K), 0.0286643 secs] [Times: user=0.00 sys=0.00, real=0.03 secs] 
+2021-04-25T21:35:48.048+0800: 2.500: Total time for which application threads were stopped: 0.0290071 seconds, Stopping threads took: 0.0000442 seconds
+2021-04-25T21:35:48.716+0800: 3.168: [GC (Allocation Failure) 2021-04-25T21:35:48.722+0800: 3.175: [SoftReference, 0 refs, 0.0000713 secs]2021-04-25T21:35:48.722+0800: 3.175: [WeakReference, 725 refs, 0.0001079 secs]2021-04-25T21:35:48.722+0800: 3.175: [FinalReference, 916 refs, 0.0020104 secs]2021-04-25T21:35:48.722+0800: 3.177: [PhantomReference, 0 refs, 1 refs, 0.0000175 secs]2021-04-25T21:35:48.722+0800: 3.177: [JNI Weak Reference, 0.0003299 secs]
 Desired survivor size 4194304 bytes, new threshold 7 (max 15)
-[PSYoungGen: 29142K->4092K(29696K)] 29158K->5233K(98304K), 0.0040122 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
-2021-03-22T10:44:10.246+0800: 1.564: Total time for which application threads were stopped: 0.0041823 seconds, Stopping threads took: 0.0000396 seconds
-2021-03-22T10:44:10.329+0800: 1.647: [GC (Allocation Failure) 2021-03-22T10:44:10.331+0800: 1.649: [SoftReference, 0 refs, 0.0000280 secs]2021-03-22T10:44:10.331+0800: 1.649: [WeakReference, 757 refs, 0.0000553 secs]2021-03-22T10:44:10.331+0800: 1.649: [FinalReference, 1046 refs, 0.0006980 secs]2021-03-22T10:44:10.332+0800: 1.650: [PhantomReference, 0 refs, 1 refs, 0.0000602 secs]2021-03-22T10:44:10.332+0800: 1.650: [JNI Weak Reference, 0.0001558 secs]
+[PSYoungGen: 29280K->4085K(29696K)] 29296K->5292K(98304K), 0.0107939 secs] [Times: user=0.05 sys=0.00, real=0.01 secs] 
+2021-04-25T21:35:48.722+0800: 3.178: Total time for which application threads were stopped: 0.0112937 seconds, Stopping threads took: 0.0001123 seconds
+2021-04-25T21:35:49.021+0800: 3.476: [GC (Allocation Failure) 2021-04-25T21:35:49.021+0800: 3.480: [SoftReference, 0 refs, 0.0000559 secs]2021-04-25T21:35:49.021+0800: 3.480: [WeakReference, 792 refs, 0.0001569 secs]2021-04-25T21:35:49.030+0800: 3.481: [FinalReference, 1035 refs, 0.0012837 secs]2021-04-25T21:35:49.030+0800: 3.482: [PhantomReference, 0 refs, 1 refs, 0.0000136 secs]2021-04-25T21:35:49.030+0800: 3.482: [JNI Weak Reference, 0.0003264 secs]
 Desired survivor size 4194304 bytes, new threshold 7 (max 15)
-[PSYoungGen: 29692K->4088K(29696K)] 30833K->6710K(98304K), 0.0034290 secs] [Times: user=0.00 sys=0.02, real=0.00 secs] 
-2021-03-22T10:44:10.333+0800: 1.650: Total time for which application threads were stopped: 0.0036204 seconds, Stopping threads took: 0.0000381 seconds
-2021-03-22T10:44:10.403+0800: 1.721: [GC (Allocation Failure) 2021-03-22T10:44:10.405+0800: 1.723: [SoftReference, 0 refs, 0.0000332 secs]2021-03-22T10:44:10.405+0800: 1.723: [WeakReference, 635 refs, 0.0000289 secs]2021-03-22T10:44:10.405+0800: 1.723: [FinalReference, 988 refs, 0.0008287 secs]2021-03-22T10:44:10.406+0800: 1.724: [PhantomReference, 0 refs, 1 refs, 0.0000069 secs]2021-03-22T10:44:10.406+0800: 1.724: [JNI Weak Reference, 0.0001744 secs]
+[PSYoungGen: 29685K->4072K(29696K)] 30892K->6880K(98304K), 0.0074683 secs] [Times: user=0.00 sys=0.00, real=0.01 secs] 
+2021-04-25T21:35:49.030+0800: 3.483: Total time for which application threads were stopped: 0.0079918 seconds, Stopping threads took: 0.0000739 seconds
+2021-04-25T21:35:49.314+0800: 3.769: Total time for which application threads were stopped: 0.0002436 seconds, Stopping threads took: 0.0000490 seconds
+2021-04-25T21:35:49.314+0800: 3.770: [GC (GCLocker Initiated GC) 2021-04-25T21:35:49.321+0800: 3.777: [SoftReference, 0 refs, 0.0000523 secs]2021-04-25T21:35:49.321+0800: 3.777: [WeakReference, 676 refs, 0.0000651 secs]2021-04-25T21:35:49.321+0800: 3.778: [FinalReference, 1021 refs, 0.0018470 secs]2021-04-25T21:35:49.321+0800: 3.779: [PhantomReference, 0 refs, 1 refs, 0.0000144 secs]2021-04-25T21:35:49.321+0800: 3.779: [JNI Weak Reference, 0.0003630 secs]
 Desired survivor size 4194304 bytes, new threshold 7 (max 15)
-[PSYoungGen: 29688K->4088K(29696K)] 32310K->9305K(98304K), 0.0036733 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
-2021-03-22T10:44:10.407+0800: 1.725: Total time for which application threads were stopped: 0.0038650 seconds, Stopping threads took: 0.0000491 seconds
-2021-03-22T10:44:10.452+0800: 1.770: Total time for which application threads were stopped: 0.0002045 seconds, Stopping threads took: 0.0000220 seconds
-2021-03-22T10:44:10.482+0800: 1.800: Total time for which application threads were stopped: 0.0001719 seconds, Stopping threads took: 0.0000146 seconds
-2021-03-22T10:44:10.489+0800: 1.807: [GC (Allocation Failure) 2021-03-22T10:44:10.492+0800: 1.810: [SoftReference, 0 refs, 0.0000335 secs]2021-03-22T10:44:10.492+0800: 1.810: [WeakReference, 728 refs, 0.0000355 secs]2021-03-22T10:44:10.492+0800: 1.810: [FinalReference, 967 refs, 0.0008209 secs]2021-03-22T10:44:10.492+0800: 1.811: [PhantomReference, 0 refs, 1 refs, 0.0000059 secs]2021-03-22T10:44:10.492+0800: 1.811: [JNI Weak Reference, 0.0002289 secs]
-Desired survivor size 8912896 bytes, new threshold 6 (max 15)
-[PSYoungGen: 29688K->4074K(29696K)] 34905K->12229K(98304K), 0.0042568 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
-2021-03-22T10:44:10.493+0800: 1.811: Total time for which application threads were stopped: 0.0043732 seconds, Stopping threads took: 0.0000150 seconds
-2021-03-22T10:44:10.510+0800: 1.828: [GC (Metadata GC Threshold) 2021-03-22T10:44:10.512+0800: 1.829: [SoftReference, 0 refs, 0.0000407 secs]2021-03-22T10:44:10.512+0800: 1.829: [WeakReference, 668 refs, 0.0000456 secs]2021-03-22T10:44:10.512+0800: 1.829: [FinalReference, 165 refs, 0.0000852 secs]2021-03-22T10:44:10.512+0800: 1.830: [PhantomReference, 0 refs, 2 refs, 0.0000120 secs]2021-03-22T10:44:10.512+0800: 1.830: [JNI Weak Reference, 0.0002128 secs]
-Desired survivor size 8388608 bytes, new threshold 5 (max 15)
-[PSYoungGen: 5707K->4090K(21504K)] 13862K->12440K(90112K), 0.0024713 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
-2021-03-22T10:44:10.512+0800: 1.830: [Full GC (Metadata GC Threshold) 2021-03-22T10:44:10.515+0800: 1.833: [SoftReference, 0 refs, 0.0000526 secs]2021-03-22T10:44:10.515+0800: 1.833: [WeakReference, 485 refs, 0.0000224 secs]2021-03-22T10:44:10.515+0800: 1.833: [FinalReference, 129 refs, 0.0000160 secs]2021-03-22T10:44:10.515+0800: 1.833: [PhantomReference, 0 refs, 1 refs, 0.0000047 secs]2021-03-22T10:44:10.515+0800: 1.833: [JNI Weak Reference, 0.0001524 secs][PSYoungGen: 4090K->0K(21504K)] [ParOldGen: 8349K->5068K(39424K)] 12440K->5068K(60928K), [Metaspace: 20577K->20575K(1067008K)], 0.0205655 secs] [Times: user=0.01 sys=0.00, real=0.02 secs] 
-2021-03-22T10:44:10.533+0800: 1.851: Total time for which application threads were stopped: 0.0233230 seconds, Stopping threads took: 0.0000185 seconds
-2021-03-22T10:44:10.675+0800: 1.992: [GC (Allocation Failure) 2021-03-22T10:44:10.675+0800: 1.993: [SoftReference, 0 refs, 0.0000230 secs]2021-03-22T10:44:10.675+0800: 1.993: [WeakReference, 96 refs, 0.0000121 secs]2021-03-22T10:44:10.676+0800: 1.993: [FinalReference, 464 refs, 0.0002542 secs]2021-03-22T10:44:10.676+0800: 1.994: [PhantomReference, 0 refs, 0 refs, 0.0000080 secs]2021-03-22T10:44:10.676+0800: 1.994: [JNI Weak Reference, 0.0001092 secs]
+[PSYoungGen: 29672K->4074K(29696K)] 32480K->9559K(98304K), 0.0112892 secs] [Times: user=0.03 sys=0.00, real=0.02 secs] 
+2021-04-25T21:35:49.330+0800: 3.781: Total time for which application threads were stopped: 0.0116847 seconds, Stopping threads took: 0.0000544 seconds
+2021-04-25T21:35:49.547+0800: 3.998: Total time for which application threads were stopped: 0.0004718 seconds, Stopping threads took: 0.0000941 seconds
+2021-04-25T21:35:49.606+0800: 4.059: [GC (Metadata GC Threshold) 2021-04-25T21:35:49.615+0800: 4.066: [SoftReference, 0 refs, 0.0000607 secs]2021-04-25T21:35:49.615+0800: 4.066: [WeakReference, 665 refs, 0.0000721 secs]2021-04-25T21:35:49.615+0800: 4.066: [FinalReference, 883 refs, 0.0020474 secs]2021-04-25T21:35:49.615+0800: 4.068: [PhantomReference, 0 refs, 1 refs, 0.0000157 secs]2021-04-25T21:35:49.615+0800: 4.068: [JNI Weak Reference, 0.0004494 secs]
+Desired survivor size 8388608 bytes, new threshold 6 (max 15)
+[PSYoungGen: 26764K->4072K(29696K)] 32249K->12236K(98304K), 0.0106810 secs] [Times: user=0.08 sys=0.02, real=0.01 secs] 
+2021-04-25T21:35:49.615+0800: 4.070: [Full GC (Metadata GC Threshold) 2021-04-25T21:35:49.620+0800: 4.076: [SoftReference, 0 refs, 0.0000598 secs]2021-04-25T21:35:49.620+0800: 4.076: [WeakReference, 124 refs, 0.0000228 secs]2021-04-25T21:35:49.620+0800: 4.076: [FinalReference, 86 refs, 0.0000157 secs]2021-04-25T21:35:49.620+0800: 4.076: [PhantomReference, 0 refs, 0 refs, 0.0000118 secs]2021-04-25T21:35:49.620+0800: 4.076: [JNI Weak Reference, 0.0002590 secs][PSYoungGen: 4072K->0K(29696K)] [ParOldGen: 8164K->7167K(46080K)] 12236K->7167K(75776K), [Metaspace: 20539K->20538K(1067008K)], 0.0531211 secs] [Times: user=0.11 sys=0.00, real=0.06 secs] 
+2021-04-25T21:35:49.670+0800: 4.123: Total time for which application threads were stopped: 0.0644103 seconds, Stopping threads took: 0.0000702 seconds
+2021-04-25T21:35:49.730+0800: 4.182: Total time for which application threads were stopped: 0.0003871 seconds, Stopping threads took: 0.0000376 seconds
+2021-04-25T21:35:50.287+0800: 4.740: [GC (Allocation Failure) 2021-04-25T21:35:50.287+0800: 4.746: [SoftReference, 0 refs, 0.0000691 secs]2021-04-25T21:35:50.295+0800: 4.746: [WeakReference, 159 refs, 0.0000490 secs]2021-04-25T21:35:50.295+0800: 4.746: [FinalReference, 698 refs, 0.0010046 secs]2021-04-25T21:35:50.295+0800: 4.747: [PhantomReference, 0 refs, 1 refs, 0.0000267 secs]2021-04-25T21:35:50.295+0800: 4.747: [JNI Weak Reference, 0.0004083 secs]
+Desired survivor size 8912896 bytes, new threshold 5 (max 15)
+[PSYoungGen: 25600K->2801K(20480K)] 32770K->9979K(66560K), 0.0076311 secs] [Times: user=0.00 sys=0.00, real=0.01 secs] 
+2021-04-25T21:35:50.295+0800: 4.748: Total time for which application threads were stopped: 0.0081723 seconds, Stopping threads took: 0.0000520 seconds
+2021-04-25T21:35:50.774+0800: 5.226: [GC (Allocation Failure) 2021-04-25T21:35:50.774+0800: 5.230: [SoftReference, 0 refs, 0.0000609 secs]2021-04-25T21:35:50.774+0800: 5.230: [WeakReference, 173 refs, 0.0000430 secs]2021-04-25T21:35:50.774+0800: 5.230: [FinalReference, 450 refs, 0.0005878 secs]2021-04-25T21:35:50.774+0800: 5.231: [PhantomReference, 0 refs, 1 refs, 0.0000326 secs]2021-04-25T21:35:50.774+0800: 5.231: [JNI Weak Reference, 0.0003853 secs]
 Desired survivor size 8912896 bytes, new threshold 4 (max 15)
-[PSYoungGen: 17408K->1894K(19456K)] 22476K->6970K(58880K), 0.0014183 secs] [Times: user=0.00 sys=0.02, real=0.00 secs] 
-2021-03-22T10:44:10.676+0800: 1.994: Total time for which application threads were stopped: 0.0016579 seconds, Stopping threads took: 0.0000283 seconds
-2021-03-22T10:44:10.797+0800: 2.115: [GC (Allocation Failure) 2021-03-22T10:44:10.798+0800: 2.116: [SoftReference, 0 refs, 0.0000725 secs]2021-03-22T10:44:10.798+0800: 2.116: [WeakReference, 127 refs, 0.0000165 secs]2021-03-22T10:44:10.798+0800: 2.116: [FinalReference, 483 refs, 0.0005698 secs]2021-03-22T10:44:10.799+0800: 2.117: [PhantomReference, 0 refs, 0 refs, 0.0000086 secs]2021-03-22T10:44:10.799+0800: 2.117: [JNI Weak Reference, 0.0001663 secs]
+[PSYoungGen: 19185K->2727K(25088K)] 26363K->9914K(71168K), 0.0060919 secs] [Times: user=0.00 sys=0.00, real=0.01 secs] 
+2021-04-25T21:35:50.781+0800: 5.232: Total time for which application threads were stopped: 0.0066015 seconds, Stopping threads took: 0.0000668 seconds
+2021-04-25T21:35:51.255+0800: 5.711: [GC (Allocation Failure) 2021-04-25T21:35:51.265+0800: 5.716: [SoftReference, 0 refs, 0.0000706 secs]2021-04-25T21:35:51.265+0800: 5.716: [WeakReference, 224 refs, 0.0000571 secs]2021-04-25T21:35:51.265+0800: 5.716: [FinalReference, 576 refs, 0.0005728 secs]2021-04-25T21:35:51.265+0800: 5.717: [PhantomReference, 0 refs, 1 refs, 0.0000160 secs]2021-04-25T21:35:51.265+0800: 5.717: [JNI Weak Reference, 0.0003221 secs]
 Desired survivor size 8912896 bytes, new threshold 3 (max 15)
-[PSYoungGen: 19302K->2648K(25088K)] 24378K->7724K(64512K), 0.0024144 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
-2021-03-22T10:44:10.799+0800: 2.117: Total time for which application threads were stopped: 0.0026854 seconds, Stopping threads took: 0.0000185 seconds
-2021-03-22T10:44:10.935+0800: 2.253: [GC (Allocation Failure) 2021-03-22T10:44:10.936+0800: 2.254: [SoftReference, 0 refs, 0.0000292 secs]2021-03-22T10:44:10.936+0800: 2.254: [WeakReference, 175 refs, 0.0000151 secs]2021-03-22T10:44:10.936+0800: 2.255: [FinalReference, 579 refs, 0.0002741 secs]2021-03-22T10:44:10.937+0800: 2.255: [PhantomReference, 0 refs, 0 refs, 0.0000132 secs]2021-03-22T10:44:10.937+0800: 2.255: [JNI Weak Reference, 0.0001594 secs]
-Desired survivor size 8912896 bytes, new threshold 2 (max 15)
-[PSYoungGen: 19032K->3310K(25088K)] 24108K->8394K(64512K), 0.0018745 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
-2021-03-22T10:44:10.937+0800: 2.255: Total time for which application threads were stopped: 0.0020460 seconds, Stopping threads took: 0.0000174 seconds
-2021-03-22T10:44:11.009+0800: 2.327: Total time for which application threads were stopped: 0.0002381 seconds, Stopping threads took: 0.0000162 seconds
-2021-03-22T10:44:11.079+0800: 2.397: [GC (Allocation Failure) 2021-03-22T10:44:11.082+0800: 2.400: [SoftReference, 0 refs, 0.0000307 secs]2021-03-22T10:44:11.082+0800: 2.400: [WeakReference, 353 refs, 0.0000475 secs]2021-03-22T10:44:11.082+0800: 2.400: [FinalReference, 416 refs, 0.0002514 secs]2021-03-22T10:44:11.082+0800: 2.401: [PhantomReference, 0 refs, 0 refs, 0.0000055 secs]2021-03-22T10:44:11.082+0800: 2.401: [JNI Weak Reference, 0.0001578 secs]
-Desired survivor size 8912896 bytes, new threshold 1 (max 15)
-[PSYoungGen: 19694K->2879K(25088K)] 24778K->9164K(64512K), 0.0038657 secs] [Times: user=0.11 sys=0.00, real=0.00 secs] 
-2021-03-22T10:44:11.083+0800: 2.401: Total time for which application threads were stopped: 0.0041565 seconds, Stopping threads took: 0.0001250 seconds
-2021-03-22T10:44:11.089+0800: 2.407: Total time for which application threads were stopped: 0.0002788 seconds, Stopping threads took: 0.0000702 seconds
-2021-03-22T10:44:11.156+0800: 2.474: Total time for which application threads were stopped: 0.0002644 seconds, Stopping threads took: 0.0000189 seconds
-2021-03-22T10:44:11.172+0800: 2.490: [GC (Allocation Failure) 2021-03-22T10:44:11.174+0800: 2.492: [SoftReference, 0 refs, 0.0000323 secs]2021-03-22T10:44:11.174+0800: 2.492: [WeakReference, 122 refs, 0.0000156 secs]2021-03-22T10:44:11.174+0800: 2.492: [FinalReference, 327 refs, 0.0002239 secs]2021-03-22T10:44:11.174+0800: 2.492: [PhantomReference, 0 refs, 0 refs, 0.0000070 secs]2021-03-22T10:44:11.174+0800: 2.492: [JNI Weak Reference, 0.0001909 secs]
-Desired survivor size 8912896 bytes, new threshold 1 (max 15)
-[PSYoungGen: 19263K->2214K(25088K)] 25548K->10387K(64512K), 0.0026114 secs] [Times: user=0.00 sys=0.02, real=0.00 secs] 
-2021-03-22T10:44:11.175+0800: 2.493: Total time for which application threads were stopped: 0.0027365 seconds, Stopping threads took: 0.0000165 seconds
-2021-03-22T10:44:11.241+0800: 2.559: Total time for which application threads were stopped: 0.0002719 seconds, Stopping threads took: 0.0000193 seconds
-2021-03-22T10:44:11.263+0800: 2.581: Total time for which application threads were stopped: 0.0002660 seconds, Stopping threads took: 0.0000202 seconds
-2021-03-22T10:44:11.283+0800: 2.601: Total time for which application threads were stopped: 0.0002636 seconds, Stopping threads took: 0.0000248 seconds
-2021-03-22T10:44:11.285+0800: 2.603: [GC (Allocation Failure) 2021-03-22T10:44:11.286+0800: 2.604: [SoftReference, 0 refs, 0.0000300 secs]2021-03-22T10:44:11.286+0800: 2.604: [WeakReference, 66 refs, 0.0000095 secs]2021-03-22T10:44:11.286+0800: 2.604: [FinalReference, 518 refs, 0.0002060 secs]2021-03-22T10:44:11.286+0800: 2.605: [PhantomReference, 0 refs, 0 refs, 0.0000062 secs]2021-03-22T10:44:11.286+0800: 2.605: [JNI Weak Reference, 0.0001641 secs]
-Desired survivor size 8912896 bytes, new threshold 1 (max 15)
-[PSYoungGen: 18598K->1478K(25088K)] 26771K->10515K(64512K), 0.0020232 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
-2021-03-22T10:44:11.286+0800: 2.605: Total time for which application threads were stopped: 0.0021860 seconds, Stopping threads took: 0.0000160 seconds
-2021-03-22T10:44:11.326+0800: 2.644: Total time for which application threads were stopped: 0.0002714 seconds, Stopping threads took: 0.0000180 seconds
-2021-03-22T10:44:11.407+0800: 2.725: Total time for which application threads were stopped: 0.0005157 seconds, Stopping threads took: 0.0000304 seconds
-2021-03-22T10:44:11.408+0800: 2.726: Total time for which application threads were stopped: 0.0003891 seconds, Stopping threads took: 0.0000128 seconds
-2021-03-22T10:44:11.430+0800: 2.748: [GC (Allocation Failure) 2021-03-22T10:44:11.432+0800: 2.749: [SoftReference, 0 refs, 0.0000599 secs]2021-03-22T10:44:11.432+0800: 2.749: [WeakReference, 54 refs, 0.0000508 secs]2021-03-22T10:44:11.432+0800: 2.749: [FinalReference, 352 refs, 0.0004354 secs]2021-03-22T10:44:11.432+0800: 2.750: [PhantomReference, 0 refs, 0 refs, 0.0000075 secs]2021-03-22T10:44:11.432+0800: 2.750: [JNI Weak Reference, 0.0001900 secs]
+[PSYoungGen: 19111K->3396K(25088K)] 26298K->10591K(71168K), 0.0063595 secs] [Times: user=0.00 sys=0.00, real=0.01 secs] 
+2021-04-25T21:35:51.266+0800: 5.718: Total time for which application threads were stopped: 0.0067896 seconds, Stopping threads took: 0.0000461 seconds
+2021-04-25T21:35:51.444+0800: 5.900: Total time for which application threads were stopped: 0.0004275 seconds, Stopping threads took: 0.0000233 seconds
+2021-04-25T21:35:51.627+0800: 6.078: Total time for which application threads were stopped: 0.0006685 seconds, Stopping threads took: 0.0003371 seconds
+2021-04-25T21:35:51.627+0800: 6.079: Total time for which application threads were stopped: 0.0001240 seconds, Stopping threads took: 0.0000243 seconds
+2021-04-25T21:35:51.627+0800: 6.079: Total time for which application threads were stopped: 0.0000685 seconds, Stopping threads took: 0.0000102 seconds
+2021-04-25T21:35:51.627+0800: 6.080: Total time for which application threads were stopped: 0.0000768 seconds, Stopping threads took: 0.0000144 seconds
+2021-04-25T21:35:51.627+0800: 6.080: Total time for which application threads were stopped: 0.0000685 seconds, Stopping threads took: 0.0000099 seconds
+2021-04-25T21:35:51.627+0800: 6.080: Total time for which application threads were stopped: 0.0000745 seconds, Stopping threads took: 0.0000132 seconds
+2021-04-25T21:35:51.627+0800: 6.080: Total time for which application threads were stopped: 0.0000690 seconds, Stopping threads took: 0.0000096 seconds
+2021-04-25T21:35:51.627+0800: 6.081: Total time for which application threads were stopped: 0.0000879 seconds, Stopping threads took: 0.0000143 seconds
+2021-04-25T21:35:51.627+0800: 6.081: Total time for which application threads were stopped: 0.0000742 seconds, Stopping threads took: 0.0000103 seconds
+2021-04-25T21:35:51.627+0800: 6.082: Total time for which application threads were stopped: 0.0000742 seconds, Stopping threads took: 0.0000132 seconds
+2021-04-25T21:35:51.627+0800: 6.082: Total time for which application threads were stopped: 0.0000685 seconds, Stopping threads took: 0.0000101 seconds
+2021-04-25T21:35:51.627+0800: 6.083: Total time for which application threads were stopped: 0.0000986 seconds, Stopping threads took: 0.0000145 seconds
+2021-04-25T21:35:51.627+0800: 6.083: Total time for which application threads were stopped: 0.0000859 seconds, Stopping threads took: 0.0000105 seconds
+2021-04-25T21:35:51.627+0800: 6.084: Total time for which application threads were stopped: 0.0000746 seconds, Stopping threads took: 0.0000139 seconds
+2021-04-25T21:35:51.627+0800: 6.084: Total time for which application threads were stopped: 0.0000679 seconds, Stopping threads took: 0.0000103 seconds
+2021-04-25T21:35:51.635+0800: 6.086: Total time for which application threads were stopped: 0.0002076 seconds, Stopping threads took: 0.0000373 seconds
+2021-04-25T21:35:51.635+0800: 6.086: Total time for which application threads were stopped: 0.0001252 seconds, Stopping threads took: 0.0000200 seconds
+2021-04-25T21:35:51.635+0800: 6.087: Total time for which application threads were stopped: 0.0001362 seconds, Stopping threads took: 0.0000277 seconds
+2021-04-25T21:35:51.635+0800: 6.087: Total time for which application threads were stopped: 0.0000808 seconds, Stopping threads took: 0.0000107 seconds
+2021-04-25T21:35:51.635+0800: 6.088: Total time for which application threads were stopped: 0.0001348 seconds, Stopping threads took: 0.0000262 seconds
+2021-04-25T21:35:51.635+0800: 6.088: Total time for which application threads were stopped: 0.0001267 seconds, Stopping threads took: 0.0000117 seconds
+2021-04-25T21:35:51.652+0800: 6.104: Total time for which application threads were stopped: 0.0003505 seconds, Stopping threads took: 0.0000863 seconds
+2021-04-25T21:35:51.652+0800: 6.105: Total time for which application threads were stopped: 0.0002216 seconds, Stopping threads took: 0.0000559 seconds
+2021-04-25T21:35:51.652+0800: 6.109: Total time for which application threads were stopped: 0.0003427 seconds, Stopping threads took: 0.0000556 seconds
+2021-04-25T21:35:51.652+0800: 6.109: Total time for which application threads were stopped: 0.0001536 seconds, Stopping threads took: 0.0000187 seconds
+2021-04-25T21:35:51.652+0800: 6.111: Total time for which application threads were stopped: 0.0003134 seconds, Stopping threads took: 0.0000445 seconds
+2021-04-25T21:35:51.652+0800: 6.111: Total time for which application threads were stopped: 0.0001296 seconds, Stopping threads took: 0.0000162 seconds
+2021-04-25T21:35:51.660+0800: 6.117: Total time for which application threads were stopped: 0.0001875 seconds, Stopping threads took: 0.0000423 seconds
+2021-04-25T21:35:51.660+0800: 6.117: Total time for which application threads were stopped: 0.0000940 seconds, Stopping threads took: 0.0000140 seconds
+2021-04-25T21:35:51.669+0800: 6.122: Total time for which application threads were stopped: 0.0001883 seconds, Stopping threads took: 0.0000394 seconds
+2021-04-25T21:35:51.669+0800: 6.122: Total time for which application threads were stopped: 0.0001316 seconds, Stopping threads took: 0.0000218 seconds
+2021-04-25T21:35:51.669+0800: 6.123: Total time for which application threads were stopped: 0.0000881 seconds, Stopping threads took: 0.0000188 seconds
+2021-04-25T21:35:51.669+0800: 6.123: Total time for which application threads were stopped: 0.0000667 seconds, Stopping threads took: 0.0000104 seconds
+2021-04-25T21:35:51.677+0800: 6.135: Total time for which application threads were stopped: 0.0002367 seconds, Stopping threads took: 0.0000652 seconds
+2021-04-25T21:35:51.677+0800: 6.135: Total time for which application threads were stopped: 0.0002003 seconds, Stopping threads took: 0.0000360 seconds
+2021-04-25T21:35:51.686+0800: 6.138: Total time for which application threads were stopped: 0.0001467 seconds, Stopping threads took: 0.0000382 seconds
+2021-04-25T21:35:51.687+0800: 6.138: Total time for which application threads were stopped: 0.0000939 seconds, Stopping threads took: 0.0000177 seconds
+2021-04-25T21:35:51.687+0800: 6.141: Total time for which application threads were stopped: 0.0002106 seconds, Stopping threads took: 0.0000616 seconds
+2021-04-25T21:35:51.687+0800: 6.141: Total time for which application threads were stopped: 0.0001417 seconds, Stopping threads took: 0.0000597 seconds
+2021-04-25T21:35:51.687+0800: 6.143: Total time for which application threads were stopped: 0.0000749 seconds, Stopping threads took: 0.0000169 seconds
+2021-04-25T21:35:51.687+0800: 6.143: Total time for which application threads were stopped: 0.0000880 seconds, Stopping threads took: 0.0000094 seconds
+2021-04-25T21:35:51.687+0800: 6.145: [GC (Allocation Failure) 2021-04-25T21:35:51.696+0800: 6.148: [SoftReference, 0 refs, 0.0000506 secs]2021-04-25T21:35:51.696+0800: 6.148: [WeakReference, 405 refs, 0.0000432 secs]2021-04-25T21:35:51.696+0800: 6.148: [FinalReference, 418 refs, 0.0002824 secs]2021-04-25T21:35:51.696+0800: 6.148: [PhantomReference, 0 refs, 0 refs, 0.0000116 secs]2021-04-25T21:35:51.696+0800: 6.148: [JNI Weak Reference, 0.0003399 secs]
+Desired survivor size 8388608 bytes, new threshold 2 (max 15)
+[PSYoungGen: 19780K->3341K(19968K)] 26975K->11335K(66048K), 0.0052535 secs] [Times: user=0.08 sys=0.00, real=0.01 secs] 
+2021-04-25T21:35:51.696+0800: 6.150: Total time for which application threads were stopped: 0.0054301 seconds, Stopping threads took: 0.0000126 seconds
+2021-04-25T21:35:51.876+0800: 6.331: Total time for which application threads were stopped: 0.0005750 seconds, Stopping threads took: 0.0000738 seconds
+2021-04-25T21:35:51.887+0800: 6.346: Total time for which application threads were stopped: 0.0002254 seconds, Stopping threads took: 0.0001010 seconds
+2021-04-25T21:35:51.979+0800: 6.434: [GC (Allocation Failure) 2021-04-25T21:35:51.988+0800: 6.440: [SoftReference, 0 refs, 0.0000549 secs]2021-04-25T21:35:51.988+0800: 6.440: [WeakReference, 332 refs, 0.0000590 secs]2021-04-25T21:35:51.988+0800: 6.440: [FinalReference, 407 refs, 0.0005643 secs]2021-04-25T21:35:51.989+0800: 6.440: [PhantomReference, 0 refs, 0 refs, 0.0000134 secs]2021-04-25T21:35:51.989+0800: 6.440: [JNI Weak Reference, 0.0004459 secs]
 Desired survivor size 8388608 bytes, new threshold 1 (max 15)
-[PSYoungGen: 17862K->2186K(18944K)] 26899K->11797K(58368K), 0.0025968 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
-2021-03-22T10:44:11.433+0800: 2.751: Total time for which application threads were stopped: 0.0027459 seconds, Stopping threads took: 0.0000187 seconds
-2021-03-22T10:44:11.450+0800: 2.768: Total time for which application threads were stopped: 0.0002858 seconds, Stopping threads took: 0.0000405 seconds
-2021-03-22T10:44:11.469+0800: 2.787: Total time for which application threads were stopped: 0.0003018 seconds, Stopping threads took: 0.0000236 seconds
-2021-03-22T10:44:12.481+0800: 3.799: Total time for which application threads were stopped: 0.0003840 seconds, Stopping threads took: 0.0000898 seconds
-2021-03-22T10:44:13.820+0800: 5.138: Total time for which application threads were stopped: 0.0001357 seconds, Stopping threads took: 0.0000391 seconds
-2021-03-22T10:44:13.820+0800: 5.138: Total time for which application threads were stopped: 0.0000796 seconds, Stopping threads took: 0.0000115 seconds
-2021-03-22T10:44:13.820+0800: 5.138: Total time for which application threads were stopped: 0.0000787 seconds, Stopping threads took: 0.0000094 seconds
-2021-03-22T10:44:13.820+0800: 5.138: Total time for which application threads were stopped: 0.0000368 seconds, Stopping threads took: 0.0000050 seconds
-2021-03-22T10:44:13.820+0800: 5.138: Total time for which application threads were stopped: 0.0000751 seconds, Stopping threads took: 0.0000270 seconds
-2021-03-22T10:44:13.977+0800: 5.295: [GC (Allocation Failure) 2021-03-22T10:44:13.979+0800: 5.297: [SoftReference, 0 refs, 0.0000321 secs]2021-03-22T10:44:13.979+0800: 5.297: [WeakReference, 157 refs, 0.0000159 secs]2021-03-22T10:44:13.979+0800: 5.297: [FinalReference, 289 refs, 0.0001407 secs]2021-03-22T10:44:13.979+0800: 5.297: [PhantomReference, 0 refs, 0 refs, 0.0000644 secs]2021-03-22T10:44:13.979+0800: 5.297: [JNI Weak Reference, 0.0001168 secs]
+[PSYoungGen: 19725K->3144K(24576K)] 27719K->12407K(70656K), 0.0083191 secs] [Times: user=0.08 sys=0.00, real=0.01 secs] 
+2021-04-25T21:35:51.990+0800: 6.443: Total time for which application threads were stopped: 0.0087154 seconds, Stopping threads took: 0.0000341 seconds
+2021-04-25T21:35:51.990+0800: 6.444: Total time for which application threads were stopped: 0.0002264 seconds, Stopping threads took: 0.0000888 seconds
+2021-04-25T21:35:51.990+0800: 6.444: Total time for which application threads were stopped: 0.0001274 seconds, Stopping threads took: 0.0000370 seconds
+2021-04-25T21:35:51.990+0800: 6.444: Total time for which application threads were stopped: 0.0001186 seconds, Stopping threads took: 0.0000411 seconds
+2021-04-25T21:35:51.990+0800: 6.444: Total time for which application threads were stopped: 0.0001511 seconds, Stopping threads took: 0.0000312 seconds
+2021-04-25T21:35:51.990+0800: 6.445: Total time for which application threads were stopped: 0.0001023 seconds, Stopping threads took: 0.0000215 seconds
+2021-04-25T21:35:51.990+0800: 6.445: Total time for which application threads were stopped: 0.0000933 seconds, Stopping threads took: 0.0000210 seconds
+2021-04-25T21:35:51.990+0800: 6.445: Total time for which application threads were stopped: 0.0001072 seconds, Stopping threads took: 0.0000392 seconds
+2021-04-25T21:35:51.990+0800: 6.445: Total time for which application threads were stopped: 0.0000825 seconds, Stopping threads took: 0.0000188 seconds
+2021-04-25T21:35:51.990+0800: 6.445: Total time for which application threads were stopped: 0.0000836 seconds, Stopping threads took: 0.0000184 seconds
+2021-04-25T21:35:51.990+0800: 6.445: Total time for which application threads were stopped: 0.0000988 seconds, Stopping threads took: 0.0000348 seconds
+2021-04-25T21:35:51.990+0800: 6.445: Total time for which application threads were stopped: 0.0000989 seconds, Stopping threads took: 0.0000202 seconds
+2021-04-25T21:35:51.990+0800: 6.445: Total time for which application threads were stopped: 0.0000858 seconds, Stopping threads took: 0.0000220 seconds
+2021-04-25T21:35:51.990+0800: 6.446: Total time for which application threads were stopped: 0.0001354 seconds, Stopping threads took: 0.0000283 seconds
+2021-04-25T21:35:51.990+0800: 6.446: Total time for which application threads were stopped: 0.0001259 seconds, Stopping threads took: 0.0000273 seconds
+2021-04-25T21:35:51.990+0800: 6.446: Total time for which application threads were stopped: 0.0001031 seconds, Stopping threads took: 0.0000231 seconds
+2021-04-25T21:35:51.990+0800: 6.446: Total time for which application threads were stopped: 0.0000960 seconds, Stopping threads took: 0.0000211 seconds
+2021-04-25T21:35:51.990+0800: 6.446: Total time for which application threads were stopped: 0.0001650 seconds, Stopping threads took: 0.0000586 seconds
+2021-04-25T21:35:51.990+0800: 6.447: Total time for which application threads were stopped: 0.0001289 seconds, Stopping threads took: 0.0000555 seconds
+2021-04-25T21:35:51.990+0800: 6.447: Total time for which application threads were stopped: 0.0001428 seconds, Stopping threads took: 0.0000701 seconds
+2021-04-25T21:35:51.990+0800: 6.447: Total time for which application threads were stopped: 0.0001237 seconds, Stopping threads took: 0.0000264 seconds
+2021-04-25T21:35:52.154+0800: 6.610: Total time for which application threads were stopped: 0.0004601 seconds, Stopping threads took: 0.0000339 seconds
+2021-04-25T21:35:52.203+0800: 6.657: Total time for which application threads were stopped: 0.0004838 seconds, Stopping threads took: 0.0000397 seconds
+2021-04-25T21:35:52.236+0800: 6.693: Total time for which application threads were stopped: 0.0001768 seconds, Stopping threads took: 0.0000498 seconds
+2021-04-25T21:35:52.260+0800: 6.713: Total time for which application threads were stopped: 0.0004452 seconds, Stopping threads took: 0.0000338 seconds
+2021-04-25T21:35:52.319+0800: 6.777: [GC (Allocation Failure) 2021-04-25T21:35:52.330+0800: 6.781: [SoftReference, 0 refs, 0.0000477 secs]2021-04-25T21:35:52.330+0800: 6.781: [WeakReference, 69 refs, 0.0000185 secs]2021-04-25T21:35:52.330+0800: 6.781: [FinalReference, 468 refs, 0.0003492 secs]2021-04-25T21:35:52.330+0800: 6.781: [PhantomReference, 0 refs, 0 refs, 0.0000106 secs]2021-04-25T21:35:52.330+0800: 6.781: [JNI Weak Reference, 0.0002882 secs]
 Desired survivor size 8388608 bytes, new threshold 1 (max 15)
-[PSYoungGen: 18570K->1558K(24576K)] 28181K->12096K(64000K), 0.0027599 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
-2021-03-22T10:44:13.980+0800: 5.298: Total time for which application threads were stopped: 0.0029823 seconds, Stopping threads took: 0.0000401 seconds
+[PSYoungGen: 19528K->1645K(24576K)] 28791K->12651K(70656K), 0.0050195 secs] [Times: user=0.00 sys=0.00, real=0.01 secs] 
+2021-04-25T21:35:52.330+0800: 6.782: Total time for which application threads were stopped: 0.0052640 seconds, Stopping threads took: 0.0000326 seconds
+2021-04-25T21:35:52.330+0800: 6.783: Total time for which application threads were stopped: 0.0002173 seconds, Stopping threads took: 0.0000722 seconds
+2021-04-25T21:35:52.330+0800: 6.783: Total time for which application threads were stopped: 0.0003686 seconds, Stopping threads took: 0.0002272 seconds
+2021-04-25T21:35:52.330+0800: 6.783: Total time for which application threads were stopped: 0.0001045 seconds, Stopping threads took: 0.0000445 seconds
+2021-04-25T21:35:52.330+0800: 6.784: Total time for which application threads were stopped: 0.0000672 seconds, Stopping threads took: 0.0000131 seconds
+2021-04-25T21:35:52.330+0800: 6.784: Total time for which application threads were stopped: 0.0000581 seconds, Stopping threads took: 0.0000122 seconds
+2021-04-25T21:35:52.330+0800: 6.784: Total time for which application threads were stopped: 0.0000601 seconds, Stopping threads took: 0.0000139 seconds
+2021-04-25T21:35:52.330+0800: 6.784: Total time for which application threads were stopped: 0.0000918 seconds, Stopping threads took: 0.0000397 seconds
+2021-04-25T21:35:52.330+0800: 6.784: Total time for which application threads were stopped: 0.0000677 seconds, Stopping threads took: 0.0000157 seconds
+2021-04-25T21:35:52.330+0800: 6.784: Total time for which application threads were stopped: 0.0000611 seconds, Stopping threads took: 0.0000143 seconds
+2021-04-25T21:35:52.330+0800: 6.784: Total time for which application threads were stopped: 0.0000607 seconds, Stopping threads took: 0.0000137 seconds
+2021-04-25T21:35:52.330+0800: 6.785: Total time for which application threads were stopped: 0.0000620 seconds, Stopping threads took: 0.0000149 seconds
+2021-04-25T21:35:52.330+0800: 6.785: Total time for which application threads were stopped: 0.0002496 seconds, Stopping threads took: 0.0001957 seconds
+2021-04-25T21:35:52.330+0800: 6.785: Total time for which application threads were stopped: 0.0000775 seconds, Stopping threads took: 0.0000356 seconds
+2021-04-25T21:35:52.330+0800: 6.785: Total time for which application threads were stopped: 0.0000803 seconds, Stopping threads took: 0.0000456 seconds
+2021-04-25T21:35:52.330+0800: 6.785: Total time for which application threads were stopped: 0.0000851 seconds, Stopping threads took: 0.0000412 seconds
+2021-04-25T21:35:52.330+0800: 6.785: Total time for which application threads were stopped: 0.0001583 seconds, Stopping threads took: 0.0000393 seconds
+2021-04-25T21:35:52.330+0800: 6.786: Total time for which application threads were stopped: 0.0003134 seconds, Stopping threads took: 0.0001449 seconds
+2021-04-25T21:35:52.330+0800: 6.786: Total time for which application threads were stopped: 0.0002295 seconds, Stopping threads took: 0.0000784 seconds
+2021-04-25T21:35:52.330+0800: 6.786: Total time for which application threads were stopped: 0.0001417 seconds, Stopping threads took: 0.0000282 seconds
+2021-04-25T21:35:52.330+0800: 6.787: Total time for which application threads were stopped: 0.0000905 seconds, Stopping threads took: 0.0000255 seconds
+2021-04-25T21:35:52.330+0800: 6.787: Total time for which application threads were stopped: 0.0001802 seconds, Stopping threads took: 0.0000833 seconds
+2021-04-25T21:35:52.387+0800: 6.843: Total time for which application threads were stopped: 0.0005814 seconds, Stopping threads took: 0.0000575 seconds
+2021-04-25T21:35:52.398+0800: 6.850: Total time for which application threads were stopped: 0.0006054 seconds, Stopping threads took: 0.0004820 seconds
+2021-04-25T21:35:52.402+0800: 6.860: Total time for which application threads were stopped: 0.0003414 seconds, Stopping threads took: 0.0000914 seconds
+2021-04-25T21:35:52.677+0800: 7.129: [GC (Allocation Failure) 2021-04-25T21:35:52.677+0800: 7.132: [SoftReference, 0 refs, 0.0000612 secs]2021-04-25T21:35:52.677+0800: 7.132: [WeakReference, 60 refs, 0.0000209 secs]2021-04-25T21:35:52.677+0800: 7.132: [FinalReference, 366 refs, 0.0004729 secs]2021-04-25T21:35:52.677+0800: 7.132: [PhantomReference, 0 refs, 0 refs, 0.0000197 secs]2021-04-25T21:35:52.677+0800: 7.132: [JNI Weak Reference, 0.0003481 secs]
+Desired survivor size 8388608 bytes, new threshold 1 (max 15)
+[PSYoungGen: 18029K->2213K(25600K)] 29035K->13942K(71680K), 0.0045915 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+2021-04-25T21:35:52.677+0800: 7.134: Total time for which application threads were stopped: 0.0049430 seconds, Stopping threads took: 0.0000431 seconds
+2021-04-25T21:35:52.694+0800: 7.149: Total time for which application threads were stopped: 0.0005460 seconds, Stopping threads took: 0.0000382 seconds
+2021-04-25T21:35:52.734+0800: 7.192: Total time for which application threads were stopped: 0.0005893 seconds, Stopping threads took: 0.0000785 seconds
+2021-04-25T21:35:52.910+0800: 7.368: Total time for which application threads were stopped: 0.0002932 seconds, Stopping threads took: 0.0001398 seconds
+2021-04-25T21:35:52.922+0800: 7.375: Total time for which application threads were stopped: 0.0011669 seconds, Stopping threads took: 0.0010138 seconds
+2021-04-25T21:35:52.952+0800: 7.404: Total time for which application threads were stopped: 0.0003445 seconds, Stopping threads took: 0.0000801 seconds
+2021-04-25T21:35:53.432+0800: 7.884: Total time for which application threads were stopped: 0.0003048 seconds, Stopping threads took: 0.0000627 seconds
+2021-04-25T21:35:53.452+0800: 7.903: Total time for which application threads were stopped: 0.0002439 seconds, Stopping threads took: 0.0000650 seconds
+2021-04-25T21:35:53.753+0800: 8.210: Total time for which application threads were stopped: 0.0002729 seconds, Stopping threads took: 0.0000697 seconds
+2021-04-25T21:35:53.767+0800: 8.218: Total time for which application threads were stopped: 0.0012192 seconds, Stopping threads took: 0.0007360 seconds
+2021-04-25T21:35:53.775+0800: 8.234: Total time for which application threads were stopped: 0.0002705 seconds, Stopping threads took: 0.0000616 seconds
+2021-04-25T21:35:54.090+0800: 8.541: Total time for which application threads were stopped: 0.0002659 seconds, Stopping threads took: 0.0000749 seconds
+2021-04-25T21:35:54.091+0800: 8.544: Total time for which application threads were stopped: 0.0006501 seconds, Stopping threads took: 0.0000952 seconds
+2021-04-25T21:35:54.091+0800: 8.544: Total time for which application threads were stopped: 0.0005138 seconds, Stopping threads took: 0.0001023 seconds
+2021-04-25T21:36:02.211+0800: 16.663: Total time for which application threads were stopped: 0.0002360 seconds, Stopping threads took: 0.0000697 seconds
+2021-04-25T21:36:02.212+0800: 16.663: Total time for which application threads were stopped: 0.0002570 seconds, Stopping threads took: 0.0000900 seconds
+2021-04-25T21:36:02.213+0800: 16.666: Total time for which application threads were stopped: 0.0003276 seconds, Stopping threads took: 0.0000785 seconds
+2021-04-25T21:36:02.216+0800: 16.668: Total time for which application threads were stopped: 0.0002052 seconds, Stopping threads took: 0.0000543 seconds
+2021-04-25T21:36:02.217+0800: 16.668: Total time for which application threads were stopped: 0.0001457 seconds, Stopping threads took: 0.0000401 seconds
+2021-04-25T21:36:06.543+0800: 20.996: Total time for which application threads were stopped: 0.0007750 seconds, Stopping threads took: 0.0005732 seconds
+2021-04-25T21:36:06.543+0800: 20.996: Total time for which application threads were stopped: 0.0002073 seconds, Stopping threads took: 0.0000348 seconds
+2021-04-25T21:36:06.543+0800: 20.996: Total time for which application threads were stopped: 0.0001403 seconds, Stopping threads took: 0.0000214 seconds
+2021-04-25T21:36:06.628+0800: 21.080: Total time for which application threads were stopped: 0.0002248 seconds, Stopping threads took: 0.0000514 seconds
+2021-04-25T21:36:06.628+0800: 21.081: Total time for which application threads were stopped: 0.0001822 seconds, Stopping threads took: 0.0000350 seconds
+2021-04-25T21:36:06.628+0800: 21.082: Total time for which application threads were stopped: 0.0001767 seconds, Stopping threads took: 0.0000352 seconds
+2021-04-25T21:36:06.628+0800: 21.082: Total time for which application threads were stopped: 0.0001361 seconds, Stopping threads took: 0.0000219 seconds
+2021-04-25T21:36:06.628+0800: 21.082: Total time for which application threads were stopped: 0.0001261 seconds, Stopping threads took: 0.0000223 seconds
+2021-04-25T21:36:06.628+0800: 21.083: Total time for which application threads were stopped: 0.0001300 seconds, Stopping threads took: 0.0000231 seconds
+2021-04-25T21:36:06.628+0800: 21.083: Total time for which application threads were stopped: 0.0001242 seconds, Stopping threads took: 0.0000222 seconds
+2021-04-25T21:36:06.628+0800: 21.083: Total time for which application threads were stopped: 0.0001206 seconds, Stopping threads took: 0.0000213 seconds
+2021-04-25T21:36:06.628+0800: 21.083: Total time for which application threads were stopped: 0.0001175 seconds, Stopping threads took: 0.0000215 seconds
+2021-04-25T21:36:06.628+0800: 21.084: Total time for which application threads were stopped: 0.0001723 seconds, Stopping threads took: 0.0000443 seconds
+2021-04-25T21:36:06.628+0800: 21.084: Total time for which application threads were stopped: 0.0002469 seconds, Stopping threads took: 0.0001219 seconds
+2021-04-25T21:36:06.633+0800: 21.084: Total time for which application threads were stopped: 0.0002473 seconds, Stopping threads took: 0.0000646 seconds
+2021-04-25T21:36:06.633+0800: 21.085: Total time for which application threads were stopped: 0.0001895 seconds, Stopping threads took: 0.0000606 seconds
+2021-04-25T21:36:06.634+0800: 21.085: Total time for which application threads were stopped: 0.0001558 seconds, Stopping threads took: 0.0000594 seconds
+2021-04-25T21:36:06.634+0800: 21.085: Total time for which application threads were stopped: 0.0001500 seconds, Stopping threads took: 0.0000568 seconds
+2021-04-25T21:36:06.634+0800: 21.085: Total time for which application threads were stopped: 0.0001484 seconds, Stopping threads took: 0.0000523 seconds
+2021-04-25T21:36:06.635+0800: 21.086: Total time for which application threads were stopped: 0.0009362 seconds, Stopping threads took: 0.0000604 seconds
+2021-04-25T21:36:06.635+0800: 21.089: Total time for which application threads were stopped: 0.0001859 seconds, Stopping threads took: 0.0000360 seconds
+2021-04-25T21:36:07.075+0800: 21.527: Total time for which application threads were stopped: 0.0001785 seconds, Stopping threads took: 0.0000396 seconds
+2021-04-25T21:36:07.075+0800: 21.527: Total time for which application threads were stopped: 0.0001254 seconds, Stopping threads took: 0.0000216 seconds
+2021-04-25T21:36:07.075+0800: 21.527: Total time for which application threads were stopped: 0.0001555 seconds, Stopping threads took: 0.0000237 seconds
+2021-04-25T21:36:07.075+0800: 21.528: Total time for which application threads were stopped: 0.0001752 seconds, Stopping threads took: 0.0000396 seconds
+2021-04-25T21:36:07.078+0800: 21.530: Total time for which application threads were stopped: 0.0002058 seconds, Stopping threads took: 0.0000397 seconds
+2021-04-25T21:36:07.078+0800: 21.530: Total time for which application threads were stopped: 0.0001280 seconds, Stopping threads took: 0.0000217 seconds
+2021-04-25T21:36:07.078+0800: 21.530: Total time for which application threads were stopped: 0.0000960 seconds, Stopping threads took: 0.0000145 seconds
+2021-04-25T21:36:07.078+0800: 21.531: Total time for which application threads were stopped: 0.0001074 seconds, Stopping threads took: 0.0000243 seconds
+2021-04-25T21:36:07.078+0800: 21.531: Total time for which application threads were stopped: 0.0001143 seconds, Stopping threads took: 0.0000251 seconds
+2021-04-25T21:36:07.078+0800: 21.531: Total time for which application threads were stopped: 0.0001632 seconds, Stopping threads took: 0.0000333 seconds
+2021-04-25T21:36:07.078+0800: 21.532: Total time for which application threads were stopped: 0.0001196 seconds, Stopping threads took: 0.0000270 seconds
+2021-04-25T21:36:07.078+0800: 21.532: Total time for which application threads were stopped: 0.0000985 seconds, Stopping threads took: 0.0000188 seconds
+2021-04-25T21:36:07.078+0800: 21.532: Total time for which application threads were stopped: 0.0000865 seconds, Stopping threads took: 0.0000152 seconds
+2021-04-25T21:36:07.078+0800: 21.532: Total time for which application threads were stopped: 0.0000678 seconds, Stopping threads took: 0.0000121 seconds
+2021-04-25T21:36:07.078+0800: 21.532: Total time for which application threads were stopped: 0.0000867 seconds, Stopping threads took: 0.0000174 seconds
+2021-04-25T21:36:07.078+0800: 21.532: Total time for which application threads were stopped: 0.0000727 seconds, Stopping threads took: 0.0000139 seconds
+2021-04-25T21:36:07.078+0800: 21.533: Total time for which application threads were stopped: 0.0000699 seconds, Stopping threads took: 0.0000128 seconds
+2021-04-25T21:36:07.078+0800: 21.533: Total time for which application threads were stopped: 0.0000690 seconds, Stopping threads took: 0.0000121 seconds
+2021-04-25T21:36:07.078+0800: 21.533: Total time for which application threads were stopped: 0.0000792 seconds, Stopping threads took: 0.0000157 seconds
+2021-04-25T21:36:07.078+0800: 21.534: Total time for which application threads were stopped: 0.0001323 seconds, Stopping threads took: 0.0000322 seconds
+2021-04-25T21:36:07.078+0800: 21.534: Total time for which application threads were stopped: 0.0001380 seconds, Stopping threads took: 0.0000513 seconds
+2021-04-25T21:36:07.078+0800: 21.534: Total time for which application threads were stopped: 0.0000872 seconds, Stopping threads took: 0.0000211 seconds
+2021-04-25T21:36:07.078+0800: 21.535: Total time for which application threads were stopped: 0.0001176 seconds, Stopping threads took: 0.0000256 seconds
+2021-04-25T21:36:07.078+0800: 21.535: Total time for which application threads were stopped: 0.0001080 seconds, Stopping threads took: 0.0000377 seconds
+2021-04-25T21:36:07.078+0800: 21.535: Total time for which application threads were stopped: 0.0001053 seconds, Stopping threads took: 0.0000355 seconds
+2021-04-25T21:36:07.078+0800: 21.535: Total time for which application threads were stopped: 0.0000902 seconds, Stopping threads took: 0.0000164 seconds
+2021-04-25T21:36:07.078+0800: 21.538: Total time for which application threads were stopped: 0.0001689 seconds, Stopping threads took: 0.0000408 seconds
+2021-04-25T21:36:07.078+0800: 21.540: Total time for which application threads were stopped: 0.0001742 seconds, Stopping threads took: 0.0000401 seconds
+2021-04-25T21:36:07.078+0800: 21.540: Total time for which application threads were stopped: 0.0000972 seconds, Stopping threads took: 0.0000174 seconds
+2021-04-25T21:36:07.078+0800: 21.541: Total time for which application threads were stopped: 0.0001060 seconds, Stopping threads took: 0.0000215 seconds
+2021-04-25T21:36:07.078+0800: 21.541: Total time for which application threads were stopped: 0.0001094 seconds, Stopping threads took: 0.0000153 seconds
+2021-04-25T21:36:07.078+0800: 21.542: Total time for which application threads were stopped: 0.0001340 seconds, Stopping threads took: 0.0000365 seconds
+2021-04-25T21:36:07.078+0800: 21.543: Total time for which application threads were stopped: 0.0002234 seconds, Stopping threads took: 0.0000682 seconds
+2021-04-25T21:36:07.078+0800: 21.543: Total time for which application threads were stopped: 0.0001921 seconds, Stopping threads took: 0.0000358 seconds
+2021-04-25T21:36:07.078+0800: 21.544: Total time for which application threads were stopped: 0.0001860 seconds, Stopping threads took: 0.0000748 seconds
+2021-04-25T21:36:07.078+0800: 21.544: Total time for which application threads were stopped: 0.0001600 seconds, Stopping threads took: 0.0000434 seconds
+2021-04-25T21:36:07.078+0800: 21.544: Total time for which application threads were stopped: 0.0001669 seconds, Stopping threads took: 0.0000775 seconds
+2021-04-25T21:36:07.078+0800: 21.545: Total time for which application threads were stopped: 0.0001348 seconds, Stopping threads took: 0.0000597 seconds
+2021-04-25T21:36:07.095+0800: 21.546: Total time for which application threads were stopped: 0.0009050 seconds, Stopping threads took: 0.0002019 seconds
+2021-04-25T21:36:07.098+0800: 21.549: [GC (Allocation Failure) 2021-04-25T21:36:07.099+0800: 21.557: [SoftReference, 0 refs, 0.0001608 secs]2021-04-25T21:36:07.099+0800: 21.557: [WeakReference, 143 refs, 0.0000989 secs]2021-04-25T21:36:07.099+0800: 21.557: [FinalReference, 243 refs, 0.0004461 secs]2021-04-25T21:36:07.099+0800: 21.558: [PhantomReference, 0 refs, 0 refs, 0.0000452 secs]2021-04-25T21:36:07.099+0800: 21.558: [JNI Weak Reference, 0.0004310 secs]
+Desired survivor size 8388608 bytes, new threshold 1 (max 15)
+[PSYoungGen: 19621K->1280K(25600K)] 31350K->13880K(71680K), 0.0100456 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+2021-04-25T21:36:07.099+0800: 21.560: Total time for which application threads were stopped: 0.0104768 seconds, Stopping threads took: 0.0000605 seconds
+2021-04-25T21:36:07.099+0800: 21.561: Total time for which application threads were stopped: 0.0001497 seconds, Stopping threads took: 0.0000659 seconds
+2021-04-25T21:36:07.099+0800: 21.562: Total time for which application threads were stopped: 0.0000692 seconds, Stopping threads took: 0.0000227 seconds
+2021-04-25T21:36:07.099+0800: 21.562: Total time for which application threads were stopped: 0.0000603 seconds, Stopping threads took: 0.0000169 seconds
+2021-04-25T21:36:07.099+0800: 21.562: Total time for which application threads were stopped: 0.0001270 seconds, Stopping threads took: 0.0000542 seconds
+2021-04-25T21:36:07.099+0800: 21.562: Total time for which application threads were stopped: 0.0001048 seconds, Stopping threads took: 0.0000440 seconds
+2021-04-25T21:36:07.099+0800: 21.563: Total time for which application threads were stopped: 0.0000787 seconds, Stopping threads took: 0.0000262 seconds
+2021-04-25T21:36:07.099+0800: 21.563: Total time for which application threads were stopped: 0.0001248 seconds, Stopping threads took: 0.0000404 seconds
+2021-04-25T21:36:07.116+0800: 21.567: Total time for which application threads were stopped: 0.0001344 seconds, Stopping threads took: 0.0000464 seconds
+2021-04-25T21:36:07.116+0800: 21.569: Total time for which application threads were stopped: 0.0001372 seconds, Stopping threads took: 0.0000423 seconds
 Heap
- PSYoungGen      total 24576K, used 6844K [0x00000000fdf00000, 0x0000000100000000, 0x0000000100000000)
-  eden space 16384K, 32% used [0x00000000fdf00000,0x00000000fe429b98,0x00000000fef00000)
-  from space 8192K, 19% used [0x00000000ff700000,0x00000000ff885800,0x00000000fff00000)
-  to   space 8192K, 0% used [0x00000000fef00000,0x00000000fef00000,0x00000000ff700000)
- ParOldGen       total 39424K, used 10538K [0x00000000f9c00000, 0x00000000fc280000, 0x00000000fdf00000)
-  object space 39424K, 26% used [0x00000000f9c00000,0x00000000fa64abe8,0x00000000fc280000)
- Metaspace       used 30309K, capacity 32128K, committed 32384K, reserved 1077248K
-  class space    used 4096K, capacity 4448K, committed 4480K, reserved 1048576K
+ PSYoungGen      total 25600K, used 2272K [0x00000000fdf00000, 0x0000000100000000, 0x0000000100000000)
+  eden space 17408K, 5% used [0x00000000fdf00000,0x00000000fdff80a8,0x00000000ff000000)
+  from space 8192K, 15% used [0x00000000ff000000,0x00000000ff140000,0x00000000ff800000)
+  to   space 8192K, 0% used [0x00000000ff800000,0x00000000ff800000,0x0000000100000000)
+ ParOldGen       total 46080K, used 12600K [0x00000000f9c00000, 0x00000000fc900000, 0x00000000fdf00000)
+  object space 46080K, 27% used [0x00000000f9c00000,0x00000000fa84e348,0x00000000fc900000)
+ Metaspace       used 30243K, capacity 31998K, committed 32128K, reserved 1077248K
+  class space    used 4099K, capacity 4449K, committed 4480K, reserved 1048576K

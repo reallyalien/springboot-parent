@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<body>
+
+<input type="file" value="上传文件" id="fileId" onchange="getFile()">
+
+<input type="button" value="按钮" onclick="f()">
+
+<input type="button" value="查看cookie" onclick="f1()">
+
+
+<script>
+    function getFile() {
+        //js写法
+        let file = document.getElementById('fileId').files[0]//获取文件流
+        let reader = new FileReader();
+        reader.readAsArrayBuffer(file);
+        reader.onload = function (result) {
+            let result1 = result.target.result;
+            let u8arr = new Uint8Array(result1);
+            let arr = [];
+            for (let i = 0; i < u8arr.length; i++) {
+                arr[i] = u8arr[i];
+            }
+            let obj = {
+                arr: arr,
+                name: "小明"
+            }
+            $.ajax({
+                type: 'POST',
+                url: 'http://localhost:9087/ajax/arr',
+                data: JSON.stringify(obj),
+                contentType: 'application/json;charset=utf-8'
+            })
+        }
+    }
+
+    function f() {
+        $.ajax({
+            type: 'GET',
+            url: 'http://localhost:9087/ajax/cookie',
+            // data: JSON.stringify(obj),
+            // contentType: 'application/json;charset=utf-8'
+        })
+    }
+
+    function f1() {
+        let cookies = document.cookie;
+        console.log(cookies)
+    }
+
+    function f2() {
+
+    }
+</script>
+</body>
+</html>

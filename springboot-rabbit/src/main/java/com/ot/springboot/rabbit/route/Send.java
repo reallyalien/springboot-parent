@@ -19,7 +19,7 @@ public class Send {
         Channel channel = connection.createChannel();
         channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.DIRECT);
         String msg = "hello direct";
-        String routekey = "error";
+        String routekey = "error1";
         channel.basicPublish(EXCHANGE_NAME, routekey, null, msg.getBytes());
         System.out.println("send:" + msg);
         channel.close();

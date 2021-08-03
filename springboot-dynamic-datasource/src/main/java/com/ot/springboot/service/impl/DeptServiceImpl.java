@@ -18,15 +18,18 @@ public class DeptServiceImpl implements DeptService {
 
     @Override
     @DataSourceSelector(value = DynamicDataSourceEnum.MASTER)
-    @Transactional
-    public List<Dept> findAll() {
-        return deptDao.findAll();
+    public Dept findByIdM() {
+        return deptDao.findById();
     }
 
     @Override
     @DataSourceSelector(value = DynamicDataSourceEnum.SLAVE)
-    @Transactional
-    public Dept findById() {
+    public Dept findByIdS() {
         return deptDao.findById();
+    }
+
+    @Override
+    public void insert(Dept dept) {
+        deptDao.insert(dept);
     }
 }

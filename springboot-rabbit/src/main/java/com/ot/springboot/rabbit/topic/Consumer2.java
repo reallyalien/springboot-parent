@@ -3,6 +3,7 @@ package com.ot.springboot.rabbit.topic;
 import com.ot.springboot.rabbit.util.ConnectUtil;
 import com.rabbitmq.client.*;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.concurrent.TimeoutException;
 

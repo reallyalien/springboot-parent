@@ -14,7 +14,6 @@ public class Consumer2 {
         Connection connection = ConnectUtil.getConnection();
         final Channel channel = connection.createChannel();
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
-//        channel.basicQos(1);
         channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "error");
         channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "info");
         channel.queueBind(QUEUE_NAME, EXCHANGE_NAME, "warn");

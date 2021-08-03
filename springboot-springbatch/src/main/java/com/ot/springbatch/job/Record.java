@@ -13,8 +13,6 @@ public interface Record {
 	public int size();
 
 	public void setColumnNames(List<String> columnNames);
-
-
 	
 	public void setTotalRecords(BigInteger totalRecords);
 	
