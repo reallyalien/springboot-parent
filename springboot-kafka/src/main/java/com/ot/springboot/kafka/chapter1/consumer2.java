@@ -4,20 +4,17 @@ import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerConfig;
-import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringDeserializer;
-import org.apache.kafka.common.serialization.StringSerializer;
 
-import java.time.Duration;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Properties;
-import java.util.regex.Pattern;
 
-public class consumer {
+/**
+ * 两个消费者属于同一个消费者组，同时订阅同一个分区，这就相当于一个分区有2个消费者，这样的话会同时拉取消息，也就是消息
+ * 会重复消费
+ */
+public class consumer2 {
 
     //kafka集群地址
     private static final String brokerList = "192.168.140.128:9092";

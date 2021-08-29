@@ -18,7 +18,7 @@ Configs:
 @Slf4j
 public class Produce {
     //kafka集群地址
-    private static final String brokerList = "localhost:9092";
+    private static final String brokerList = "192.168.140.128:9092";
     //topic
     private static final String topicName = "test-kafka-1";
 
@@ -34,14 +34,14 @@ public class Produce {
         properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, brokerList);
         //创建生成者
         KafkaProducer<String, String> producer = new KafkaProducer<>(properties);
-        ProducerRecord<String, String> record = new ProducerRecord<>(topicName, "hello1111111111111111");
+        ProducerRecord<String, String> record = new ProducerRecord<>(topicName, "hello");
         try {
             //同步发送
             for (int i = 0; i < 10; i++) {
                 Future<RecordMetadata> metadataFuture = producer.send(record);
-//                RecordMetadata recordMetadata = metadataFuture.get();
+                RecordMetadata recordMetadata = metadataFuture.get();
 //                System.out.println("topic:" + recordMetadata.topic());
-//                System.out.println("partition:" + recordMetadata.partition());
+                System.out.println("partition:" + recordMetadata.partition()+"    offset:" + recordMetadata.offset());
                 //1.每条消息都有一个当前Partition下唯一的64字节的offset，它指明了这条消息的起始位置。
                 //2.在kafka服务器不关闭的情况下，每发一次数据，offset都会增加，
                 //3.在服务器停止，消费者没有停止的情况下，当kafka服务器重新启动时，消费者方的offset依旧是继续增加，而不是从0开始计数

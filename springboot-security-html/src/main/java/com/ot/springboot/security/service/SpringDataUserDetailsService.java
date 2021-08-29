@@ -34,7 +34,8 @@ public class SpringDataUserDetailsService implements UserDetailsService {
         //spring_security需要的需要同认证信息对比的userDetails
         UserDetails userDetails = org.springframework.security.core.userdetails.User
                 .withUsername(user.getUsername())
-                .password(user.getPassword()).authorities(permissions.toArray(new String[]{}))
+                .password(user.getPassword())
+                .authorities(permissions.toArray(new String[]{}))//使用role会自动增加ROLE前缀，使用authorities则不会，看具体情况自己选择
                 .build();
         return userDetails;
     }

@@ -13,7 +13,7 @@ import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @Configuration
 //配置的实例上使用此注解开启基于注解的安全性
-@EnableGlobalMethodSecurity(securedEnabled = true)
+@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
@@ -25,7 +25,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //因为我们自己的登录页面是post提交（get不支持）所以会被csrf过滤器所拦截，我们没有携带token，因此不能登录成功，因此得禁用此过滤器
-        //spring security为了防止csrf跨站请求伪造的发生，限制了除了get以外的大多数方法
+        //spring security为了防止csrf跨站请求伪造的发生，限制了除了get以外的大多数方法，get方法不拦截
         http
                 .csrf()
                 //使用cookie，存储在cookie当中只能在同域当中获取，所以杜绝第三方网站获取cookie的可能，cfrs攻击本身是不知道cookie内容的，只是
@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/r/r2").hasAuthority("p2")
                 .antMatchers("/r/r3").access("hasAuthority('p1') and hasAuthority('p2')") //SPEL表达式
                 .antMatchers("/r/**").authenticated()
-                .anyRequest().permitAll()//除了/r/**，其它的请求可以访问
+                .anyRequest().authenticated()//其他请求必须经过验证
 
                 .and()
                 .formLogin()//允许表单登录,允许表单登录会创建usernamePasswordAuthenticationFilter，此时登录请求默认是/login，post

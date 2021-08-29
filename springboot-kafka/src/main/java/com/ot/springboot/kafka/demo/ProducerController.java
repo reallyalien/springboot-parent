@@ -29,8 +29,8 @@ public class ProducerController {
     @GetMapping("/produce/send1/{msg}")
     @Transactional //事务注解也会生效，yml配置是事务前缀
     public String send1(@PathVariable("msg") String msg) throws ExecutionException, InterruptedException {
-        for (int i = 0; i < 100; i++) {
-            kafkaTemplate.send(TOPIC1, msg);
+        for (int i = 0; i < 10; i++) {
+            kafkaTemplate.send(TOPIC2, msg);
         }
         return "";
     }

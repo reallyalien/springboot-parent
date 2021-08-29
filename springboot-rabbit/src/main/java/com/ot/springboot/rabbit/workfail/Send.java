@@ -24,11 +24,6 @@ public class Send {
         Channel channel = connection.createChannel();
         //第二个参数就是是否做持久化，不能以不同的参数去定义一个已经存在的队列。
         channel.queueDeclare(QUEUQ_NAME, false, false, false, null);
-        //每个消费者发送确认消息之前，我只发一个给你
-//        int prefetchCount=1;
-//        //限制同一个消费者不能超过一条数据
-//        channel.basicQos(prefetchCount);
-
         for (int i = 1; i <= 20; i++) {
             String msg = "hello work" + i;
             channel.basicPublish("", QUEUQ_NAME, null, msg.getBytes());

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 /**
  * 此处非响应式编程，响应式编程使用 ReactiveElasticsearchRepository
  * <p>
- * sprring data 支持响应式编程的nosql
+ * spring data 支持响应式编程的nosql
  * MongoDB：使用spring-boot-starter-data-mongodb-reactive依赖；
  * Redis：使用spring-boot-starter-data-redis-reactive依赖；
  * Cassandra：使用spring-boot-starter-data-cassandra-reactive依赖；
@@ -19,7 +19,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProductDao extends ElasticsearchRepository<Product, Long> {
 
-    public static void main(String[] args) {
-
-    }
 }

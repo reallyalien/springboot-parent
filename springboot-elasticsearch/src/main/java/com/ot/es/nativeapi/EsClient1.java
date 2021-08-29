@@ -63,7 +63,7 @@ public class EsClient1 {
     }
 
     /**
-     * 创建索引
+     * 创建索引，当硬盘容量超出85%之后，副本无法分配，注意
      */
     @Test
     public void addIndex() throws IOException {
@@ -71,7 +71,7 @@ public class EsClient1 {
         CreateIndexRequest request = new CreateIndexRequest("user");
         HashMap<String, Integer> map = new HashMap<>();
         map.put("number_of_shards", 3);
-        map.put("number_of_replicas", 2);
+        map.put("number_of_replicas", 1);
         request.settings(map);
         //发送请求，获取相应
         CreateIndexResponse response = client.indices().create(request, RequestOptions.DEFAULT);
@@ -111,7 +111,7 @@ public class EsClient1 {
         //创建数据对象
         User user = new User();
         user.setAge(10);
-        user.setName("zhangsan");
+        user.setName("张三");
         user.setSex("男");
         ObjectMapper objectMapper = new ObjectMapper();
         String productJson = objectMapper.writeValueAsString(user);

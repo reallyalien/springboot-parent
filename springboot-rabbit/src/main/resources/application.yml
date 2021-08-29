@@ -22,6 +22,5 @@ spring:
           initial-interval: 3000
           #开启手动应答
         acknowledge-mode: manual
-
 server:
   port: 8090

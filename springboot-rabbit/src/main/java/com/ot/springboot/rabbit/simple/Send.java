@@ -36,8 +36,8 @@ public class Send {
         channel.queueDeclare(QUEUQ_NAME, true, false, false, null);
         String msg = "hello";
 
-        for (int i = 0; i < 100; i++) {
-            //设置deliveryMode为2，消息可以持久化
+        for (int i = 0; i < 10; i++) {
+            //设置deliveryMode为2，消息可以持久化,否则消息在服务器崩溃之后就会丢失
             AMQP.BasicProperties basicProperties = new AMQP.BasicProperties().builder()
                     .deliveryMode(2)
                     .build();

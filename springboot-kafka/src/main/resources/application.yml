@@ -1,20 +1,25 @@
 spring:
   kafka:
-    bootstrap-servers: 127.0.0.1:9092 #指定kafka server的地址，集群配多个，中间，逗号隔开
+    bootstrap-servers: 192.168.140.128:9092 #指定kafka server的地址，集群配多个，中间，逗号隔开
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
       acks: all
+      #这个参数是设置一批消息的大小，单位是字节，而不是个数，设置的小的话，会频繁进行IO操作，设置大也不会造成延迟，只是占用内存而已
       batch-size: 524288
       buffer-memory: 524288000
       retries: 5
+
+
     #      transaction-id-prefix: kafka-tx-
 
     listener:
+      #消费者监听的topic不存在时会报错，因此需要设置成false
       missing-topics-fatal: false
-      # 设置与分区相同的并发数，否则其他消费者也无法拉取消息
-      concurrency: 10
+      #这个参数设置的是一个消费者同时有几个线程帮忙拉取数据,每一个kafkaListener注解的方法都是一个消费者
+      concurrency: 3
       ack-mode: manual
+      type: single
     consumer:
       #      enable-auto-commit: true
       #      auto-commit-interval: 1000

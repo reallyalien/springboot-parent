@@ -1,8 +1,10 @@
 package com.ot.springboot.kafka;
 
+import com.ot.springboot.kafka.demo.ConsumerService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.kafka.listener.AcknowledgingMessageListener;
 import org.springframework.kafka.listener.ContainerProperties;
 
@@ -10,7 +12,9 @@ import org.springframework.kafka.listener.ContainerProperties;
 public class KafkaMain {
 
     public static void main(String[] args) {
-        SpringApplication.run(KafkaMain.class, args);
+        ConfigurableApplicationContext run = SpringApplication.run(KafkaMain.class, args);
+        ConsumerService bean = run.getBean(ConsumerService.class);
+        System.out.println();
     }
 
     /**
@@ -39,8 +43,11 @@ public class KafkaMain {
         MANUAL_IMMEDIATE,
 
     }
-    // ConcurrentMessageListenerContainer 这是springboot帮我们创建的消息监听容器的类，会在doStart方法当中创建与既定配置并发度的
-    // KafkaMessageListenerContainer 创建完成之后再调用其doStart方法
+    // KafkaListenerAnnotationBeanPostProcessor
+    // 有几个@KafkaListener注解，就创建几个ConcurrentMessageListenerContainer 这是springboot帮我们创建的消息监听容器的类，会在doStart方法当中创建与既定配置并发度的
+    //listener 配置几个并发，就创建几个 KafkaMessageListenerContainer 创建完成之后再调用其doStart方法
+    //相当于每一个注解了@kafkaListener的方法都是一个消费者，此消费者当中有listener 并发个消费线程ListenerConsumer包装了kafka的consumer
+    //run方法内部多个线程去拉取消息
 
 
     //一个消费者对应一个分区，如果没有发生再平衡，多个消费者对应同一topic的多个分区（启动多个线程意味着多个消费者），不会出现重复消费和消息丢失的现象

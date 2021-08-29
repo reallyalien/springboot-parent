@@ -13,8 +13,10 @@
     <input type="submit" value="登录">
 </form>
 <script>
+    //只能获取到当前域名下的cookie，无法获取到其他网站的cookie，csrf攻击的原理就是cookie当中携带了相应的token，
     let cookie = document.cookie;
     let cookies = cookie.split(";");
+    console.log(cookies)
     let token = cookies.find((x) => x.startsWith('XSRF-TOKEN'));
     //XSRF-TOKEN=2338c967-76c8-454e-a368-9f6a2b89176c
     let csrf = document.getElementById('_csrf');

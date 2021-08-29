@@ -47,6 +47,7 @@
         <module>springboot-script</module>
         <module>springboot-activiti</module>
         <module>springboot-compantscan</module>
+        <module>springboot-redis-seckill</module>
     </modules>
     <name>springboot-parent</name>
     <description>Demo project for Spring Boot</description>

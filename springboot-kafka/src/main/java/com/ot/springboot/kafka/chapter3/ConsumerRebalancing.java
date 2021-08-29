@@ -20,12 +20,20 @@ public class ConsumerRebalancing {
         KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(initProperties());
         Map<TopicPartition, OffsetAndMetadata> currentOffsets = new HashMap<>();
         consumer.subscribe(Arrays.asList(topicName), new ConsumerRebalanceListener() {
+            /**
+             * 这个是再均衡之前，消费者停止读取消息之后被调用，可以在此处暂存分区的offset，或者调用commitSync同步提交offset
+             * @param partitions
+             */
             @Override
             public void onPartitionsRevoked(Collection<TopicPartition> partitions) {
                 //消费者变更，此时消费者无法拉取消息，触发在均衡此监听器方法，提交位移，防止重复消费
                 consumer.commitSync(currentOffsets);
             }
 
+            /**
+             * 是在重新分配分区之后，消费者读取消息之前被调用，可以在此处使用seek方法重置消费位移，如此便能解决重复消费的问题
+             * @param partitions
+             */
             @Override
             public void onPartitionsAssigned(Collection<TopicPartition> partitions) {
 

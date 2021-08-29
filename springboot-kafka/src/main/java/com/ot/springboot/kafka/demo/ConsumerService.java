@@ -8,39 +8,35 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * yml当中配置的listener线程数，实际上影响的是消费者拉取的线程数，一个消费者对应listener当中配置的并发数
+ * 注解生效的原理也是会封装成一个messageListener方法，在onMessage方法当中调用业务注解的方法
+ */
 @Service
 @Slf4j
 public class ConsumerService {
 
     //如果主题只有1个分区，增加消费者没有用，其他消费者根本分不到分区的数据
-    @KafkaListener(topics = {KafkaConstant.TOPIC1, KafkaConstant.TOPIC2}, groupId = "A")
+    @KafkaListener(topics = {KafkaConstant.TOPIC2}, groupId = "A")
     public void listener1(ConsumerRecord<?, ?> record, Acknowledgment acknowledgment) {
-        log.info("接收方1--->topic:{},offset:{},value:{}，线程：{}", record.topic(), record.offset(), record.value(), Thread.currentThread());
-//        acknowledgment.nack(3000);
-        //ack之后消费者就不会重新拉取，默认是同步commit,
+        log.info("接收方1--->topic:{},partition:{},offset:{},value:{}，线程：{}",
+                record.topic(), record.partition(), record.offset(), record.value(), Thread.currentThread());
         acknowledgment.acknowledge();
     }
 
-
-    //    @KafkaListener(topics = {KafkaConstant.TOPIC1, KafkaConstant.TOPIC2}, groupId = "B")
-    public void listener2(ConsumerRecord<?, ?> record) {
-        log.info("接收方2--->topic:{},offset:{},value:{},线程：{}", record.topic(), record.offset(), record.value(), Thread.currentThread());
-    }
-
-    //批量消息
-//    @KafkaListener(topics = {"batch"}, containerFactory = "batchContainerFactory",groupId = "A")
-    public void consumerBatch(List<ConsumerRecord<?, ?>> records, Acknowledgment ack) {
-        log.info("接收到消息数量：{}", records.size());
-        //手动提交
-        ack.acknowledge();
-    }
-
+//    @KafkaListener(topics = {KafkaConstant.TOPIC2}, groupId = "B")
+//    public void listener2(ConsumerRecord<?, ?> record, Acknowledgment ack) {
+//        log.info("接收方2--->topic:{},partition:{},offset:{},value:{},线程：{}",
+//                record.topic(), record.partition(), record.offset(), record.value(), Thread.currentThread());
+//        ack.acknowledge();
+//    }
 
     /*
     @KafkaListener 属性
 
 id：消费者的id，当GroupId没有被配置的时候，默认id为GroupId
-containerFactory：上面提到了@KafkaListener区分单数据还是多数据消费只需要配置一下注解的containerFactory属性就可以了，这里面配置的是监听容器工厂，也就是ConcurrentKafkaListenerContainerFactory，配置BeanName
+containerFactory：上面提到了@KafkaListener区分单数据还是多数据消费只需要配置一下注解的containerFactory属性就可以了，
+                  这里面配置的是监听容器工厂，也就是ConcurrentKafkaListenerContainerFactory，配置BeanName
 topics：需要监听的Topic，可监听多个
 topicPartitions：可配置更加详细的监听信息，必须监听某个Topic中的指定分区，或者从offset为200的偏移量开始监听
 errorHandler：监听异常处理器，配置BeanName

@@ -5,7 +5,7 @@ spring:
     protocol: smtp
     default-encoding: UTF-8
     username: reallyalien@yeah.net
-    password: VLHJRQPTLKLPTIEH
+    password: ZZPOZNCYKCXSOEFV
     test-connection: true
     properties:
       mail:
