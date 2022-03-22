@@ -17,7 +17,5 @@ public class AsyncApplication {
 
     public static void main(String[] args) {
         SpringApplication springApplication = new SpringApplication(AsyncApplication.class);
-        ConfigurableApplicationContext ac = springApplication.run(args);
-        double a=25/2;
     }
 }

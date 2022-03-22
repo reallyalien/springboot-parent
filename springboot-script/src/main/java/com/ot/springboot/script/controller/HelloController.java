@@ -5,12 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/hello")
+@RequestMapping("/")
 public class HelloController {
 
-    @GetMapping("/1")
+    @GetMapping("/hello")
     public String remoteTest() {
-        System.out.println("1111");
-        return "1";
+        return "hello,aaaaaaaaaaaaaa";
     }
 }

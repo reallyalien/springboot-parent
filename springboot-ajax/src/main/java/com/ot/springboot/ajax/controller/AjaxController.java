@@ -11,8 +11,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.util.Arrays;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 @RestController
@@ -75,8 +74,27 @@ public class AjaxController {
         file.transferTo(new File("d:/1.xlsx"));
         byte[] bytes = file.getBytes();
         InputStream inputStream = new ByteArrayInputStream(bytes);
-
     }
 
+    @GetMapping("/aaa")
+    public void f(Date date, Long id) {
+        System.out.println(date);
+        System.out.println(id);
+    }
 
+    @GetMapping("/testGet")
+    public List<User> testGet() {
+        List<User> list = new ArrayList<>();
+        for (int i = 0; i < 3; i++) {
+            User user = new User();
+            user.setName("a" + i);
+            list.add(user);
+        }
+        return list;
+    }
+
+    @PostMapping("/testPost")
+    public User testPost(@RequestBody User user) {
+        return user;
+    }
 }
