@@ -21,12 +21,12 @@ public class SyncProduct {
             e.printStackTrace();
         }
         for (int i = 0; i < 40; i++) {
-            Message messageA = new Message("TopicTest", "tag-a", "hello".getBytes());
-            Message messageB = new Message("TopicTest", "tag-b", "hello".getBytes());
+            Message messageA = new Message("TopicTest", "tag", "hello".getBytes());
+//            Message messageB = new Message("TopicTest", "tag-b", "hello".getBytes());
             SendResult result = null;
             try {
                 result = producer.send(messageA);
-                result = producer.send(messageB);
+//                result = producer.send(messageB);
             } catch (MQClientException | RemotingException | MQBrokerException | InterruptedException e) {
                 e.printStackTrace();
             }

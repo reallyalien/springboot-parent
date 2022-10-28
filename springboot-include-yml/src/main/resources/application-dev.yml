@@ -1,0 +1,7 @@
+demo:
+  id: 1
+spring:
+  profiles:
+    include:
+      - dev-1
+      - dev-2

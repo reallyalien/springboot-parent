@@ -1,0 +1,15 @@
+#spring.datasource.activiti.driver-class-name=com.mysql.jdbc.Driver
+
+hello:
+  name: aaa
+  binding-tables:
+    - pat_info,pat_card_bind
+    - b
+  user-collections:
+    - id: 1
+      name: 1
+      fu: fu
+    - id: 2
+      name: 2
+      zi: zi
+

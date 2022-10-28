@@ -1,0 +1,7 @@
+demo:
+  id: 2
+spring:
+  profiles:
+    include:
+      - prod-1
+      - prod-2

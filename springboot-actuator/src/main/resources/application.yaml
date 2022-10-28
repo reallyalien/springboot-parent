@@ -1,0 +1,10 @@
+management:
+  health:
+    mail:
+      enabled: false #意思是邮件发送不是核心功能，所以它从健康检查中排出，避免造成他挂机了导致整个服务不可用。
+  endpoint:
+    web:
+      exposure:
+        include: "health" #默认级别为info,health,beans,env。选择暴露，不暴露include换成exlcude即可
+    health:
+      show-details: always #详细信息显示给所有用户。级别还有never级别不显示，when-authorized，指得是详细信息给特别用户。

@@ -1,0 +1,9 @@
+server:
+  port: 9876
+spring:
+  application:
+    name: spring-admin
+management:
+  endpoint:
+    health:
+      show-details: always

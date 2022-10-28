@@ -50,6 +50,10 @@
         <module>springboot-redis-seckill</module>
         <module>springboot-rocketmq</module>
         <module>springboot-webservice</module>
+        <module>springboot-include-yml</module>
+        <module>springboot-actuator</module>
+        <module>springboot-admin</module>
+        <module>springboot-knife4j</module>
     </modules>
     <name>springboot-parent</name>
     <description>Demo project for Spring Boot</description>

@@ -1,0 +1,43 @@
+my_map: "{key1:'v1',key2:'v2'}"
+
+my-map2:
+  cr_ct_dr_dx_mg_mr_rf:
+    ip: 192.168.10.31
+    username: swift
+    password: swift
+    port: 21
+  xa:
+    ip: 192.168.10.32
+    username: swift
+    password: swift
+    port: 21
+  pathology-respiratory-endoscopy:
+    ip: 192.168.10.33
+    username: swift
+    password: swift
+    port: 21
+  ultrasonic:
+    ip: 192.168.10.35
+    username: swift
+    password: swift
+    port: 21
+  pulmonary:
+    ip: 192.168.10.36
+    username: swift
+    password: swift
+    port: 21
+  nuclear-medicine:
+    ip: 192.168.10.31
+    username: swift
+    password: swift
+    port: 21
+  digestive-endoscopy:
+    ip: 192.168.10.31
+    username: swift
+    password: swift
+    port: 21
+  cardiac-catheterization-laboratory:
+    ip: 192.168.10.31
+    username: swift
+    password: swift
+    port: 21

@@ -13,7 +13,7 @@ import java.util.List;
 public class ConsumerB {
 
     public static void main(String[] args) {
-        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("DEFAULT_CONSUMER-2");
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer("DEFAULT_CONSUMER");
         consumer.setNamesrvAddr("127.0.0.1:9876");
         //消费模式
 //        consumer.setMessageModel(MessageModel.BROADCASTING);
@@ -22,7 +22,7 @@ public class ConsumerB {
         //消息分配策略
 //        consumer.setAllocateMessageQueueStrategy();
         try {
-            consumer.subscribe("TopicTest","tag-b");
+            consumer.subscribe("TopicTest", "tag");
         } catch (MQClientException e) {
             e.printStackTrace();
         }
