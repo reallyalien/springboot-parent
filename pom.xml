@@ -54,6 +54,7 @@
         <module>springboot-actuator</module>
         <module>springboot-admin</module>
         <module>springboot-knife4j</module>
+        <module>springboot-excel</module>
     </modules>
     <name>springboot-parent</name>
     <description>Demo project for Spring Boot</description>
