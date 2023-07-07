@@ -18,10 +18,7 @@ import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.support.master.AcknowledgedResponse;
 import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.action.update.UpdateResponse;
-import org.elasticsearch.client.RequestOptions;
-import org.elasticsearch.client.RestClient;
-import org.elasticsearch.client.RestClientBuilder;
-import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.client.*;
 import org.elasticsearch.client.indices.CreateIndexRequest;
 import org.elasticsearch.client.indices.CreateIndexResponse;
 import org.elasticsearch.client.indices.GetIndexRequest;
@@ -49,6 +46,7 @@ public class EsClient1 {
 
     private RestHighLevelClient client;
 
+
     /**
      * 测试连接
      *
@@ -56,7 +54,7 @@ public class EsClient1 {
      */
     @Before
     public void connection() throws IOException {
-        HttpHost httpHost = new HttpHost("localhost", 1001, "http");
+        HttpHost httpHost = new HttpHost("192.168.2.107", 9200, "http");
         RestClientBuilder builder = RestClient.builder(httpHost);
         client = new RestHighLevelClient(builder);
 //        client.close();
@@ -84,8 +82,10 @@ public class EsClient1 {
      */
     @Test
     public void getIndex() throws IOException {
-        GetIndexRequest request = new GetIndexRequest("user");
+        GetIndexRequest request = new GetIndexRequest();
         GetIndexResponse response = client.indices().get(request, RequestOptions.DEFAULT);
+        String[] indices1 = response.getIndices();
+        IndicesClient indices = client.indices();
         System.out.println("aliases:" + response.getAliases());
         System.out.println("mapping:" + response.getMappings());
         System.out.println("setting:" + response.getSettings());
@@ -188,11 +188,12 @@ public class EsClient1 {
     public void queryAll() throws IOException {
         //创建搜索索引对象
         SearchRequest request = new SearchRequest();
-        request.indices("user");
+        request.indices("test_es");
         //创建查询的请求体
         SearchSourceBuilder builder = new SearchSourceBuilder();
         //查询所有数据
         builder.query(QueryBuilders.matchAllQuery());
+        builder.size(10);
         request.source(builder);
         SearchResponse response = client.search(request, RequestOptions.DEFAULT);
         //查询匹配
@@ -204,7 +205,8 @@ public class EsClient1 {
         System.out.println("hits========>>");
         for (SearchHit hit : hits) {
             //输出每条查询的结果信息
-            System.out.println(hit.getSourceAsString());
+            Map<String, Object> sourceAsMap = hit.getSourceAsMap();
+            System.out.println(sourceAsMap);
         }
         System.out.println("<<========");
     }

@@ -2,8 +2,6 @@ package com.springboot.jta.atomikos.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.pool.xa.DruidXADataSource;
-import com.ot.springboot.dynamic.DynamicDataSource;
-import com.ot.springboot.dynamic.DynamicDataSourceEnum;
 import com.springboot.jta.atomikos.dynamic.DynamicDataSource;
 import com.zaxxer.hikari.HikariDataSource;
 import org.apache.ibatis.logging.stdout.StdOutImpl;
@@ -112,9 +110,7 @@ public class DataSourceConfig {
 
     @Bean
     public PlatformTransactionManager platformTransactionManager(@Qualifier("dynamicDataSource") DataSource dataSource) {
-//        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
-        JtaTransactionManager tm=new JtaTransactionManager();
-        tm.
+        DataSourceTransactionManager dataSourceTransactionManager = new DataSourceTransactionManager();
         return dataSourceTransactionManager;
     }
 

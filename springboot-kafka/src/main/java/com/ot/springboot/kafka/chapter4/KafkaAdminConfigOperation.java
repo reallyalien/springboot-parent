@@ -78,4 +78,20 @@ public class KafkaAdminConfigOperation {
         result.all().get();
         client.close();
     }
+
+    public static void addTopicPartitions1() throws ExecutionException, InterruptedException {
+        String brokerList =  "localhost:9092";
+        String topic = "test1";
+
+        Properties props = new Properties();
+        props.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, brokerList);
+        props.put(AdminClientConfig.REQUEST_TIMEOUT_MS_CONFIG, 30000);
+        AdminClient client = AdminClient.create(props);
+        NewPartitions newPartitions = NewPartitions.increaseTo(5);
+        Map<String, NewPartitions> newPartitionsMap = new HashMap<>();
+        newPartitionsMap.put(topic, newPartitions);
+        CreatePartitionsResult result = client.createPartitions(newPartitionsMap);
+        result.all().get();
+        client.close();
+    }
 }

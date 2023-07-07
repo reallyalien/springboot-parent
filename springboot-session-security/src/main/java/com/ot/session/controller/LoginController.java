@@ -3,7 +3,6 @@ package com.ot.session.controller;
 import com.ot.session.model.AuthenticationRequest;
 import com.ot.session.model.UserDto;
 import com.ot.session.service.AuthenticationService;
-import com.sun.xml.internal.ws.resources.HttpserverMessages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

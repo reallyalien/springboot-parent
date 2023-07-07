@@ -4,26 +4,19 @@ import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.clients.producer.KafkaProducer;
-import org.apache.kafka.clients.producer.ProducerConfig;
-import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringDeserializer;
-import org.apache.kafka.common.serialization.StringSerializer;
 
-import java.time.Duration;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Properties;
-import java.util.regex.Pattern;
 
-public class consumer {
+public class consumer3 {
 
     //kafka集群地址
-    private static final String brokerList = "192.168.140.128:9092";
+    private static final String brokerList = "192.168.197.130:9092";
     //topic
-    private static final String topicName = "test-kafka-1";
-    private static final String groupId = "group1";
+    private static final String topicName = "kafka-mysql";
+    private static final String groupId = "groupB";
 
     public static void main(String[] args) {
         Properties properties = new Properties();
@@ -35,19 +28,26 @@ public class consumer {
         properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, brokerList);
         //设置消费组
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
+//        properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, true);
+        //设置自动提交，为false
+//        properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
         //创建消费者
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
-//        consumer.assign(Arrays.asList(new TopicPartition(topicName, 0)));
-        //ConsumerSyncCommit.subscribe(Collections.singleton(topicName));
+
         //也可以设置正则表达式去匹配主题。
-        //ConsumerSyncCommit.subscribe(Pattern.compile(topicName+"*"));
+//        consumer.subscribe(Pattern.compile(topicName));
         //也可以指定订阅的分区,分区索引从0开始。
-        consumer.assign(Arrays.asList(new TopicPartition(topicName, 0)));
+        TopicPartition topicPartition = new TopicPartition(topicName, 0);
+        consumer.assign(Arrays.asList(topicPartition));
+//        consumer.seekToBeginning(Collections.singletonList(topicPartition));
+//        consumer.seekToEnd(Collections.singletonList(topicPartition));
+//        consumer.seek(topicPartition,10);
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(1000);//每隔1s去拉一条消息。
             for (ConsumerRecord<String, String> record : records) {
                 System.out.println("partition->" + record.partition() + "   offset->" + record.offset() + "   value->" + record.value());
             }
+            consumer.commitSync();
         }
     }
 

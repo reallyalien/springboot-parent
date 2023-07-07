@@ -9,18 +9,15 @@ import org.apache.kafka.common.serialization.StringDeserializer;
 
 import java.util.Arrays;
 import java.util.Properties;
+import java.util.regex.Pattern;
 
-/**
- * 两个消费者属于同一个消费者组，同时订阅同一个分区，这就相当于一个分区有2个消费者，这样的话会同时拉取消息，也就是消息
- * 会重复消费
- */
 public class consumer2 {
 
     //kafka集群地址
-    private static final String brokerList = "192.168.140.128:9092";
+    private static final String brokerList = "192.168.197.130:9092";
     //topic
-    private static final String topicName = "test-kafka-1";
-    private static final String groupId = "group1";
+    private static final String topicName = "events";
+    private static final String groupId = "groupB";
 
     public static void main(String[] args) {
         Properties properties = new Properties();
@@ -32,19 +29,26 @@ public class consumer2 {
         properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, brokerList);
         //设置消费组
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, groupId);
+//        properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, true);
+        //设置自动提交，为false
+//        properties.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
         //创建消费者
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
-//        consumer.assign(Arrays.asList(new TopicPartition(topicName, 0)));
-        //ConsumerSyncCommit.subscribe(Collections.singleton(topicName));
+
         //也可以设置正则表达式去匹配主题。
-        //ConsumerSyncCommit.subscribe(Pattern.compile(topicName+"*"));
+//        consumer.subscribe(Pattern.compile(topicName));
         //也可以指定订阅的分区,分区索引从0开始。
-        consumer.assign(Arrays.asList(new TopicPartition(topicName, 0)));
+        TopicPartition topicPartition = new TopicPartition(topicName, 0);
+        consumer.assign(Arrays.asList(topicPartition));
+//        consumer.seekToBeginning(Collections.singletonList(topicPartition));
+//        consumer.seekToEnd(Collections.singletonList(topicPartition));
+//        consumer.seek(topicPartition,10);
         while (true) {
             ConsumerRecords<String, String> records = consumer.poll(1000);//每隔1s去拉一条消息。
             for (ConsumerRecord<String, String> record : records) {
                 System.out.println("partition->" + record.partition() + "   offset->" + record.offset() + "   value->" + record.value());
             }
+//            consumer.commitSync();
         }
     }
 

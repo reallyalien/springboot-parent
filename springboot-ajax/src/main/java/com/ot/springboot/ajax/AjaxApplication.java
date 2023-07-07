@@ -20,5 +20,4 @@ public class AjaxApplication {
         springApplication.run(args);
     }
 
-
 }

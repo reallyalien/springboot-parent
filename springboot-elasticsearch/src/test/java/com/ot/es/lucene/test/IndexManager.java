@@ -16,11 +16,16 @@ import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.junit.Test;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.util.StringUtils;
+import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  * 索引管理
@@ -143,5 +148,22 @@ public class IndexManager {
         document.add(new TextField("name", "vivo X23 8GB+128GB 幻夜蓝", Field.Store.YES));
         writer.addDocument(document);
         writer.close();
+    }
+
+    /**
+     * 测试 whitespaceAnalyzer分词器
+     */
+    @Test
+    public void testWhitespaceAnalyzer11() throws IOException {
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "http://192.168.2.107:9200/_cat/indices";
+        String forObject = restTemplate.getForObject(url, String.class);
+        String[] split = forObject.split("\n");
+        for (String s : split) {
+            String[] s1 = s.split(" ");
+            List<String> collect = Arrays.stream(s1).filter(e -> !StringUtils.isEmpty(e)).collect(Collectors.toList());
+            System.out.println(collect);
+        }
+        System.out.println(forObject);
     }
 }

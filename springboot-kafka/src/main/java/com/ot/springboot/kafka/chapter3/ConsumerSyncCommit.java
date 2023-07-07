@@ -34,7 +34,6 @@ public class ConsumerSyncCommit {
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(properties);
         //消费者监听开启
         consumer.subscribe(Collections.singleton(topicName));
-//        ConsumerSyncCommit.subscribe(Collections.singleton(topicName));
         //也可以设置正则表达式去匹配主题。
         //ConsumerSyncCommit.subscribe(Pattern.compile(topicName+"*"));
         //也可以指定订阅的分区,分区索引从0开始。
