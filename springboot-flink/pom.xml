@@ -82,11 +82,11 @@
         装包的 lib 目录下会自带 planner，所以在生产集群环境中提交的作业不需要打包这个依赖。
         而在 Table API 的内部实现上，部分相关的代码是用 Scala 实现的，所以还需要额外添加
         一个 Scala 版流处理的相关依赖-->
-        <!--        <dependency>-->
-        <!--            <groupId>org.apache.flink</groupId>-->
-        <!--            <artifactId>flink-table-planner-blink_${scala.binary.version}</artifactId>-->
-        <!--            <version>${flink.version}</version>-->
-        <!--        </dependency>-->
+                <dependency>
+                    <groupId>org.apache.flink</groupId>
+                    <artifactId>flink-table-planner-blink_${scala.binary.version}</artifactId>
+                    <version>${flink.version}</version>
+                </dependency>
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-streaming-scala_${scala.binary.version}</artifactId>
@@ -164,5 +164,29 @@
 <!--            <artifactId>hadoop-common</artifactId>-->
 <!--            <version>2.7.3JYHTEST</version>-->
 <!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.apache.iceberg</groupId>
+            <artifactId>iceberg-flink-runtime</artifactId>
+            <version>0.12.0</version>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.iceberg</groupId>-->
+<!--            <artifactId>iceberg-data</artifactId>-->
+<!--            <version>1.1.0</version>-->
+<!--        </dependency>-->
+
+
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-client</artifactId>
+            <version>2.5.5</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.hadoop</groupId>
+                    <artifactId>hadoop-common</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
 </project>

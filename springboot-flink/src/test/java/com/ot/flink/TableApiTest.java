@@ -3,14 +3,22 @@ package com.ot.flink;
 import com.ot.flink.entity.Event;
 import org.apache.flink.api.common.io.RichInputFormat;
 import org.apache.flink.core.io.InputSplit;
+import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
+import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.functions.source.InputFormatSourceFunction;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer;
 import org.apache.flink.table.api.*;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
+import org.apache.flink.table.data.RowData;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.iceberg.flink.FlinkCatalog;
+import org.apache.iceberg.flink.TableLoader;
+import org.apache.iceberg.flink.source.FlinkSource;
 import org.junit.Test;
 
 import static org.apache.flink.table.api.Expressions.$;
+import static org.apache.flink.table.api.Expressions.rowInterval;
 
 /**
  * table api 和sql 测试
@@ -21,6 +29,8 @@ public class TableApiTest extends BaseTest {
     @Test
     public void table() {
         env.setParallelism(1);
+        //获取表环境
+        StreamTableEnvironment tableEnvironment = StreamTableEnvironment.create(env);
         SingleOutputStreamOperator<Event> eventStream = env
                 .fromElements(
                         new Event("Alice", "./home", 1000L),
@@ -30,15 +40,13 @@ public class TableApiTest extends BaseTest {
                         new Event("Bob", "./prod?id=3", 90 * 1000L),
                         new Event("Alice", "./prod?id=7", 105 * 1000L)
                 );
-        //获取表环境
-        StreamTableEnvironment tableEnvironment = StreamTableEnvironment.create(env);
         //将数据流转换成表
         Table eventTable = tableEnvironment.fromDataStream(eventStream);
 //        //执行sql
-//        String sql = "select url, user from " + eventTable;
-//        Table result = tableEnvironment.sqlQuery(sql);
-//        //将表结果转换成stream输出
-//        tableEnvironment.toDataStream(result).print();
+        String sql = "select url, user from " + eventTable;
+        Table result = tableEnvironment.sqlQuery(sql);
+        //将表结果转换成stream输出
+        tableEnvironment.toDataStream(result).print();
 
         Table url = eventTable.select($("url"));
         tableEnvironment.toDataStream(url).print();
@@ -149,7 +157,13 @@ public class TableApiTest extends BaseTest {
      * 动态表
      */
     @Test
-    public void kafka2() {
-
+    public void kafka2() throws Exception {
+        TableLoader tableLoader = TableLoader.fromHadoopTable(
+                "hdfs://192.168.2.121:8020/warehouse/tablespace/managed/hive/iceberg_test.db/audit_project1",
+                new Configuration()
+        );
+        DataStream<RowData> batch = FlinkSource.forRowData().env(env).tableLoader(tableLoader).streaming(false).build();
+        batch.print();
+        env.execute();
     }
 }

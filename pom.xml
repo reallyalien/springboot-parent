@@ -56,8 +56,8 @@
         <module>springboot-knife4j</module>
         <module>springboot-excel</module>
         <module>springboot-hdfs</module>
-        <module>flink</module>
         <module>springboot-flink</module>
+        <module>springboot-jdbc</module>
     </modules>
     <name>springboot-parent</name>
     <description>Demo project for Spring Boot</description>
@@ -94,13 +94,13 @@
     </dependencyManagement>
 
 
-<!--    <build>-->
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.springframework.boot</groupId>-->
-<!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </build>-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

@@ -178,25 +178,6 @@ public class FlinkTest2 {
      */
     @Test
     public void strea() throws Exception {
-//        Configuration configuration = new Configuration();
-//        configuration.setString(PipelineOptionsInternal.PIPELINE_FIXED_JOB_ID, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-//        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment(configuration);
-//        env.setRuntimeMode(RuntimeExecutionMode.AUTOMATIC);
-//        DataStreamSource<String> streamSource = env.fromElements(TEXT_DATA);
-//
-//        SingleOutputStreamOperator<Object> flatMap = streamSource.flatMap(new RichFlatMapFunction<String, Object>() {
-//            @Override
-//            public void flatMap(String value, Collector<Object> out) throws Exception {
-//                Arrays.stream(value.split(" ")).forEach(e -> {
-//                    out.collect(e);
-//                });
-//            }
-//        });
-//        flatMap.print();
-//        JobExecutionResult result = env.execute();
-//        JobID jobID = result.getJobID();
-//        System.out.println(jobID);
-        System.out.println("1".equalsIgnoreCase(null));
 
     }
 

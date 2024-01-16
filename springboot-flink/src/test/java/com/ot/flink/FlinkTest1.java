@@ -20,6 +20,7 @@ import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.datastream.WindowedStream;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.streaming.api.functions.ProcessFunction;
 import org.apache.flink.streaming.api.windowing.assigners.SlidingProcessingTimeWindows;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingProcessingTimeWindows;
@@ -96,8 +97,15 @@ public class FlinkTest1 {
         //为流式作业启用检查点 以毫秒为单位 流式数据流的分布式状态将被定期快照
         env.enableCheckpointing(5000);
         DataStreamSource<String> source = env.addSource(singleSource, "简单自定义数据源");
-        DataStream<String> stream = source.map(e -> e).partitionCustom(singlePartition, e -> e);
-        stream.print();
+
+        SingleOutputStreamOperator<Object> process = source.process(new ProcessFunction<String, Object>() {
+            @Override
+            public void processElement(String value, ProcessFunction<String, Object>.Context ctx, Collector<Object> out) throws Exception {
+                out.collect(value);
+                out.collect(value);
+            }
+        });
+        process.print();
         env.execute();
     }
 

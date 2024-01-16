@@ -59,5 +59,10 @@
             <artifactId>kafka-clients</artifactId>
             <version>2.7.1</version>
         </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-core</artifactId>
+            <version>5.8.6</version>
+        </dependency>
     </dependencies>
 </project>

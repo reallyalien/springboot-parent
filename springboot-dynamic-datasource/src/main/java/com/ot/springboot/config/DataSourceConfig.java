@@ -33,6 +33,15 @@ public class DataSourceConfig {
         druidDataSource.setUrl(masterProperties.getUrl());
         druidDataSource.setUsername(masterProperties.getUsername());
         druidDataSource.setPassword(masterProperties.getPassword());
+
+        druidDataSource.setInitialSize(masterProperties.getInitialSize());
+        druidDataSource.setMinIdle(masterProperties.getMinIdle());
+        druidDataSource.setMaxActive(masterProperties.getMaxActive());
+        druidDataSource.setMaxWait(masterProperties.getMaxWait());
+        druidDataSource.setTimeBetweenEvictionRunsMillis(masterProperties.getTimeBetweenEvictionRunsMillis());
+        druidDataSource.setMinEvictableIdleTimeMillis(masterProperties.getMinEvictableIdleTimeMillis())
+        ;
+        druidDataSource.setValidationQuery(masterProperties.getValidationQuery());
         return druidDataSource;
     }
 

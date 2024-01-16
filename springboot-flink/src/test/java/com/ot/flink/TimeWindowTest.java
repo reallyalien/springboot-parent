@@ -22,10 +22,7 @@ import org.apache.flink.util.Collector;
 import org.junit.Test;
 import java.sql.Timestamp;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -127,8 +124,7 @@ public class TimeWindowTest extends BaseTest {
         DataStreamSource<Event> streamSource = env.fromCollection(eventList);
         WindowedStream<Event, String, TimeWindow> window = streamSource
                 .keyBy(Event::getUser)
-                .window(SlidingProcessingTimeWindows.of(Time.seconds(10), Time.seconds(5)));//长度为5s的滚动事件窗口
-
+                .window(SlidingProcessingTimeWindows.of(Time.seconds(10), Time.seconds(0)));//长度为5s的滚// 动事件窗口
     }
 
     /**
@@ -281,7 +277,6 @@ public class TimeWindowTest extends BaseTest {
                 .process(new ProcessWindowFunction<Event, String, Boolean, TimeWindow>() {
                     @Override
                     public void process(Boolean aBoolean, Context context, Iterable<Event> elements, Collector<String> out) throws Exception {
-                        System.out.println(aBoolean);
                         HashSet<String> userSet = new HashSet<>();
                         for (Event element : elements) {
                             userSet.add(element.user);
@@ -421,7 +416,7 @@ public class TimeWindowTest extends BaseTest {
                     public void process(Boolean aBoolean, Context context, Iterable<Integer> elements, Collector<Integer> out) throws Exception {
                         long start = context.window().getStart();
                         long end = context.window().getEnd();
-                        System.out.println(new Date(start) + "xx" + new Date(end));
+                        System.out.println(new Date(start) + "---------" + new Date(end));
                     }
                 })
                 .print();
